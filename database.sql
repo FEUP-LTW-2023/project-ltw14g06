@@ -2,61 +2,82 @@
 .headers ON
 PRAGMA foreign_keys = ON;
 
-DROP TABLE IF EXISTS Admin;
-DROP TABLE IF EXISTS Agent;
-DROP TABLE IF EXISTS Client;
-DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Ticket;
-DROP TABLE IF EXISTS Department;
-DROP TABLE IF EXISTS Message;
-DROP TABLE IF EXISTS Hashtag;
+DROP TABLE IF EXISTS ticket_hashtags;
+DROP TABLE IF EXISTS hashtags;
+DROP TABLE IF EXISTS ticket_history;
 DROP TABLE IF EXISTS FAQ;
+DROP TABLE IF EXISTS ticket_messages;
+DROP TABLE IF EXISTS tickets;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE FAQ(
-    idQuestion INT PRIMARY KEY,
-    question LONGTEXT,
-    answer LONGTEXT
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  type ENUM('client', 'agent', 'admin') NOT NULL DEFAULT 'client'
 );
 
-CREATE TABLE Hashtag(
-    idHashtag INT PRIMARY KEY,
-    hashtag VARCHAR(255)
+CREATE TABLE departments (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL UNIQUE
 );
 
-CREATE TABLE Message(
-    idMessage INT PRIMARY KEY,
-    textMessage LONGTEXT,
-    dateOfSubmission TIMESTAMP
+CREATE TABLE tickets (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  agent_id INT NULL,
+  department_id INT NOT NULL,
+  subject VARCHAR(255) NOT NULL,
+  status ENUM('open', 'assigned', 'closed') NOT NULL DEFAULT 'open',
+  priority ENUM('low', 'medium', 'high') NOT NULL DEFAULT 'medium',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (agent_id) REFERENCES users(id),
+  FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
-CREATE TABLE Department(
-    idDepartment INT PRIMARY KEY,
-    name VARCHAR(255)
+CREATE TABLE ticket_messages (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ticket_id INT NOT NULL,
+  sender_id INT NOT NULL,
+  receiver_id INT NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (ticket_id) REFERENCES tickets(id),
+  FOREIGN KEY (sender_id) REFERENCES users(id),
+  FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 
-CREATE TABLE Ticket(
-    idTicket INT PRIMARY KEY,
-    dateOfSubmission TIMESTAMP,
-    currentStatus VARCHAR(255),
-    priority VARCHAR(255)
+CREATE TABLE FAQ (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL
 );
 
-CREATE TABLE User(
-    idUser INT PRIMARY KEY,
-    name VARCHAR(255),
-    username VARCHAR(255),
-    password VARCHAR(255),
-    email VARCHAR(255)
+CREATE TABLE ticket_history (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ticket_id INT NOT NULL,
+  agent_id INT NOT NULL,
+  status ENUM('open', 'assigned', 'closed') NOT NULL DEFAULT 'open',
+  priority ENUM('low', 'medium', 'high') NOT NULL DEFAULT 'medium',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (ticket_id) REFERENCES tickets(id),
+  FOREIGN KEY (agent_id) REFERENCES users(id)
 );
 
-CREATE TABLE Client(
-    idClient INT REFERENCES User
+CREATE TABLE hashtags (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE
 );
 
-CREATE TABLE Agent(
-    idClient INT REFERENCES Client
-);
-
-CREATE TABLE Admin(
-    idAdmin INT REFERENCES Agent
+CREATE TABLE ticket_hashtags (
+  ticket_id INT NOT NULL,
+  hashtag_id INT NOT NULL,
+  PRIMARY KEY (ticket_id, hashtag_id),
+  FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE,
+  FOREIGN KEY (hashtag_id) REFERENCES hashtags(id) ON DELETE CASCADE
 );
