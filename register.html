@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>Ticketing System</title>
+    <link rel="stylesheet" href="register.css">
+    <title>Register Page</title>
 </head>
 <body>
-    <section id= "login_page">
-        <h3>Create an account</h3>
-        <section id="login_input">
+    <main id= "register_page">
+        <section id="login_box">
             <form action="login.php" method="post">
-                <label for="email">E-mail
-                    <input type="text" name="email" placeholder="Type your e-mail" required>
-                </label>
-                <label for="username">Username
-                    <input type="text" name="username" placeholder="Type your username" required>
-                </label>
-                <label for="password">Password
-                    <input type="password" name="password" placeholder="Type your password" required>
-                </label>
+                <header>
+                    <h3>Register</h3>
+                </header>
+                <div class="inputbox">
+                    <input type="text" name="username" placeholder="E-mail" required>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password" placeholder="Confirm Password" required>
+                </div>
                 <button>Register</button>
+                <p>Already have an account? <a href="login.html">Login Here</a></p>
             </form>
         </section>
-    </section>
+    </main>
 </body>
 </html>
