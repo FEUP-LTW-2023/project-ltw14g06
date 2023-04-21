@@ -24,6 +24,11 @@ input::placeholder{
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
+  outline: none;
+}
+
+input:focus{
+    outline: none;
 }
 
 form{
@@ -31,6 +36,7 @@ form{
     border-radius: 4em;
     padding: 3em;
     backdrop-filter: blur(5px);
+    text-align: center;
 }
 
 header{
@@ -62,18 +68,30 @@ header{
     background: transparent;
     border: 0;
     font-size: 1em;
+    font-weight: 600;
 }
 
 button{
+    justify-content: center;
     width: 100%;
     height: 3em;
     border-radius: 3em;
-    background-color: rgb(24, 24, 153);
+    background-color: rgba(24, 24, 153, 0.8);
     color: aliceblue;
     font-size: large;
     font-weight: bold;
     border: 0;
     margin-top: 1em;
+}
+
+button:hover{
+    background-color: rgba(24, 24, 153, 1);
+    box-shadow: 0 5px 15px rgba(24, 24, 153, .4);
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(0.95);
 }
 
 p{
