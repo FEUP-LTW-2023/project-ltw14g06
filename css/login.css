@@ -5,7 +5,7 @@
 }
 
 body{
-    background: url(images/register-background.png) no-repeat center center fixed; 
+    background: url(../assets/login-background.png) no-repeat center center fixed; 
     background-size: cover;
 }
 
@@ -24,6 +24,7 @@ input::placeholder{
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
+  outline: none;
 }
 
 input:focus{
@@ -31,10 +32,11 @@ input:focus{
 }
 
 form{
-    border: 1px solid rgb(240, 86, 40);
+    border: 1px solid blue;
     border-radius: 4em;
     padding: 3em;
     backdrop-filter: blur(5px);
+    text-align: center;
 }
 
 header{
@@ -66,13 +68,15 @@ header{
     background: transparent;
     border: 0;
     font-size: 1em;
+    font-weight: 600;
 }
 
 button{
+    justify-content: center;
     width: 100%;
     height: 3em;
     border-radius: 3em;
-    background-color: rgba(240, 86, 40,.8);
+    background-color: rgba(24, 24, 153, 0.8);
     color: aliceblue;
     font-size: large;
     font-weight: bold;
@@ -81,8 +85,8 @@ button{
 }
 
 button:hover{
-    background-color: rgba(240, 86, 40,1);
-    box-shadow: 0 5px 15px rgba(240, 86, 40,1);
+    background-color: rgba(24, 24, 153, 1);
+    box-shadow: 0 5px 15px rgba(24, 24, 153, .4);
     cursor: pointer;
 }
 
