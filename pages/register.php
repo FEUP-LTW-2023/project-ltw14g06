@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 
 <?php
-    session_start();
-    include('../templates/head.php');
-
-    if (isset($_GET["add"])){
-        if($error!=1){
-            class MyDB extends SQLite3{
-                function __construct(){
-                $this->open('database.db');
-                }
-            }
-            $db = new MyDB();
-            if(!$db){
-                echo $db->lastErrorMsg();
-            } else {
-                echo "Opened database successfully\n";
-            }
-
-            $sql = "INSERT INTO users (id,username,username)";
+    include_once('../utils/session.php');
+    include_once('../database/connection.php');
+    include_once('../templates/head.php');
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if (empty($_POST['username']) || length($_POST['username'] > 20)){
+            echo "Invalid username!\n";
+        } else {
+            $stmt = $dbh->prepare('INSERT INTO users (username,name,password,email,type) VALUES (?,?,?,?,?)');
+            $stmt->execute(array($_POST["username"], $_POST["username"], hash($_POST["password"]), $_POST["email"], 'client'));
 
         }
     }
-
+    
 ?>
 <body id=register_body>
     <main id= "register_page">
         <section id="login_box">
-            <form action="register.php?add<?php echo uniqid()?>" method="post" id="register_form">
+            <form action="../actions/register_action.php" method="post" id="register_form">
                 <header>
                     <h3>Register</h3>
                 </header>
@@ -46,6 +38,7 @@
                 <button id="register_button">Register</button>
                 <p>Already have an account? <a href="login.php">Login Here</a></p>
             </form>
+            <p> <?php echo htmlentities($error) ?> </p>
         </section>
     </main>
 </body>

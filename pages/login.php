@@ -1,49 +1,14 @@
 <!DOCTYPE html>
 
 <?php
-    session_start();
+
     include('../templates/head.php');
-    if (isset($_GET["login"])){
-        class MyDB extends SQLite3 {
-            function __construct(){
-                $this->open('database/db.db');
-            }
-        }
-        $db = new MyDB();
-        if(!$db){
-            echo $db->lastErrorMsg();
-        } else {
-            echo "Opened database successfully\n";
-        }
 
-        $userData ='SELECT * from users where username="'.$_POST["username"].'";';
-        
-        $ret = $db->query($userData);
-
-        
-        while($row = $ret->fetchArray(SQLITE3_ASSOC)){
-            $id = $row['id'];
-            $username = $row['username'];
-            $password=$row['password'];
-        }
-        if($id!=""){
-            if($password!=$_POST["password"]){
-                $_SESSION["login"]=$username;
-                header('Location: pages/main.php');
-            }else{
-                echo "wrong password";
-            }
-        }else{
-            echo "user not found";
-        }
-        
-        $db->close();
-    }
 ?>
 <body id=login_body>
     <main id= "login_page">
         <section id="login_box">
-            <form action="login.php?login=true" method="post" id="login_form">
+            <form action="../actions/login_action.php" method="post" id="login_form">
                 <header>
                     <h3>Login</h3>
                 </header>
