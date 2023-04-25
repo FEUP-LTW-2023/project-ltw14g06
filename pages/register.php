@@ -2,7 +2,7 @@
 
 <?php
 
-    include('../templates/header.php');
+    include('../templates/head.php');
 
 ?>
 <body id=register_body>
