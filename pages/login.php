@@ -21,6 +21,7 @@
                 <button id="login_button">Log In</button>
                 <p>Don't have an account? <a href="register.php">Register Here</a></p>
             </form>
+            <p> <?php if(isset($_SESSION['ERROR'])) echo htmlentities($_SESSION['ERROR']); unset($_SESSION['ERROR']) ?> </p>
         </section>
     </main>
 </body>

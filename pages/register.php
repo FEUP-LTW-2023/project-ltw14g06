@@ -38,7 +38,7 @@
                 <button id="register_button">Register</button>
                 <p>Already have an account? <a href="login.php">Login Here</a></p>
             </form>
-            <p> <?php echo htmlentities($error) ?> </p>
+            <p> <?php if(isset($_SESSION['ERROR'])) echo htmlentities($_SESSION['ERROR']); unset($_SESSION['ERROR']) ?> </p>
         </section>
     </main>
 </body>

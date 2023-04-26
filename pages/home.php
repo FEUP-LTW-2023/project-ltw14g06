@@ -104,21 +104,7 @@
             <i class='bx bx-menu' ></i>
         </div>
     </section>
-    <script>
-        let arrow = document.querySelectorAll(".arrow");
-        for (var i = 0; i < arrow.length; i++) {
-            arrow[i].addEventListener("click", (e)=>{
-        let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-        arrowParent.classList.toggle("showMenu");
-            });
-        }
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarButton = document.querySelector(".bx-menu");
-        console.log(sidebarButton);
-        sidebarButton.addEventListener("click", ()=>{
-            sidebar.classList.toggle("close");
-        });
-    </script>
+    <script src="../scripts/sidebar.js"></script>
 </body>
 <?php
 
