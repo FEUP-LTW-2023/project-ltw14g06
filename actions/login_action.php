@@ -3,6 +3,7 @@
     include_once('../database/user.php');
 
     if(isLoginCorrect($_POST["username"],$_POST["password"])){
+        echo "<script>console.log('User logged in successfully');</script>";
         setCurrentUser($_POST['username']);
         header("Location:../pages/home.php");	
     }
