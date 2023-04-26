@@ -2,7 +2,7 @@
 
 <?php
 
-    include('../templates/head.php');
+    include_once('../templates/head.php');
 
 ?>
 <body id=login_body>
@@ -27,6 +27,6 @@
 </body>
 <?php
 
-    include('../templates/footer.php');
+    include_once('../templates/footer.php');
     
 ?>
