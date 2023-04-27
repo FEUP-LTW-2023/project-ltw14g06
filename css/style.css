@@ -14,7 +14,7 @@
     background-size: cover;
 }
 
-section{
+#login_box{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,6 +372,25 @@ h3{
 }
 
 /* Profile */
+
+.profile_main .profileInfo h2,
+.profile_main .changeInfo h2{
+  padding-top: 15px;
+  position: relative;
+  color:black;
+  top: -55px;
+  justify-content: left;
+  align-items: baseline;
+  height: 45px;
+  display: flex;
+}
+
+.profileInfo,
+.changeInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .profileInfo p{
   color: black;
