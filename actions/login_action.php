@@ -6,7 +6,7 @@
         header("Location:pages/login.php");
     } 
     else {
-        header("Location:pages/home.php");
+        header("Location:../pages/home.php");
     }
 
     if(isLoginCorrect($_POST["username"],$_POST["password"])){

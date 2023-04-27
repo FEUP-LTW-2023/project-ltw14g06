@@ -10,6 +10,7 @@ function createUser($username, $name, $password, $email){
         $stmt->bindParam(':password', $hashP);  
         $stmt->bindParam(':email', $email);
         $stmt->execute();
+
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

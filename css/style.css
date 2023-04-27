@@ -322,39 +322,30 @@ h3{
   top: 50%;
   transform: translateY(-50%);
 } 
-.mainSection{
+
+.sidebar.close ~ .hamburguerMenu{
+  top: -55px;
+  left: 78px;
+}
+.hamburguerMenu{
   position: relative;
   height: 100vh;
   top: -55px;
   left: 260px;
-  width: calc(100% - 260px);
+  width:45px;
   transition: all 0.5s ease;
   justify-content: left;
   align-items: baseline;
   z-index: 99;
-}
-.sidebar.close ~ .mainSection{
-  top: -55px;
-  left: 78px;
-  width: calc(100% - 78px);
-}
-.mainSection .hamburguerMenu{
   height: 45px;
   display: flex;
   align-items: center;
 }
-.mainSection .hamburguerMenu .bx-menu,
-.mainSection .hamburguerMenu .text{
+.bx-menu{
   color:#fff;
   font-size: 35px;
-}
-.mainSection .hamburguerMenu .bx-menu{
   margin: 0 10px;
   cursor: pointer;
-}
-.mainSection .hamburguerMenu .text{
-  font-size: 26px;
-  font-weight: 600;
 }
 
 @media (max-width: 400px) {
@@ -378,4 +369,10 @@ h3{
     width: 100%;
     left: 0;
   }
+}
+
+/* Profile */
+
+.profileInfo p{
+  color: black;
 }
