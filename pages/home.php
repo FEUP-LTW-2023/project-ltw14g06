@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 
 <?php
-
-    include('../templates/head.php');
+    include_once('../utils/init.php');
+    include_once('../templates/head.php');
 
 ?>
-<body id=main_body>
-    <nav id="main_navigation_bar">
-        
-    </nav>
+<body id=home_body>
+    <header class="page_header">
+        This is a test
+    </header>
     <div class="sidebar close">
-        <div class="logo-details">
+        <div class="sidebarDetails">
             <i class='bx bxs-notepad'></i>
-            <span class="logo_name">Lippu</span>
+            <span class="websiteName">Lippu</span>
         </div>
-        <ul class="nav-links">
+        <ul class="sidebarAllButtons">
             <li>
                 <a href="#">
                     <i class='bx bx-grid-alt' ></i>
-                    <span class="link_name">Home</span>
+                    <span class="sidebarButtonName">Home</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Home</a></li>
+                <ul class="subMenu none">
+                    <li><a class="sidebarButtonName" href="#">Home</a></li>
                 </ul>
             </li>
             <li>
-                <div class="icon-link">
+                <div class="sidebarButton">
                     <a href="#">
                         <i class='bx bx-collection' ></i>
-                        <span class="link_name">My Tickets</span>
+                        <span class="sidebarButtonName">My Tickets</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">My Tickets</a></li>
+                <ul class="subMenu">
+                    <li><a class="sidebarButtonName" href="#">My Tickets</a></li>
                     <li><a href="#">Active Tickets</a></li>
                     <li><a href="#">Closed Tickets</a></li>
                     <li><a href="#">All Tickets</a></li>
                 </ul>
             </li>
-            <li class = "Agent-menu">
-                <div class="icon-link">
+            <li class = "AgentMenu">
+                <div class="sidebarButton">
                     <a href="#">
                         <i class='bx bxs-user-badge'></i>
-                        <span class="link_name">Agent Menu</span>
+                        <span class="sidebarButtonName">Agent Menu</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Agent Menu</a></li>
+                <ul class="subMenu">
+                    <li><a class="sidebarButtonName" href="#">Agent Menu</a></li>
                     <li><a href="#">Assigned Tickets</a></li>
                     <li><a href="#">Active Department Tickets</a></li>
                     <li><a href="#">All Active Tickets</a></li>
@@ -56,16 +56,16 @@
 
                 </ul>
             </li>
-            <li class="Admin-menu">
-                <div class="icon-link">
+            <li class="AdminMenu">
+                <div class="sidebarButton">
                     <a href="#">
                         <i class='bx bx-id-card'></i>
-                        <span class="link_name">Admin Menu</span>
+                        <span class="sidebarButtonName">Admin Menu</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Admin Menu</a></li>
+                <ul class="subMenu">
+                    <li><a class="sidebarButtonName" href="#">Admin Menu</a></li>
                     <li><a href="#">Manage Users</a></li>
                     <li><a href="#">Manage Website</a></li>
                 </ul>
@@ -73,34 +73,43 @@
             <li>
                 <a href="#">
                     <i class='bx bx-question-mark' ></i>
-                    <span class="link_name">F.A.Q.</span>
+                    <span class="sidebarButtonName">F.A.Q.</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">F.A.Q.</a></li>
+                <ul class="subMenu none">
+                    <li><a class="sidebarButtonName" href="#">F.A.Q.</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">
                     <i class='bx bxs-user'></i>
-                    <span class="link_name">Profile</span>
+                    <span class="sidebarButtonName">Profile</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Profile</a></li>
+                <ul class="subMenu none">
+                    <li><a class="sidebarButtonName" href="#">Profile</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">
                     <i class='bx bx-cog' ></i>
-                    <span class="link_name">Settings</span>
+                    <span class="sidebarButtonName">Settings</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Settings</a></li>
+                <ul class="subMenu none">
+                    <li><a class="sidebarButtonName" href="#">Settings</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../utils/end_session.php">
+                    <i class='bx bx-log-out'></i>
+                    <span class="sidebarButtonName">Log out</span>
+                </a>
+                <ul class="subMenu none">
+                    <li><a class="sidebarButtonName" href="#">Log out</a></li>
                 </ul>
             </li>
         </ul>
     </div>
-    <section class="home-section">
-        <div class="home-content">
+    <section class="mainSection">
+        <div class="hamburguerMenu">
             <i class='bx bx-menu' ></i>
         </div>
     </section>

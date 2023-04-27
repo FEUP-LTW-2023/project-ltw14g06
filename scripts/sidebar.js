@@ -12,7 +12,7 @@ function toggleButton(){
     const arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
         arrow[i].addEventListener("click", function(){
-            const arrowParent = this.target.parentElement.parentElement//selecting main parent of arrow
+            const arrowParent = this.parentElement.parentElement//selecting main parent of arrow
             arrowParent.classList.toggle("showMenu")
         })
     }

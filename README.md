@@ -5,8 +5,8 @@
 ## Minimum
 
 - Users
-- [ ] Register new account
-- [ ] Login and Logout
+- [x] Register new account
+- [x] Login and Logout
 - [ ] Edit their profile (at least name, username, password, and e-mail).
 
 - Clients
