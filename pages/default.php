@@ -3,7 +3,7 @@
 
 
 <header class="page_header">
-    Hello World!
+    Lippu!
 </header>
     <div class="sidebar close">
         <div class="sidebarDetails">

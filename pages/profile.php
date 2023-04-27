@@ -4,7 +4,7 @@
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/user.php');
-    getUserData($_SESSION["username"]);
+    $user = getUserData($_SESSION["username"]);
 ?>
 
 <body id="profile_body">
@@ -13,9 +13,9 @@
         <section class="profileInfo">
             <h2>Profile Information</h2>
             <p>Username: <?php echo htmlspecialchars($_SESSION["username"]); ?></p>
-            <p>Name: <?php echo htmlspecialchars($_SESSION["name"]); ?></p>
-            <p>Email: <?php echo htmlspecialchars($_SESSION["email"]); ?></p>
-            <p>Account Type: <?php echo htmlspecialchars($_SESSION["type"]); ?></p>
+            <p>Name: <?php echo htmlspecialchars($user["name"]); ?></p>
+            <p>Email: <?php echo htmlspecialchars($user["email"]); ?></p>
+            <p>Account Type: <?php echo htmlspecialchars($user["type"]); ?></p>
             <button class="edit_profile_button">
                 Edit
             </button>

@@ -36,7 +36,7 @@ function isLoginCorrect($username, $password) {
   function getUserData($username){
         global $dbh;
         try{
-            $stmt = $dbh->prepare('SELECT username,name,email FROM users WHERE username = ?');
+            $stmt = $dbh->prepare('SELECT username,name,email,type FROM users WHERE username = ?');
             $stmt->execute(array($username));
             return $stmt->fetch();
         } catch(PDOException $error) {
