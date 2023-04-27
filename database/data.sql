@@ -1,6 +1,6 @@
-INSERT INTO users (username, name, password, email, type) VALUES ('dratomitoma', 'Tomás Xavier', 'dratomitoma', 'dratomitoma@gmail.com','client');
-INSERT INTO users (username, name, password, email, type) VALUES ('summitatem', 'Tiago Cruz', 'summitatem', 'summitatem@gmail.com','agent');
-INSERT INTO users (username, name, password, email, type) VALUES ('tonevanda', 'João Lourenço', 'tonevanda', 'tonevanda@gmail.com','admin');
+INSERT INTO users (username, name, password, email, type) VALUES ('dratomitoma', 'Tomás Xavier', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'dratomitoma@gmail.com','client');
+INSERT INTO users (username, name, password, email, type) VALUES ('summitatem', 'Tiago Cruz', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'summitatem@gmail.com','agent');
+INSERT INTO users (username, name, password, email, type) VALUES ('tonevanda', 'João Lourenço', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'tonevanda@gmail.com','admin');
 
 INSERT INTO departments (id, name) VALUES (1, 'Accounting');
 
@@ -15,3 +15,5 @@ INSERT INTO ticket_history (id, ticket_id, agent_id, status, priority, created_a
 INSERT INTO hashtags (id, name) VALUES (1,'Test');
 
 INSERT INTO ticket_hashtags (ticket_id, hashtag_id) VALUES (1,1);
+
+SELECT * FROM users;
