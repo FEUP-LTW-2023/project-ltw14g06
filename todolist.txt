@@ -2,3 +2,4 @@ Mudar a border e a font do texto a dizer LOGIN e REGISTER
 Fazer o resto das páginas e o seu CSS
 Escrever os avisos de erro do register (explicitados no register_action.php)
 Getter functions para os ID's da base de dados
+Prevenir XSS

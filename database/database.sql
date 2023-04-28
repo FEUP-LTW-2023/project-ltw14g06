@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   username VARCHAR(255) NOT NULL UNIQUE,
   name VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
@@ -21,62 +21,62 @@ CREATE TABLE users (
 );
 
 CREATE TABLE departments (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE tickets (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   user_id VARCHAR(255) NOT NULL,
   agent_id VARCHAR(255) NOT NULL,
-  department_id INT NOT NULL,
+  department_id INTEGER NOT NULL,
   subject VARCHAR(255) NOT NULL,
   status VARCHAR(255) CHECK( status IN ('open', 'assigned', 'closed')) NOT NULL DEFAULT 'open',
   priority VARCHAR(255) CHECK( priority IN ('low', 'medium', 'high')) NOT NULL DEFAULT 'medium',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(username),
-  FOREIGN KEY (agent_id) REFERENCES users(username),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (agent_id) REFERENCES users(id),
   FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
 CREATE TABLE ticket_messages (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
-  ticket_id INT NOT NULL,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  ticket_id INTEGER NOT NULL,
   sender_id VARCHAR(255) NOT NULL,
   receiver_id VARCHAR(255) NOT NULL,
   message TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
-  FOREIGN KEY (sender_id) REFERENCES users(username),
-  FOREIGN KEY (receiver_id) REFERENCES users(username)
+  FOREIGN KEY (sender_id) REFERENCES users(id),
+  FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 
 CREATE TABLE FAQ (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   question TEXT NOT NULL,
   answer TEXT NOT NULL
 );
 
 CREATE TABLE ticket_history (
-  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
-  ticket_id INT NOT NULL,
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  ticket_id INTEGER NOT NULL,
   agent_id VARCHAR(255) NOT NULL,
   status VARCHAR(255) CHECK( status IN ('open', 'assigned', 'closed')) NOT NULL DEFAULT 'open',
   priority VARCHAR(255) CHECK( priority IN ('low', 'medium', 'high')) NOT NULL DEFAULT 'medium',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
-  FOREIGN KEY (agent_id) REFERENCES users(username)
+  FOREIGN KEY (agent_id) REFERENCES users(id)
 );
 
 CREATE TABLE hashtags (
-    id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE ticket_hashtags (
-  ticket_id INT NOT NULL,
-  hashtag_id INT NOT NULL,
+  ticket_id INTEGER NOT NULL,
+  hashtag_id INTEGER NOT NULL,
   PRIMARY KEY (ticket_id, hashtag_id),
   FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE,
   FOREIGN KEY (hashtag_id) REFERENCES hashtags(id) ON DELETE CASCADE

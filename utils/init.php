@@ -12,5 +12,5 @@
     if((getUsername() === null) && basename($_SERVER['PHP_SELF']) != 'register.php'){
         header('Location:../pages/login.php');
     }
-        
+    
 ?>

@@ -12,7 +12,7 @@
                     <h3>Register</h3>
                 </header>
                 <div class="inputbox" id="register_inputbox">
-                    <input type="text" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="inputbox" id="register_inputbox">
                     <input type="text" name="username" placeholder="Username" required>

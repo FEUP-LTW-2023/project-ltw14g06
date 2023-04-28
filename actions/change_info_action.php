@@ -17,10 +17,11 @@
 
 
         echo "<script>console.log('User logged in successfully');</script>";
-        if($newPassword==$confirmNewPassword){
-            changeUserData($_SESSION['username'], $newUsername, $newName,$newPassword, $newEmail);
+        if($newPassword===$confirmNewPassword){
+            if(changeUserData($_SESSION['username'], $newUsername, $newName,$newPassword, $newEmail));
+                setCurrentUser($newUsername);
         }
-        header("Location:../pages/profile.php");	
+        header("Location:".$_SERVER['HTTP_REFERER']."");
     }
     else{
         header("Location:../pages/home.php");	

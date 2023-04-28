@@ -12,7 +12,7 @@
     <main class="profile_main">
         <section class="profileInfo">
             <h2>Profile Information</h2>
-            <p>Username: <?php echo htmlspecialchars($_SESSION["username"]); ?></p>
+            <p>Username: <?php echo htmlspecialchars($user["username"]); ?></p>
             <p>Name: <?php echo htmlspecialchars($user["name"]); ?></p>
             <p>Email: <?php echo htmlspecialchars($user["email"]); ?></p>
             <p>Account Type: <?php echo htmlspecialchars($user["type"]); ?></p>
