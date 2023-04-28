@@ -7,7 +7,7 @@
 - Users
 - [x] Register new account
 - [x] Login and Logout
-- [ ] Edit their profile (at least name, username, password, and e-mail).
+- [x] Edit their profile (at least name, username, password, and e-mail).
 
 - Clients
 - [ ] Submit a new ticket optionally choosing a department (e.g., "Accounting").
