@@ -3,11 +3,11 @@
     include_once('../database/user.php');
 
     if(isLoginCorrect($_SESSION["username"],$_POST["oldPassword"])){
-        $newUsername = $_POST('newUsername');
-        $newName = $_POST('newName');
-        $newPassword = $_POST('newPassword');
-        $confirmNewPassword = $_POST('confirmNewPassword');
-        $newEmail = $_POST('newEmail');
+        $newUsername = $_POST['newUsername'];
+        $newName = $_POST['newName'];
+        $newPassword = $_POST['newPassword'];
+        $confirmNewPassword = $_POST['confirmNewPassword'];
+        $newEmail = $_POST['newEmail'];
 
         if(empty($newUsername)) $newUsername = "";
         if(empty($newName)) $newName = "";
