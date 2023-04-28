@@ -5,7 +5,7 @@
     include_once('../templates/head.php');
 ?>
 <body id=home_body>
-    <?php include_once ('../pages/default.php');?>
+    <?php include_once ('../templates/default.php');?>
 </body>
 <?php
 

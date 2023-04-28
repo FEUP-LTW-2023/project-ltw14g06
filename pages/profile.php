@@ -8,7 +8,7 @@
 ?>
 
 <body id="profile_body">
-    <?php include_once ('../pages/default.php');?>
+    <?php include_once ('../templates/default.php');?>
     <main class="profile_main">
         <section class="profileInfo">
             <h2>Profile Information</h2>
@@ -20,7 +20,7 @@
                 Edit
             </button>
         </section>
-        <form action="../actions/changeInfo_action.php" method="post" id="changeInfo_form">
+        <form action="../actions/change_info_action.php" method="post" id="changeInfo_form">
             <section class="changeInfo">
                 <h2>Change Info</h2>
                 <div id="changeInfo_inputbox">

@@ -18,6 +18,48 @@ function createUser($username, $name, $password, $email){
     return true;
 }
 
+function usernameIsRegistered($username){
+    global $dbh;
+    try {
+      $stmt = $dbh->prepare('SELECT username FROM users WHERE username = ?');
+      $stmt->execute(array($username));
+      if($stmt->fetch() !== false) return true;    
+    }catch(PDOException $error) {
+      return true;
+    }
+}
+
+function emailIsValid($email){
+    //checks if email format is valid
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    else {
+
+        list($username, $domain) = explode('@', $email);
+
+        //checks if the domain exists
+        if(checkdnsrr($domain, 'MX')) {
+            return true;
+        }
+        //if it doesn't...
+        else {
+            return false;
+        }
+    }
+}
+
+function emailIsRegistered($email){
+    global $dbh;
+    try {
+      $stmt = $dbh->prepare('SELECT username FROM users WHERE email = ?');
+      $stmt->execute(array($email));
+      if($stmt->fetch() !== false) return true;
+    }catch(PDOException $error) {
+      return true;
+    }
+}
+
 function isLoginCorrect($username, $password) {
     global $dbh;
     try {
@@ -46,50 +88,50 @@ function isLoginCorrect($username, $password) {
         }
     }
     
-    //Should verify if these new things are valid to prevent attacks
-    function changeUserData($username, $newUsername, $name, $password, $email){
-        global $dbh;
-        try{
-            if($name != ""){
-                $stmt = $dbh->prepare('UPDATE users SET name = ? WHERE username = ?');
-                $stmt->execute(array($name, $username));
-            }
-            if($email != ""){
-                $stmt = $dbh->prepare('UPDATE users SET email = ? WHERE username = ?');
-                $stmt->execute(array($email, $username));
-            }
-
-
-            //This doesn't work since it's primary key and foreign key of other db items. precisariamos de mudar para PRAGMA foreign_keys = DEFERRED;
-            //Maybe será melhor usar o id como PK?
-            if($newUsername != ""){
-                $stmt = $dbh->prepare('SELECT * FROM users WHERE username = ?');
-                $result = $stmt->execute(array($newUsername));
-                if($result !== false){
-                    echo "<script>console.log('Username taken');</script>";
-                } else{
-                    $stmt = $dbh->prepare('UPDATE users SET username = ? WHERE username = ?');
-                    $stmt->execute(array($newUsername, $username));
-                    echo "<script>console.log('Username updated');</script>";
-                }
-            }
-
-            
-            else{
-                echo "<script>console.log('Username not inserted');</script>";
-            }
-
-
-            if($password != ""){
-                $hashP = hash('sha256',$password);
-                $stmt = $dbh->prepare('UPDATE users SET password = ? WHERE username = ?');
-                $stmt->execute(array($hashP, $username));
-            }
-        } catch(PDOException $error) {
-            echo $error->getMessage();
-            return -1;
+//Should verify if these new things are valid to prevent attacks
+function changeUserData($username, $newUsername, $name, $password, $email){
+    global $dbh;
+    try{
+        if($name != ""){
+            $stmt = $dbh->prepare('UPDATE users SET name = ? WHERE username = ?');
+            $stmt->execute(array($name, $username));
         }
-        return true;
+        if($email != ""){
+            $stmt = $dbh->prepare('UPDATE users SET email = ? WHERE username = ?');
+            $stmt->execute(array($email, $username));
+        }
+
+
+        //This doesn't work since it's primary key and foreign key of other db items. precisariamos de mudar para PRAGMA foreign_keys = DEFERRED;
+        //Maybe será melhor usar o id como PK?
+        if($newUsername != ""){
+            $stmt = $dbh->prepare('SELECT * FROM users WHERE username = ?');
+            $result = $stmt->execute(array($newUsername));
+            if($result !== false){
+                echo "<script>console.log('Username taken');</script>";
+            } else{
+                $stmt = $dbh->prepare('UPDATE users SET username = ? WHERE username = ?');
+                $stmt->execute(array($newUsername, $username));
+                echo "<script>console.log('Username updated');</script>";
+            }
+        }
+
+        
+        else{
+            echo "<script>console.log('Username not inserted');</script>";
+        }
+
+
+        if($password != ""){
+            $hashP = hash('sha256',$password);
+            $stmt = $dbh->prepare('UPDATE users SET password = ? WHERE username = ?');
+            $stmt->execute(array($hashP, $username));
+        }
+    } catch(PDOException $error) {
+        echo $error->getMessage();
+        return -1;
     }
+    return true;
+}
 
 ?>
