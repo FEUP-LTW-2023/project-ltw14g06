@@ -1,5 +1,5 @@
 IMPORTANT:
--Mudar a border e a font do texto a dizer LOGIN e REGISTER
+-Mudar a border e a font do texto a dizer LOGIN e REGISTER       *maybe done deixo ao vosso criterio*
 -Fazer o resto das páginas e o seu CSS
 -Escrever os avisos de erro do register (já está mas falta css)
 -Getter functions para os ID's da base de dados

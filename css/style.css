@@ -15,15 +15,15 @@
 }
 
 #login_box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 50rem;
 }
 
 input::placeholder{
-    color: black;
+  color: black;
 }
 
 input:-webkit-autofill,
@@ -33,36 +33,40 @@ input:-webkit-autofill:focus {
 }
 
 input:focus{
-    outline: none;
+  outline: none;
 }
 
 #login_form{
-    border: 1px solid blue;
-    border-radius: 4em;
-    padding: 3em;
-    backdrop-filter: blur(5px);
-    text-align: center;
+  border: 1px solid blue;
+  border-radius: 4em;
+  padding: 3em;
+  backdrop-filter: blur(5px);
+  text-align: center;
 }
 
 #register_form{
-    border: 1px solid rgb(240, 86, 40);
-    border-radius: 4em;
-    padding: 3em;
-    backdrop-filter: blur(5px);
+  border: 1px solid rgb(240, 86, 40);
+  border-radius: 4em;
+  padding: 3em;
+  backdrop-filter: blur(5px);
 }
 
 header{
-    display: flex;
-    justify-content: center;
-    color: aliceblue;
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+}
+
+#login_form>header>h3,#register_form>header>h3{
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 .inputbox{
-    position: relative;
-    width: 100%;
-    margin-bottom: 1em;
-    border-bottom: 2px solid white;
-    align-self: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1em;
+  border-bottom: 2px solid white;
+  align-self: center;
 }
 
 .inputbox label{
@@ -376,22 +380,47 @@ h3{
 .profile_main .profileInfo h2,
 .profile_main .changeInfo h2{
   padding-top: 15px;
-  position: relative;
-  color:black;
-  top: -55px;
+  position: relative; 
   justify-content: left;
   align-items: baseline;
   height: 45px;
-  display: flex;
 }
 
 .profileInfo,
 .changeInfo{
-  display: flex;
   justify-content: center;
   align-items: center;
+  color:white;
 }
 
 .profileInfo p{
-  color: black;
+  color: white;
+  text-align: left;
+}
+
+#profile_body{
+  background-color:#1E1E1E;
+  color:white;
+}
+
+.profile_main{
+  margin-left: 670px;
+  margin-right: 670px;
+  text-align: center;
+}
+
+.profile_main button{
+  background-color: #000000;
+  color: white;
+  border: 2px solid #1d1b31; 
+  margin: 4px;
+  border-radius: 7px;
+}
+
+.changeInfo div{
+  margin: 5px;
+}
+
+.profile_main .profileInfo h2{
+  margin-top: -30px;
 }
