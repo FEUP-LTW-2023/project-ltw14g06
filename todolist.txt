@@ -1,6 +1,12 @@
-Mudar a border e a font do texto a dizer LOGIN e REGISTER
-Fazer o resto das páginas e o seu CSS
-Escrever os avisos de erro do register (explicitados no register_action.php)
-Getter functions para os ID's da base de dados
-Prevenir XSS (perguntar ao stor se é preciso aumentar o tamanho do salt)
-Ver proper algoritmos de força de password i.e ter entre x e y tamanho, 1 maiuscula e assim
+IMPORTANT:
+-Mudar a border e a font do texto a dizer LOGIN e REGISTER
+-Fazer o resto das páginas e o seu CSS
+-Escrever os avisos de erro do register (já está mas falta css)
+-Getter functions para os ID's da base de dados
+-Prevenir XSS (perguntar ao stor se é preciso aumentar o tamanho do salt) (e usar preg_match e preg_replace, está no site do restivo)
+-Ver proper algoritmos de força de password i.e ter entre x e y tamanho, 1 maiuscula e assim
+-BUG : Se depois de mudar os dados do user, ele mudar imediatamente depois, os dados não mudam e o user é redirecionado para a home
+
+
+UNNECCESSSARY BUT COOL:
+-Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo

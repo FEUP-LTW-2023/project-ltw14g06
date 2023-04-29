@@ -49,6 +49,18 @@ function emailIsValid($email){
     }
 }
 
+function passwordIsValid($password){
+    if(strlen($password) < 8){
+        echo "Password must be at least 8 characters long";
+        return false;
+    }
+    else if(!preg_match("/[A-Z]/", $password)){
+        echo "Password must contain a capital letter";
+        return false;
+    }
+    else return true;
+}
+
 function emailIsRegistered($email){
     global $dbh;
     try {
@@ -59,6 +71,7 @@ function emailIsRegistered($email){
       return true;
     }
 }
+
 
 function isLoginCorrect($username, $password) {
     global $dbh;

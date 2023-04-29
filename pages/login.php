@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-
+    include_once('../utils/session.php');
     include_once('../templates/head.php');
 
 ?>
