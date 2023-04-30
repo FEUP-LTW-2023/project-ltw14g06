@@ -10,7 +10,7 @@
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
     <form action="../actions/add_ticket_action.php" class="insertNewPost" method="post">
-        <input type="text" class="ticketTitle" placeholder="Title">
+        <input type="text" class="ticketSubject" name = "ticketSubject"placeholder="Subject">
         <textarea name="newPostText"></textarea>
         <button type="submit">Post</button>
     </form>
