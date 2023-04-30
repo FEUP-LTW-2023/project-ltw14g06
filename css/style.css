@@ -69,6 +69,13 @@ header{
   align-self: center;
 }
 
+.register_error{
+  position: absolute;
+  top: 53px;
+  font-size: x-small;
+  margin: 0;
+}
+
 .inputbox label{
     position: absolute;
     top: 50%;
@@ -433,4 +440,28 @@ h3{
 .activeTickets{
   position: relative; 
   left: 280px;
+}
+
+
+/* Faq */
+
+#faq_body > h1 {
+  font-family: Georgia, sans-serif;
+  font-size: 3em;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+.question_list {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.question_list h2 {
+  font-family: Georgia, sans-serif;
+  font-size: 2em;
+  letter-spacing: -1px;
+}
+.question_list p {
+  color: #000000;
 }

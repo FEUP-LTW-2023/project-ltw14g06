@@ -67,12 +67,12 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="faq.php">
                     <i class='bx bx-question-mark' ></i>
                     <span class="sidebarButtonName">F.A.Q.</span>
                 </a>
                 <ul class="subMenu none">
-                    <li><a class="sidebarButtonName" href="#">F.A.Q.</a></li>
+                    <li><a class="sidebarButtonName" href="faq.php">F.A.Q.</a></li>
                 </ul>
             </li>
             <li>
@@ -85,12 +85,12 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="settings.php">
                     <i class='bx bx-cog' ></i>
                     <span class="sidebarButtonName">Settings</span>
                 </a>
                 <ul class="subMenu none">
-                    <li><a class="sidebarButtonName" href="#">Settings</a></li>
+                    <li><a class="sidebarButtonName" href="settings.php">Settings</a></li>
                 </ul>
             </li>
             <li>
