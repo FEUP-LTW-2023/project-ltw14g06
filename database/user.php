@@ -88,6 +88,18 @@ function isLoginCorrect($username, $password) {
     }
   }
 
+function getUserID($username){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
+        $stmt->execute(array($username));
+        return $stmt->fetch();
+    } catch(PDOException $error) {
+        echo $error->getMessage();
+        return null;
+    }
+}
+
   function getUserData($username){
         global $dbh;
         try{

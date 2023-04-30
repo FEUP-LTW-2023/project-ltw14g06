@@ -3,7 +3,7 @@
     include_once('../database/user.php');
 
     if(isLoginCorrect($_POST["username"],$_POST["password"])){
-        setCurrentUser($_POST['username']);
+        setCurrentUser(getUserId($_POST["username"])['id'], $_POST['username']);
         header("Location:../pages/home.php");	
     }
     else{
