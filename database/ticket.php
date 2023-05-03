@@ -1,12 +1,14 @@
 <?php
 
-function getTicketID($sender_id, $created_at){
+function getTicketID($sender_id){
     global $dbh;
+    echo '<p>testdwanjkawndjkawn</p>';
     try{
-        $stmt = $dbh->prepare("SELECT id FROM ticket_messages WHERE sender_id = ? AND created_at = ?");
-        $stmt->execute(array($sender_id, $created_at));
+        $stmt = $dbh->prepare("SELECT id FROM tickets WHERE user_id = ? ORDER BY id desc limit 1");
+        $stmt->execute(array($sender_id));
         return $stmt->fetch();
     } catch (PDOException $error) {
+        echo $error->getMessage();
         return -1;
     }
 }
@@ -18,29 +20,41 @@ function getClientActiveTickets($id){
         $stmt->execute(array($id));
         return $stmt->fetch();
     } catch (PDOException $error) {
+        echo $error->getMessage();
         return -1;
     }
 }
 
 //falta fazer a cena do department e da priority
-function addTicket(){
+function addTicket($id, $subject, $text){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("INSERT INTO tickets (user_id, agent_id, department_id, subject, priority) values ?,?,?,?,?,?");
-        $stmt->execute(array($_SESSION("id"), 0, 0, $_POST("ticketSubject"), 'low'));
-        $ticketMsg = getTicketID($_SESSION("id"), );
-        addTicketMessage($ticketMsg["ticket_id"], $_SESSION["id"]);
+        $stmt = $dbh->prepare('INSERT INTO tickets (user_id, agent_id, department_id, subject) values (:user_id,:agent_id,:department_id,:subject)');
+        $stmt->bindParam(':user_id', $id);
+        $stmt->bindParam(':agent_id', 1);
+        $stmt->bindParam(':department_id', 0);
+        $stmt->bindParam(':subject', $subject);
+        //$stmt->bindParam(':priority', 'low');
+        $stmt->execute();
+        $ticketMsg = getTicketID($id);
+        addTicketMessage($ticketMsg["id"], $id, $text);
     } catch (PDOException $error) {
-        return -1;
+        echo $error->getMessage();
+        //return -1;
     }
 }
 
-function addTicketMessage($id, $sender_id){
+function addTicketMessage($id, $sender_id, $text){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("INSERT INTO ticket_messages (ticket_id, sender_id, receiver_id, message) values ?,?,?,?");
-        $stmt->execute(array($id, $sender_id, 0,$_POST("newPostText")));
+        $stmt = $dbh->prepare('INSERT INTO ticket_messages (ticket_id, sender_id, receiver_id, message) values (:ticket_id,:sender_id,:receiver_id,:message)');
+        $stmt->bindParam(':ticket_id', $id);
+        $stmt->bindParam(':sender_id', $sender_id);
+        $stmt->bindParam(':receiver_id', 0);
+        $stmt->bindParam(':message', $text);
+        $stmt->execute();
     } catch (PDOException $error) {
+        echo $error->getMessage();
         return -1;
     }
 }
