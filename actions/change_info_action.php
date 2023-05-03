@@ -2,7 +2,7 @@
     include_once('../utils/init.php');
     include_once('../database/user.php');
 
-    if(isLoginCorrect($_SESSION["username"],$_POST["oldPassword"])){
+    if(isLoginCorrect($_SESSION['username'],$_POST["oldPassword"])){
         $newUsername = $_POST['newUsername'];
         $newName = $_POST['newName'];
         $newPassword = $_POST['newPassword'];
@@ -19,7 +19,7 @@
         echo "<script>console.log('User logged in successfully');</script>";
         if($newPassword===$confirmNewPassword){
             if(changeUserData($_SESSION['username'], $newUsername, $newName,$newPassword, $newEmail));
-                setCurrentUser($newUsername);
+                setCurrentUser($_SESSION['id'],$newUsername);
         }
         header("Location:".$_SERVER['HTTP_REFERER']."");
     }

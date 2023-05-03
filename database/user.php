@@ -136,9 +136,6 @@ function changeUserData($username, $newUsername, $name, $password, $email){
                 echo "<script>console.log('Username updated');</script>";
             }
         }
-        else{
-            echo "<script>console.log('Username not inserted');</script>";
-        }
         if($password !== ""){
             $hashP = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $dbh->prepare('UPDATE users SET password = ? WHERE username = ?');
