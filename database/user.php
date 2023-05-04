@@ -124,6 +124,11 @@ function changeUserData($username, $newUsername, $name, $password, $email){
             $stmt = $dbh->prepare('UPDATE users SET email = ? WHERE username = ?');
             $stmt->execute(array($email, $username));
         }
+        if($password !== ""){
+            $hashP = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $dbh->prepare('UPDATE users SET password = ? WHERE username = ?');
+            $stmt->execute(array($hashP, $username));
+        }
         if($newUsername !== ""){
             $stmt = $dbh->prepare('SELECT * FROM users WHERE username = ?');
             $stmt->execute(array($newUsername));
@@ -135,11 +140,6 @@ function changeUserData($username, $newUsername, $name, $password, $email){
                 $stmt->execute(array($newUsername, $username));
                 echo "<script>console.log('Username updated');</script>";
             }
-        }
-        if($password !== ""){
-            $hashP = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $dbh->prepare('UPDATE users SET password = ? WHERE username = ?');
-            $stmt->execute(array($hashP, $username));
         }
     } catch(PDOException $error) {
         echo $error->getMessage();

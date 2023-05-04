@@ -19,7 +19,6 @@
             <button class="edit_profile_button">
                 Edit
             </button>
-            <?php echo "<p> Session[id] = {$_SESSION['id']} and Session[username] = {$_SESSION['username']} </p>"?>
         </section>
         <form action="../actions/change_info_action.php" method="post" id="changeInfo_form">
             <section class="changeInfo">
