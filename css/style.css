@@ -4,6 +4,8 @@
   font-family: 'Open Sans', 'Anuphan', Arial, sans-serif;
 }
 
+/* Login /  Register */
+
 #login_body{
   background: url(../assets/login-background.png) no-repeat center center fixed; 
   background-size: cover;
@@ -446,6 +448,13 @@ h3{
 .activeTickets{
   position: relative; 
   left: 280px;
+}
+
+.activeTickets p{
+  color: black;
+}
+.subjectTicket{
+  font-weight: bold;
 }
 
 

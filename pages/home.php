@@ -16,12 +16,14 @@
     </form>
     <h2>Your Active Tickets:</h2><br>
     <section class="activeTickets">
+        
         <?php foreach ($tickets as $ticket) { ?>
             <article class="activeTicket">
-                <p><?=htmlentities($ticket['subject'])?></p>
+                <p class = subjectTicket>Subject: <?=htmlentities($ticket['subject'])?></p>
                 <small>&mdash; <?=htmlentities($ticket['user_id'])?></small>
             </article>
         <?php } ?>
+
     </section>
     
     
