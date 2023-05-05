@@ -5,7 +5,6 @@
         include_once('../database/ticket.php');
 
         //if title is valid, bla bla bla para evitar attacks
-        echo '<p>test</p>';
         $ticketSubject = $_POST["ticketSubject"];
         $text = $_POST["newPostText"];
         addTicket($_SESSION["id"],  $ticketSubject, $text);

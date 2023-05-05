@@ -26,8 +26,9 @@
 
 #login_box>p{
   position: relative;
-  right: 363px;
+  right: 347px;
   top: 75px;
+  margin: 0;
 }
 
 input::placeholder{
