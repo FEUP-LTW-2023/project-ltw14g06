@@ -11,22 +11,13 @@
     <?php include_once ('../templates/default.php');?>
     <form action="../actions/add_ticket_action.php" class="insertNewPost" method="post" id="newTicket">
         <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
-        <input type="text" class="ticketSubject" name = "ticketSubject" placeholder="Subject">
-        <textarea class="newPostText" name="newPostText"></textarea>
+        <input type="text" id="ticketSubject" name = "ticketSubject" placeholder="Subject">
+        <textarea id="newPostText" name="newPostText"></textarea>
         <button type="submit">Post</button>
     </form>
     <h2>Your Active Tickets:</h2><br>
     <section class="activeTickets">
-        <!--
-        <?php foreach ($tickets as $ticket) { ?>
-            <article class="activeTicket">
-                <a href=""></a>
-                <p class = subjectTicket>Subject: <?=htmlentities($ticket['subject'])?></p>
-                <small>&mdash; <?=htmlentities($ticket['user_id'])?></small>
-
-                
-            </article>
-        <?php } ?>-->
+       
         <p id="jstickets"></p>
     </section>
     
@@ -37,3 +28,15 @@
     include_once('../templates/footer.php');
     
 ?>
+
+ 
+ <?php// foreach ($tickets as $ticket) { ?>
+    <!---
+            <article class="activeTicket">
+                <a href=""></a>
+                <p class = subjectTicket>Subject: <?php //htmlentities($ticket['subject'])?></p>
+                <small>&mdash; <?php //htmlentities($ticket['user_id'])?></small>
+
+                
+            </article>-->
+        <?php //} ?>  
