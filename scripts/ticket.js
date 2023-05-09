@@ -1,12 +1,32 @@
 const getWithAsyncAwait = async () => {
-    const response = await fetch("../actions/get_tickets.php");
+    const response = await fetch("../actions/get_tickets_action.php");
     const jsonResponse = await response.json();
-    const elem = document.querySelector('#get-data-async-await');
-    elem.textContent = "Username: " + jsonResponse.username;
-};
-  
-getWithAsyncAwait();
+    
+    const elem = document.querySelector('.activeTickets');
+    elem.innerHTML = "";
+    
+    for (let i = 0; i < jsonResponse.length; i++) {
+        const ticket = jsonResponse[i];
 
+        const ticketSubj = document.createElement("p");
+        ticketSubj.textContent = "Subject: " + ticket.subject + " || Debug: ticket id: " + ticket.id;
+        ticketSubj.classList.add("subjectTicket");
+        elem.appendChild(ticketSubj);
+
+        const ticketText = document.createElement("p");
+        ticketText.textContent = ticket.text;
+        ticketText.classList.add("ticketText");
+        elem.appendChild(ticketText);
+
+        const ticketUsername = document.createElement("p");
+        ticketUsername.textContent = "Posted by: " + ticket.username; 
+        ticketUsername.classList.add("ticketPostedBy");
+        elem.appendChild(ticketUsername);
+    }
+};
+    
+getWithAsyncAwait();
+  
 const encodeTicketForAjax = (data) => {
     return Object.keys(data).map(function(k){
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
@@ -21,16 +41,17 @@ const postTicket = async (user_id, subject, text, department, priority) => {
         body: dataToSend
     });
 
-    //const elem = document.querySelector('#jstickets');
-    //elem.textContent = "Subject: " + await response.text();
+    getWithAsyncAwait();
 }
 
 const addNewTicket = document.querySelector('#newTicket');
-console.log(addNewTicket);
-const user_id = document.querySelector("#newTicket input[name = 'user_id']").value;
-console.log(user_id);
-const subject = document.querySelector("#newTicket input[id = 'ticketSubject']").textContent;
-console.log(subject);
-const text = document.querySelector("#newPostText").textContent;
-console.log(text);
-postTicket(user_id, subject,text,0,'low');
+
+addNewTicket.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const user_id = document.querySelector("#newTicket input[name = 'user_id']").value;
+  const subject = document.querySelector("#newTicket input[name = 'ticketSubject']").value;
+  const text = document.querySelector("#newPostText").value;
+
+  postTicket(user_id, subject, text, 0, 'low');
+});

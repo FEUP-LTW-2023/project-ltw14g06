@@ -36,7 +36,7 @@
 - [x] CSS
 - [x] PHP
 - [x] Javascript
-- [ ] Ajax/JSON
+- [x] Ajax/JSON
 - [x] PDO/SQLite
 
 - The website should be as secure as possible.

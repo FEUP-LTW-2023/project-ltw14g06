@@ -1,6 +1,7 @@
 IMPORTANT:
 -Fazer o resto das páginas e o seu CSS
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)
+-Websecurity nos tickets
 
 
 UNNECCESSSARY BUT COOL:

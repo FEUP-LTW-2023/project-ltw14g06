@@ -2,7 +2,6 @@
 
 function getTicketID($sender_id){
     global $dbh;
-    echo '<p>testdwanjkawndjkawn</p>';
     try{
         $stmt = $dbh->prepare("SELECT id FROM tickets WHERE user_id = ? ORDER BY id desc limit 1");
         $stmt->execute(array($sender_id));
@@ -13,10 +12,22 @@ function getTicketID($sender_id){
     }
 }
 
+function getTicketText($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT message FROM ticket_messages WHERE ticket_id = ? ORDER BY id asc limit 1");
+        $stmt->execute(array($id));
+        return $stmt->fetch();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function getClientActiveTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'open' or status = 'assigned') order by id desc" );
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'open' or status = 'assigned') order by id desc");
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -38,11 +49,12 @@ function addTicket($id, $subject, $text){
         $stmt->bindParam(':subject', $subject);
         //$stmt->bindParam(':priority', 'low');
         $stmt->execute();
+        
         $ticketMsg = getTicketID($id);
         addTicketMessage($ticketMsg["id"], $id, $text);
     } catch (PDOException $error) {
         echo $error->getMessage();
-        //return -1;
+        return -1;
     }
 }
 

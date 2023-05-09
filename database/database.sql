@@ -28,7 +28,7 @@ CREATE TABLE departments (
 CREATE TABLE tickets (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   user_id VARCHAR(255) NOT NULL,
-  agent_id VARCHAR(255) NOT NULL,
+  agent_id VARCHAR(255) NOT NULL DEFAULT 0,
   department_id INTEGER NOT NULL DEFAULT 0,
   subject VARCHAR(255) NOT NULL,
   status VARCHAR(255) CHECK( status IN ('open', 'assigned', 'closed')) NOT NULL DEFAULT 'open',
