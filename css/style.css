@@ -481,3 +481,34 @@ h3{
 .question_list p {
   color: #000000;
 }
+
+/* Agent and Admin Menu */
+
+.choice-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.choice-menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  text-align: center;
+  list-style: none; 
+  width: 30em; 
+  height: 15em; 
+  background-color: #262347;
+  cursor: pointer;
+}
+
+.choice-menu li a {
+  text-decoration: none;
+  color: aliceblue; 
+  margin: 2em;
+  font-family: 'Open Sans', 'Anuphan', Arial, sans-serif;
+  letter-spacing: 2px;
+}

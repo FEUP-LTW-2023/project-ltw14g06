@@ -37,14 +37,14 @@
             </li>
             <li class = "AgentMenu">
                 <div class="sidebarButton">
-                    <a href="#">
+                    <a href="agent_menu.php">
                         <i class='bx bxs-user-badge'></i>
                         <span class="sidebarButtonName">Agent Menu</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="subMenu">
-                    <li><a class="sidebarButtonName" href="#">Agent Menu</a></li>
+                    <li><a class="sidebarButtonName" href="agent_menu.php">Agent Menu</a></li>
                     <li><a href="#">Assigned Tickets</a></li>
                     <li><a href="#">Active Department Tickets</a></li>
                     <li><a href="#">All Active Tickets</a></li>
