@@ -5,7 +5,8 @@
         include_once('../database/ticket.php');
 
         //if title is valid, bla bla bla para evitar attacks
-        addTicket($_POST["user_id"],  $_POST["subject"], $_POST["text"]);
+        $departmentID = getDepartmentID($_POST["department"]);
+        addTicket($_POST["user_id"],  $_POST["subject"], $_POST["text"], $departmentID);
         exit();
 
 

@@ -14,9 +14,14 @@ const getWithAsyncAwait = async () => {
         elem.appendChild(ticketSubj);
 
         const ticketText = document.createElement("p");
-        ticketText.textContent = ticket.text;
+        ticketText.textContent = "Text: " + ticket.text;
         ticketText.classList.add("ticketText");
         elem.appendChild(ticketText);
+
+        const ticketDepartment = document.createElement("p");
+        ticketDepartment.textContent = "Department: "+ ticket.department;
+        ticketDepartment.classList.add("ticketDepartment");
+        elem.appendChild(ticketDepartment);
 
         const ticketUsername = document.createElement("p");
         ticketUsername.textContent = "Posted by: " + ticket.username; 
@@ -53,26 +58,6 @@ addNewTicket.addEventListener('submit', function(event) {
   const subject = document.querySelector("#newTicket input[name = 'ticketSubject']").value;
   const text = document.querySelector("#newPostText").value;
   const department = document.querySelector("#ticketDepartment").value;
-  const dep_id = 0;
-  switch (department) {
-    case "IT":
-        dep_id = 1;
-        break;
-    case "Human Resources":
-        dep_id = 2;
-        break;
-    case "Accounting and Finance":
-        dep_id = 3;
-        break;
-    case "Production":
-        dep_id = 4;
-        break;
-    case "Marketing":
-        dep_id = 5;
-        break;
-    default:
-        dep_id = 0;
-        break;
 
-  postTicket(user_id, subject, text, dep_id, 'low');
+  postTicket(user_id, subject, text, department, 'low');
 });

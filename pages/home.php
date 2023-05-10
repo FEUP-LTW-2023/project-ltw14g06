@@ -4,6 +4,9 @@
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/ticket.php');
+
+    $departments = getAllDepartments();
+    $test = testTicketText();
 ?>
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
@@ -12,17 +15,24 @@
         <input type="text" id="ticketSubject" name = "ticketSubject" placeholder="Subject">
         <textarea id="newPostText" name="newPostText" required></textarea>
         <select name="ticketDepartment" id="ticketDepartment">
-            <option value=""></option>
-            <option value="IT">IT</option>
-            <option value="Human Resources">Human Resources</option>
-            <option value="Accounting and Finance">Accounting and Finance</option>
-            <option value="Production">Production</option>
-            <option value="Marketing">Marketing</option>
+            <?php
+                foreach ($departments as $department) {
+                    echo '<option value="' . $department["name"] . '">' . $department["name"] . '</option>';
+                }
+            ?>
         </select>
         <button type="submit">Post</button>
     </form>
     <h2>Your Active Tickets:</h2><br>
+    
+
     <section class="activeTickets">
+    <?php
+        foreach ($test as $text) {
+            echo '<p>' . $text["id"] . '</p>';
+            echo '<p>' . $text["message"] . '</p>';
+        }
+    ?>
     </section>
     
     <script src="../scripts/ticket.js" defer></script>

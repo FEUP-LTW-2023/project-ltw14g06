@@ -12,7 +12,7 @@
         <li><a href="#">Assigned Tickets</a></li>
         <li><a href="#">Active Department Tickets</a></li>
         <li><a href="#">All Active Tickets</a></li>
-        <li><a href="#">Manage FAQ</a></li>
+        <li><a href="manage_faq.php">Manage FAQ</a></li>
     </ul>
     <script src="../scripts/menu.js"></script>
 </body>

@@ -1,5 +1,18 @@
 <?php
 
+function testTicketText(){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM ticket_messages");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
+/* funciona 100% */
 function getTicketID($sender_id){
     global $dbh;
     try{
@@ -24,11 +37,37 @@ function getTicketText($id){
     }
 }
 
-function getClientActiveTickets($id){
+function getDepartmentID($name){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'open' or status = 'assigned') order by id desc");
+        $stmt = $dbh->prepare("SELECT id FROM departments WHERE name = ?");
+        $stmt->execute(array($name));
+        $result = $stmt->fetch();
+        return $result["id"];
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
+function getDepartmentName($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT name FROM departments WHERE id = ?");
         $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        return $result["name"];
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
+function getAllDepartments(){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT name FROM departments");
+        $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
         echo $error->getMessage();
@@ -36,22 +75,12 @@ function getClientActiveTickets($id){
     }
 }
 
-//falta fazer a cena do department e da priority
-function addTicket($id, $subject, $text, $dep_id){
+function getClientActiveTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare('INSERT INTO tickets (user_id, agent_id, department_id, subject) values (:user_id,:agent_id,:department_id,:subject)');
-        $agent_id = 1;
-        $dep_id = 1;
-        $stmt->bindParam(':user_id', $id);
-        $stmt->bindParam(':agent_id', $agent_id);
-        $stmt->bindParam(':department_id', $dep_id);
-        $stmt->bindParam(':subject', $subject);
-        //$stmt->bindParam(':priority', 'low');
-        $stmt->execute();
-        
-        $ticketMsg = getTicketID($id);
-        addTicketMessage($ticketMsg["id"], $id, $text);
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'open' or status = 'assigned') order by id desc");
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;
@@ -72,6 +101,29 @@ function addTicketMessage($id, $sender_id, $text){
         echo $error->getMessage();
         return -1;
     }
+    return true;
+}
+
+//falta fazer a cena da priority
+function addTicket($id, $subject, $text, $dep_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('INSERT INTO tickets (user_id, agent_id, department_id, subject) values (:user_id,:agent_id,:department_id,:subject)');
+        $agent_id = 1;
+        $stmt->bindParam(':user_id', $id);
+        $stmt->bindParam(':agent_id', $agent_id);
+        $stmt->bindParam(':department_id', $dep_id);
+        $stmt->bindParam(':subject', $subject);
+        //$stmt->bindParam(':priority', 'low');
+        $stmt->execute();
+        
+        $ticketID = getTicketID($id)["id"];
+        addTicketMessage($ticketID, $id, $text);
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
 }
 
 ?>

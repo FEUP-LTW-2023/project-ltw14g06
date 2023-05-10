@@ -27,8 +27,8 @@ CREATE TABLE departments (
 
 CREATE TABLE tickets (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  user_id VARCHAR(255) NOT NULL,
-  agent_id VARCHAR(255) NOT NULL DEFAULT 0,
+  user_id INTEGER NOT NULL,
+  agent_id INTEGER NOT NULL DEFAULT 0,
   department_id INTEGER NOT NULL DEFAULT 0,
   subject VARCHAR(255) NOT NULL,
   status VARCHAR(255) CHECK( status IN ('open', 'assigned', 'closed')) NOT NULL DEFAULT 'open',
@@ -43,8 +43,8 @@ CREATE TABLE tickets (
 CREATE TABLE ticket_messages (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   ticket_id INTEGER NOT NULL,
-  sender_id VARCHAR(255) NOT NULL,
-  receiver_id VARCHAR(255) NOT NULL,
+  sender_id INTEGER NOT NULL,
+  receiver_id INTEGER NOT NULL DEFAULT 0,
   message TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
@@ -61,7 +61,7 @@ CREATE TABLE FAQ (
 CREATE TABLE ticket_history (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   ticket_id INTEGER NOT NULL,
-  agent_id VARCHAR(255) NOT NULL,
+  agent_id INTEGER NOT NULL,
   status VARCHAR(255) CHECK( status IN ('open', 'assigned', 'closed')) NOT NULL DEFAULT 'open',
   priority VARCHAR(255) CHECK( priority IN ('low', 'medium', 'high')) NOT NULL DEFAULT 'medium',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

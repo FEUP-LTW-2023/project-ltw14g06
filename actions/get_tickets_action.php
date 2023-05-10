@@ -9,8 +9,9 @@
     $showTickets = array();
     foreach ($tickets as $ticket) {
         $text = getTicketText($ticket["id"])["message"];
+        $department = getDepartmentName($ticket["department_id"]);
 
-        $showTicket = array("id" => $ticket["id"], "user_id" => $ticket["user_id"], "username" => $_SESSION["username"], "subject" => $ticket["subject"], "text" => $text);
+        $showTicket = array("id" => $ticket["id"], "user_id" => $ticket["user_id"], "username" => $_SESSION["username"], "subject" => $ticket["subject"], "text" => $text, "department" => $department);
         array_push($showTickets, $showTicket);
     }
     header("Content-Type: application/json");
