@@ -512,3 +512,17 @@ h3{
   font-family: 'Open Sans', 'Anuphan', Arial, sans-serif;
   letter-spacing: 2px;
 }
+
+/* Manage FAQ */
+
+#manageFAQ,
+#faqForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#manageFAQ p{
+  color: black;
+}

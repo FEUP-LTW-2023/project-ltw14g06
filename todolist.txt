@@ -8,3 +8,5 @@ IMPORTANT:
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo
+-Em vez de estar no ManageFAQ, adicionar os butões do Delete e Editar ao FAQ mesmo e ser apenas visível para agents+
+-Butão para adicionar pergunta ao FAQ nos tickets.
