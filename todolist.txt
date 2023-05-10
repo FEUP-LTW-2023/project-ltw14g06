@@ -2,6 +2,7 @@ IMPORTANT:
 -Fazer o resto das páginas e o seu CSS
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)
 -Websecurity nos tickets
+-Maybe os admins deviam poder alterar, por exemplo, os departamentos, logo seria preciso alterar o form de forma a ser mais dinamico
 
 
 UNNECCESSSARY BUT COOL:

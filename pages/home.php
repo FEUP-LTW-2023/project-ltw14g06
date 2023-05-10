@@ -11,6 +11,14 @@
         <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
         <input type="text" id="ticketSubject" name = "ticketSubject" placeholder="Subject">
         <textarea id="newPostText" name="newPostText" required></textarea>
+        <select name="ticketDepartment" id="ticketDepartment">
+            <option value=""></option>
+            <option value="IT">IT</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Accounting and Finance">Accounting and Finance</option>
+            <option value="Production">Production</option>
+            <option value="Marketing">Marketing</option>
+        </select>
         <button type="submit">Post</button>
     </form>
     <h2>Your Active Tickets:</h2><br>

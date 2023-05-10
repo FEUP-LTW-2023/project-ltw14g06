@@ -52,6 +52,27 @@ addNewTicket.addEventListener('submit', function(event) {
   const user_id = document.querySelector("#newTicket input[name = 'user_id']").value;
   const subject = document.querySelector("#newTicket input[name = 'ticketSubject']").value;
   const text = document.querySelector("#newPostText").value;
+  const department = document.querySelector("#ticketDepartment").value;
+  const dep_id = 0;
+  switch (department) {
+    case "IT":
+        dep_id = 1;
+        break;
+    case "Human Resources":
+        dep_id = 2;
+        break;
+    case "Accounting and Finance":
+        dep_id = 3;
+        break;
+    case "Production":
+        dep_id = 4;
+        break;
+    case "Marketing":
+        dep_id = 5;
+        break;
+    default:
+        dep_id = 0;
+        break;
 
-  postTicket(user_id, subject, text, 0, 'low');
+  postTicket(user_id, subject, text, dep_id, 'low');
 });

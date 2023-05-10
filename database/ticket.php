@@ -37,7 +37,7 @@ function getClientActiveTickets($id){
 }
 
 //falta fazer a cena do department e da priority
-function addTicket($id, $subject, $text){
+function addTicket($id, $subject, $text, $dep_id){
     global $dbh;
     try{
         $stmt = $dbh->prepare('INSERT INTO tickets (user_id, agent_id, department_id, subject) values (:user_id,:agent_id,:department_id,:subject)');
