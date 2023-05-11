@@ -6,7 +6,6 @@
     include_once('../database/ticket.php');
 
     $departments = getAllDepartments();
-    $test = testTicketText();
 ?>
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
@@ -27,12 +26,6 @@
     
 
     <section class="activeTickets">
-    <?php
-        foreach ($test as $text) {
-            echo '<p>' . $text["id"] . '</p>';
-            echo '<p>' . $text["message"] . '</p>';
-        }
-    ?>
     </section>
     
     <script src="../scripts/ticket.js" defer></script>

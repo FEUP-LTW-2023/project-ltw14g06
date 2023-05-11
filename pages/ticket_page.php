@@ -56,6 +56,16 @@
     <section id="singleTicket" class="activeTickets">
     </section>
 
+    <form method="post" id="insertAnswer" action="../actions/add_ticket_answer_action.php">
+        <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
+        <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+        <textarea id="newAnswerText" name="newAnswerText" required></textarea>
+        <button type="submit">Post</button>
+    </form>
+
+    <section id="ticketAnswers" class ="activeTickets">
+    </section>
+
     <script src="../scripts/ticket_page.js" defer></script>
     <script>const ticketId = <?php echo $ticketId ?>;</script>
     

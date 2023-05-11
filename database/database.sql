@@ -18,7 +18,7 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   type VARCHAR(255) CHECK( type IN ('client', 'agent', 'admin')) NOT NULL DEFAULT 'client',
-  department_id INTEGER NOT NULL DEFAULT 0,
+  department_id INTEGER NOT NULL DEFAULT 1,
   FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
@@ -46,12 +46,10 @@ CREATE TABLE ticket_messages (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   ticket_id INTEGER NOT NULL,
   sender_id INTEGER NOT NULL,
-  receiver_id INTEGER NOT NULL DEFAULT 0,
   message TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
-  FOREIGN KEY (sender_id) REFERENCES users(id),
-  FOREIGN KEY (receiver_id) REFERENCES users(id)
+  FOREIGN KEY (sender_id) REFERENCES users(id)
 );
 
 CREATE TABLE FAQ (

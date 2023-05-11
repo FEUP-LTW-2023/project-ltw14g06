@@ -1,17 +1,5 @@
 <?php
 
-function testTicketText(){
-    global $dbh;
-    try{
-        $stmt = $dbh->prepare("SELECT * FROM ticket_messages");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (PDOException $error) {
-        echo $error->getMessage();
-        return -1;
-    }
-}
-
 function getTicketID($sender_id){
     global $dbh;
     try{
@@ -50,6 +38,18 @@ function getTicketText($id){
         return "Text not found!";
     }
     else return $result["message"];
+}
+
+function getTicketAnswers($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM ticket_messages WHERE ticket_id = ? ORDER BY id ASC");
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
 }
 
 function getDepartmentID($name){
@@ -141,11 +141,9 @@ function getAllTickets($order = 'id', $sort = 'desc'){
 function addTicketMessage($id, $sender_id, $text){
     global $dbh;
     try{
-        $stmt = $dbh->prepare('INSERT INTO ticket_messages (ticket_id, sender_id, receiver_id, message) values (:ticket_id,:sender_id,:receiver_id,:message)');
+        $stmt = $dbh->prepare('INSERT INTO ticket_messages (ticket_id, sender_id, message) values (:ticket_id,:sender_id,:message)');
         $stmt->bindParam(':ticket_id', $id);
         $stmt->bindParam(':sender_id', $sender_id);
-        $receiver_id = 1;
-        $stmt->bindParam(':receiver_id', $receiver_id);
         $stmt->bindParam(':message', $text);
         $stmt->execute();
     } catch (PDOException $error) {

@@ -60,3 +60,34 @@ const getSingleTicket = async (ticketId) => {
 };
 
 getSingleTicket(ticketId);
+
+const getTicketAnswers = async (ticketId) => {
+  const response = await fetch("../actions/get_ticket_answers_action.php?ticket_id="+ticketId);
+  const jsonResponse = await response.json();
+    
+  const elem = document.querySelector('#ticketAnswers');
+  elem.innerHTML = "";
+    
+  for (let i = 1; i < jsonResponse.length; i++) {
+    const ticket = jsonResponse[i];
+        
+    const div = document.createElement("div");
+    div.classList.add("ticketAnswer");
+    div.innerHTML = "";
+
+    const ticketText = document.createElement("p");
+    ticketText.textContent = "Text: " + ticket.text;
+    ticketText.classList.add("ticketText");
+    div.appendChild(ticketText);
+
+    const ticketUsername = document.createElement("p");
+    ticketUsername.textContent = "Posted by: " + ticket.postedBy; 
+    ticketUsername.classList.add("ticketPostedBy");
+    div.appendChild(ticketUsername);
+      
+    elem.appendChild(div);
+  }
+
+};
+
+getTicketAnswers(ticketId);

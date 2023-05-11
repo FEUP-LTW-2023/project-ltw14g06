@@ -6,7 +6,7 @@ INSERT INTO departments (name) VALUES ('Accounting');
 
 INSERT INTO tickets (id, user_id, agent_id, department_id,subject, status, priority, created_at, updated_at) VALUES (1,1,2, 1, 'test', 'open', 'medium','2023-04-26 09:00:00', '2023-04-26 11:30:00');
 
-INSERT INTO ticket_messages (id, ticket_id, sender_id, receiver_id, message, created_at) VALUES (1,1,1,2, 'oi test','2023-04-26 09:00:00');
+INSERT INTO ticket_messages (id, ticket_id, sender_id, message, created_at) VALUES (1,1,1, 'oi test','2023-04-26 09:00:00');
 
 INSERT INTO FAQ (question, answer) VALUES ('Test question', 'Test answer');
 
