@@ -100,10 +100,22 @@ function getUserID($username){
     }
 }
 
+function getUserDataByID($id){
+    global $dbh;
+        try{
+            $stmt = $dbh->prepare('SELECT id,username,name,email,type FROM users WHERE id = ?');
+            $stmt->execute(array($id));
+            return $stmt->fetch();
+        } catch(PDOException $error) {
+            echo $error->getMessage();
+            return null;
+        }
+}
+
   function getUserData($username){
         global $dbh;
         try{
-            $stmt = $dbh->prepare('SELECT username,name,email,type FROM users WHERE username = ?');
+            $stmt = $dbh->prepare('SELECT id,username,name,email,type FROM users WHERE username = ?');
             $stmt->execute(array($username));
             return $stmt->fetch();
         } catch(PDOException $error) {

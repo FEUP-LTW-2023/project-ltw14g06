@@ -22,17 +22,17 @@
             </li>
             <li>
                 <div class="sidebarButton">
-                    <a href="#">
+                    <a href="my_tickets.php">
                         <i class='bx bx-collection' ></i>
                         <span class="sidebarButtonName">My Tickets</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="subMenu">
-                    <li><a class="sidebarButtonName" href="#">My Tickets</a></li>
-                    <li><a href="#">Active Tickets</a></li>
-                    <li><a href="#">Closed Tickets</a></li>
-                    <li><a href="#">All Tickets</a></li>
+                    <li><a class="sidebarButtonName" href="my_tickets.php">My Tickets</a></li>
+                    <li><a href="user_active_tickets.php">Active Tickets</a></li>
+                    <li><a href="../pages/user_closed_tickets.php">Closed Tickets</a></li>
+                    <li><a href="user_tickets.php">All Tickets</a></li>
                 </ul>
             </li>
             <li class = "AgentMenu">
@@ -47,21 +47,21 @@
                     <li><a class="sidebarButtonName" href="agent_menu.php">Agent Menu</a></li>
                     <li><a href="#">Assigned Tickets</a></li>
                     <li><a href="#">Active Department Tickets</a></li>
-                    <li><a href="#">All Active Tickets</a></li>
-                    <li><a href="#">Manage FAQ</a></li>
+                    <li><a href="agent_all_active_tickets.php">All Active Tickets</a></li>
+                    <li><a href="../pages/manage_faq.php">Manage FAQ</a></li>
 
                 </ul>
             </li>
             <li class="AdminMenu">
                 <div class="sidebarButton">
-                    <a href="#">
+                    <a href="admin_menu.php">
                         <i class='bx bx-id-card'></i>
                         <span class="sidebarButtonName">Admin Menu</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="subMenu">
-                    <li><a class="sidebarButtonName" href="#">Admin Menu</a></li>
+                    <li><a class="sidebarButtonName" href="admin_menu.php">Admin Menu</a></li>
                     <li><a href="#">Manage Users</a></li>
                     <li><a href="#">Manage Website</a></li>
                 </ul>

@@ -526,3 +526,9 @@ h3{
 #manageFAQ p{
   color: black;
 }
+
+/* Ticket Page */
+
+#changeTicket_inputBox p{
+  color: black;
+}

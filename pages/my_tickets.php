@@ -9,10 +9,9 @@
 <body id = "home_body">
     <?php include_once('../templates/default.php'); ?>
     <ul class="choice-menu">
-        <li><a href="#">Assigned Tickets</a></li>
-        <li><a href="#">Active Department Tickets</a></li>
-        <li><a href="agent_all_active_tickets.php">All Active Tickets</a></li>
-        <li><a href="manage_faq.php">Manage FAQ</a></li>
+        <li><a href="user_active_tickets.php">Active Tickets</a></li>
+        <li><a href="user_closed_tickets.php">Closed Tickets</a></li>
+        <li><a href="user_tickets.php">All Tickets</a></li>
     </ul>
     <script src="../scripts/menu.js"></script>
 </body>

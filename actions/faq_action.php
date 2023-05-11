@@ -6,6 +6,6 @@
         header("Location:../pages/manage_faq.php");
     }
     else if((insertFAQ($_POST["newFAQQuestion"], $_POST["newFAQAnswer"])) !== -1){
-        header("Location:../pages/faq.php");
+        header("Location:../pages/manage_faq.php");
     }
 ?>

@@ -17,7 +17,9 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
-  type VARCHAR(255) CHECK( type IN ('client', 'agent', 'admin')) NOT NULL DEFAULT 'client'
+  type VARCHAR(255) CHECK( type IN ('client', 'agent', 'admin')) NOT NULL DEFAULT 'client',
+  department_id INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
 CREATE TABLE departments (

@@ -36,6 +36,8 @@ function deleteFAQ($id){
     }
 }
 
+
+
 function questionAlreadyExists($question){
     global $dbh;
     try {

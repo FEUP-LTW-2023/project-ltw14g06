@@ -20,6 +20,7 @@
                 echo '<li>';
                 echo "<p id='faqManage'>" . $qa["question"] . '  ->  ' .  $qa["answer"] . '</p>';
                 echo '<button onclick="deleteFAQ(' . $qa["id"] . ')">Delete</button>';
+                //echo '<button onclick="editFAQ(' . $qa["id"] . ')">Edit</button>';
                 echo '</li>';
             }
         ?>
