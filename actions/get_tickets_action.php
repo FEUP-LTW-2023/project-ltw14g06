@@ -11,7 +11,7 @@
         $text = getTicketText($ticket["id"]);
         $department = getDepartmentName($ticket["department_id"]);
 
-        $showTicket = array("id" => $ticket["id"], "user_id" => $ticket["user_id"], "username" => $_SESSION["username"], "subject" => $ticket["subject"], "text" => $text, "department" => $department);
+        $showTicket = array("id" => $ticket["id"], "user_id" => $ticket["user_id"], "username" => $_SESSION["username"], "subject" => $ticket["subject"], "text" => $text, "department" => $department, "priority" => $ticket["priority"]);
         array_push($showTickets, $showTicket);
     }
     header("Content-Type: application/json");
