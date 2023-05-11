@@ -54,17 +54,10 @@
     </form>
 
     <section id="singleTicket" class="activeTickets">
-        <?php/*
-            echo "<p class=subjectTicket>" . "Subject: " . htmlspecialchars($ticket["subject"]) . '</p>';
-            echo "<p class=ticketStatus>" . "Status: " . $ticket["status"] . '</p>';
-            echo "<p class=ticketText>" . "Text: " . htmlspecialchars(getTicketText($ticketId)) . '</p>';
-            echo "<p class=ticketDepartment>" . "Department: " . getDepartmentName($ticket["department_id"]) . '</p>';
-            echo "<p class=ticketPostedBy>" . "Posted by: " . getUserDataByID($ticket["user_id"])["username"] . '</p>';
-            echo "<p class=ticketAssignedTo>" . "Assigned to: " . getUserDataByID($ticket["agent_id"])["username"] . '</p>';
-        */?>
     </section>
 
     <script src="../scripts/ticket_page.js" defer></script>
+    <script>const ticketId = <?php echo $ticketId ?>;</script>
     
 </body>
 <?php

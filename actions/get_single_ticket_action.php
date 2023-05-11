@@ -5,7 +5,7 @@
 
     $ticket = getTicketData($_GET["ticket_id"]);
 
-    $text = getTicketText($ticket["id"]);
+    $text = htmlentities(getTicketText($ticket["id"]));
     $department = getDepartmentName($ticket["department_id"]);
     $postedBy = getUserDataByID($ticket["user_id"])["username"];
     $assigned = getUserDataByID($ticket["agent_id"])["username"];
@@ -13,11 +13,12 @@
     $showTicket = array(
         "id" => $ticket["id"],
         "username" => $postedBy, 
-        "subject" => $ticket["subject"],
+        "subject" => htmlentities($ticket["subject"]),
         "text" => $text, 
         "department" => $department, 
         "priority" => $ticket["priority"],
-        "status" => $ticket["status"]
+        "status" => $ticket["status"],
+        "assigned" => $assigned
     );
     
     header("Content-Type: application/json");

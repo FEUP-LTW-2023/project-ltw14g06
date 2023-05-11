@@ -5,6 +5,7 @@ function changeTicketStatus(ticketId, status) {
   xhr.onload = function() {
     if (this.status == 200) {
       location.href = "ticket_page.php?id=" + ticketId;
+      //getSingleTicket(ticketId);
     }
   };
 
@@ -18,47 +19,44 @@ const getSingleTicket = async (ticketId) => {
   const elem = document.querySelector('#singleTicket');
   elem.innerHTML = "";
   
-  for (let i = 0; i < jsonResponse.length; i++) {
-      const ticket = jsonResponse[i];
+  const ticket = jsonResponse;
       
-      const div = document.createElement("div");
-      div.classList.add(ticket.priority);
-      div.innerHTML = "";
+  const div = document.createElement("div");
+  div.classList.add(ticket.priority);
+  div.innerHTML = "";
 
-      const ticketSubj = document.createElement("p");
-      ticketSubj.textContent = "Subject: " + ticket.subject;
-      ticketSubj.classList.add("subjectTicket");
-      div.appendChild(ticketSubj);
+  const ticketSubj = document.createElement("p");
+  ticketSubj.textContent = "Subject: " + ticket.subject;
+  ticketSubj.classList.add("subjectTicket");
+  div.appendChild(ticketSubj);
 
-      const ticketStatus = document.createElement("p");
-      ticketStatus.textContent = "Status: " + ticket.status
-      ticketStatus.classList.add("ticketStatus");
-      div.appendChild(ticketStatus);
+  const ticketStatus = document.createElement("p");
+  ticketStatus.textContent = "Status: " + ticket.status
+  ticketStatus.classList.add("ticketStatus");
+  div.appendChild(ticketStatus);
 
-      const ticketText = document.createElement("p");
-      ticketText.textContent = "Text: " + ticket.text;
-      ticketText.classList.add("ticketText");
-      div.appendChild(ticketText);
+  const ticketText = document.createElement("p");
+  ticketText.textContent = "Text: " + ticket.text;
+  ticketText.classList.add("ticketText");
+  div.appendChild(ticketText);
 
-      const ticketDepartment = document.createElement("p");
-      ticketDepartment.textContent = "Department: "+ ticket.department;
-      ticketDepartment.classList.add("ticketDepartment");
-      div.appendChild(ticketDepartment);
+  const ticketDepartment = document.createElement("p");
+  ticketDepartment.textContent = "Department: "+ ticket.department;
+  ticketDepartment.classList.add("ticketDepartment");
+  div.appendChild(ticketDepartment);
 
-      const ticketUsername = document.createElement("p");
-      ticketUsername.textContent = "Posted by: " + ticket.username; 
-      ticketUsername.classList.add("ticketPostedBy");
-      div.appendChild(ticketUsername);
+  const ticketUsername = document.createElement("p");
+  ticketUsername.textContent = "Posted by: " + ticket.username; 
+  ticketUsername.classList.add("ticketPostedBy");
+  div.appendChild(ticketUsername);
 
-      const ticketAssigned = document.createElement("p");
-      ticketAssigned.textContent = "Assigned to: " + ticket.assigned;
-      ticketAssigned.classList.add("ticketAssignedTo");
-      div.appendChild(ticketAssigned);
+  const ticketAssigned = document.createElement("p");
+  ticketAssigned.textContent = "Assigned to: " + ticket.assigned;
+  ticketAssigned.classList.add("ticketAssignedTo");
+  div.appendChild(ticketAssigned);
 
-      elem.appendChild(div);
-      
-  }
+  elem.appendChild(div);
+
 };
 
-const ticketId = document.  
 getSingleTicket(ticketId);
