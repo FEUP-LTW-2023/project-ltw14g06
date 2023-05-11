@@ -1,6 +1,6 @@
 IMPORTANT:
 -Fazer o resto das páginas e o seu CSS
--Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)
+-Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)   Nota:partially done falta reescrever o register
 -Websecurity nos tickets
 -Deviam agents poder editar perguntas do faq? Isso abriria uma página diferente?
 -Devia priority ser algo escolhido pelo client? Eu acho que sim, mas é melhor esperar pela vossa opinião
