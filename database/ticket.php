@@ -186,7 +186,33 @@ function updateTicketStatus($id, $status) {
     global $dbh;
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET status=? WHERE id=?');
-        $stmt->execute($status,$id);
+        $stmt->execute(array($status,$id));
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
+function updateTicketAssignment($id, $assigned){
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
+        $stmt->execute(array($assigned,$id));
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
+/*needs to be changed to 0 once that account exists. It's 2 for debug purposes*/
+function removeTicketAssignment($id){
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
+        $agent_id = 2;
+        $stmt->execute(array($agent_id,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

@@ -4,7 +4,7 @@ function changeTicketStatus(ticketId, status) {
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      location.reload();
+      location.href = "ticket_page.php?id=" + ticketId;
     }
   };
 

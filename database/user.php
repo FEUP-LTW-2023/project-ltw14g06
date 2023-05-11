@@ -27,6 +27,7 @@ function usernameIsRegistered($username){
     }catch(PDOException $error) {
       return true;
     }
+    return false;
 }
 
 function emailIsValid($email){

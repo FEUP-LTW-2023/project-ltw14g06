@@ -529,6 +529,11 @@ h3{
 
 /* Ticket Page */
 
-#changeTicket_inputBox p{
+.changeTicket_inputBox p{
   color: black;
+}
+
+.changeTicket_inputBox{
+  position: relative;
+  left:280px;
 }

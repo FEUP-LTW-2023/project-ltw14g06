@@ -5,6 +5,7 @@ IMPORTANT:
 -Deviam agents poder editar perguntas do faq? Isso abriria uma página diferente?
 -Devia priority ser algo escolhido pelo client? Eu acho que sim, mas é melhor esperar pela vossa opinião
 -agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
+-status dinâmico
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo
