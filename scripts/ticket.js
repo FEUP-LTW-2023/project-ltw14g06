@@ -7,26 +7,33 @@ const getWithAsyncAwait = async () => {
     
     for (let i = 0; i < jsonResponse.length; i++) {
         const ticket = jsonResponse[i];
+        
+        const div = document.createElement("div");
+        div.classList.add(ticket.priority);
+        div.innerHTML = "";
 
         const ticketSubj = document.createElement("p");
         ticketSubj.textContent = "Subject: " + ticket.subject + " || Debug: ticket id: " + ticket.id;
         ticketSubj.classList.add("subjectTicket");
-        elem.appendChild(ticketSubj);
+        div.appendChild(ticketSubj);
 
         const ticketText = document.createElement("p");
         ticketText.textContent = "Text: " + ticket.text;
         ticketText.classList.add("ticketText");
-        elem.appendChild(ticketText);
+        div.appendChild(ticketText);
 
         const ticketDepartment = document.createElement("p");
         ticketDepartment.textContent = "Department: "+ ticket.department;
         ticketDepartment.classList.add("ticketDepartment");
-        elem.appendChild(ticketDepartment);
+        div.appendChild(ticketDepartment);
 
         const ticketUsername = document.createElement("p");
         ticketUsername.textContent = "Posted by: " + ticket.username; 
         ticketUsername.classList.add("ticketPostedBy");
-        elem.appendChild(ticketUsername);
+        div.appendChild(ticketUsername);
+
+        elem.appendChild(div);
+        
     }
 };
     

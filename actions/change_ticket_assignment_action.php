@@ -8,8 +8,9 @@ if(isset($_POST['newTicketAgent'])){
         $newAgent = getUserData($_POST['newTicketAgent']);
         updateTicketAssignment($_POST["ticket_id"], $newAgent["id"]);
     }
-} else {
-    removeTicketAssignment($_POST["ticket_id"]);
+    else if ($_POST['newTicketAgent'] === ""){
+        removeTicketAssignment($_POST["ticket_id"]);
+    } 
 }
 header("Location:../pages/ticket_page.php?id=" . $_POST["ticket_id"]);
 ?>

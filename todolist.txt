@@ -6,6 +6,7 @@ IMPORTANT:
 -Devia priority ser algo escolhido pelo client? Eu acho que sim, mas é melhor esperar pela vossa opinião
 -agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
 -status dinâmico
+-adicionar ao change_ticket_assignment_action uma verificação se o user inserido é != client
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo

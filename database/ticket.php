@@ -12,7 +12,6 @@ function testTicketText(){
     }
 }
 
-/* funciona 100% */
 function getTicketID($sender_id){
     global $dbh;
     try{
@@ -211,7 +210,7 @@ function removeTicketAssignment($id){
     global $dbh;
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
-        $agent_id = 2;
+        $agent_id = 1;
         $stmt->execute(array($agent_id,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();

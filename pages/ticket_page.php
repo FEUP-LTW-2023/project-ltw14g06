@@ -13,7 +13,7 @@
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
 
-    <form action="" class="insertNewPost">
+    <form action="" class="insertNewPost" method="post">
         <div class="changeTicket_inputBox">
             <p>Change Department: <select name="ticketDepartment" id="ticketDepartment">
                 <?php
@@ -40,10 +40,10 @@
         </p>
     </div>
 
-    <form action="../actions/change_ticket_assignment_action.php">
-        <div class="changeTicket_inputBox">
-            <p>Change Agent Assigned To:</p>
-        </div>
+    <div class="changeTicket_inputBox">
+        <p>Change Agent Assigned To:</p>
+    </div>
+    <form action='../actions/change_ticket_assignment_action.php' method="post">
         <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
         <div class="changeTicket_inputBox">
             <input type="text" name="newTicketAgent" placeholder ="Insert the name of the agent you want to assign this to or leave empty to remove any assignment"></input>
@@ -54,17 +54,18 @@
     </form>
 
     <section id="singleTicket" class="activeTickets">
-        <?php
+        <?php/*
             echo "<p class=subjectTicket>" . "Subject: " . htmlspecialchars($ticket["subject"]) . '</p>';
             echo "<p class=ticketStatus>" . "Status: " . $ticket["status"] . '</p>';
             echo "<p class=ticketText>" . "Text: " . htmlspecialchars(getTicketText($ticketId)) . '</p>';
             echo "<p class=ticketDepartment>" . "Department: " . getDepartmentName($ticket["department_id"]) . '</p>';
             echo "<p class=ticketPostedBy>" . "Posted by: " . getUserDataByID($ticket["user_id"])["username"] . '</p>';
             echo "<p class=ticketAssignedTo>" . "Assigned to: " . getUserDataByID($ticket["agent_id"])["username"] . '</p>';
-        ?>
+        */?>
     </section>
 
     <script src="../scripts/ticket_page.js" defer></script>
+    
 </body>
 <?php
 
