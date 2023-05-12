@@ -138,6 +138,18 @@ function getAllTickets($order = 'id', $sort = 'desc'){
     }
 }
 
+function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status = 'open' or status = 'assigned') ORDER BY $order $sort");
+        $stmt->execute(array($dep_id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function addTicketMessage($id, $sender_id, $text){
     global $dbh;
     try{

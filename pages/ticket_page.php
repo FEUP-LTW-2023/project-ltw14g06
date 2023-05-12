@@ -5,9 +5,12 @@
     include_once('../templates/head.php');
     include_once('../database/ticket.php');
     include_once('../database/user.php');
+    include_once('../database/faq_functions.php');
+
     $ticketId = $_GET['id'];
     $ticket = getTicketData($ticketId);
     $departments = getAllDepartments();
+    $faq = getFAQ();
 ?>
 
 <body id=home_body>
@@ -62,6 +65,21 @@
         <textarea id="newAnswerText" name="newAnswerText" required></textarea>
         <button type="submit">Post</button>
     </form>
+
+    <section class="faqAnswers">
+        <form method="post" id="insertFaqAnswer" action="../actions/add_ticket_answer_action.php">
+            <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+            <select id="faqSelect" name="newAnswerText">
+                <?php
+                    foreach($faq as $qa){
+                        echo '<option value="' . $qa["answer"] . '">' . $qa["question"] . '</option>';
+                    }
+                ?>
+            </select>
+            <button type="submit">Quick Answer</button>
+        </form>
+    </section>
 
     <section id="ticketAnswers" class ="activeTickets">
     </section>

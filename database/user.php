@@ -104,7 +104,7 @@ function getUserID($username){
 function getUserDataByID($id){
     global $dbh;
         try{
-            $stmt = $dbh->prepare('SELECT id,username,name,email,type FROM users WHERE id = ?');
+            $stmt = $dbh->prepare('SELECT id,username,name,email,type,department_id FROM users WHERE id = ?');
             $stmt->execute(array($id));
             return $stmt->fetch();
         } catch(PDOException $error) {

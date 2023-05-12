@@ -12,16 +12,16 @@
 - Clients
 - [x] Submit a new ticket optionally choosing a department (e.g., "Accounting").
 - [x] List and track tickets they have submitted.
-- [ ] Reply to inquiries (e.g., the agent asks for more details) about their tickets and add more information to already submitted tickets.
+- [x] Reply to inquiries (e.g., the agent asks for more details) about their tickets and add more information to already submitted tickets.
 
 - Agents
-- [ ] List tickets from their departments (e.g., "Accounting"), and filter them in different ways (e.g., by date, by assigned agent, by status, by priority, by hashtag).
+- [x] List tickets from their departments (e.g., "Accounting"), and filter them in different ways (e.g., by date, by assigned agent, by status, by priority, by hashtag).
 - [ ] Change the department of a ticket (e.g., the client chose the wrong department).
 - [x] Assign a ticket to themselves or someone else.
 - [x] Change the status of a ticket. Tickets can have many statuses (e.g., open, assigned, closed); some may change automatically (e.g., ticket changes to "assigned" after being assigned to an agent).
 - [ ] Edit ticket hashtags easily (just type hashtag to add (with autocomplete), and click to remove).
 - [ ] List all changes done to a ticket (e.g., status changes, assignments, edits).
-- [ ] Manage the FAQ and use an answer from the FAQ to answer a ticket.
+- [x] Manage the FAQ and use an answer from the FAQ to answer a ticket.
 
 - Admins
 - [ ] Upgrade a client to an agent or an admin.

@@ -9,7 +9,7 @@
 <body id = "home_body">
     <?php include_once('../templates/default.php'); ?>
     <ul class="choice-menu">
-        <li><a href="#">Promote User</a></li>
+        <li><a href="manage_users.php">Manage Users</a></li>
         <li><a href="#">Add Entities</a></li>
         <li><a href="#">Manage Agents</a></li>
     </ul>

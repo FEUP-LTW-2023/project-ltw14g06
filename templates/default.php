@@ -46,7 +46,7 @@
                 <ul class="subMenu">
                     <li><a class="sidebarButtonName" href="agent_menu.php">Agent Menu</a></li>
                     <li><a href="#">Assigned Tickets</a></li>
-                    <li><a href="#">Active Department Tickets</a></li>
+                    <li><a href="department_tickets.php">Active Department Tickets</a></li>
                     <li><a href="agent_all_active_tickets.php">All Active Tickets</a></li>
                     <li><a href="../pages/manage_faq.php">Manage FAQ</a></li>
 
@@ -62,7 +62,7 @@
                 </div>
                 <ul class="subMenu">
                     <li><a class="sidebarButtonName" href="admin_menu.php">Admin Menu</a></li>
-                    <li><a href="#">Promote Users</a></li>
+                    <li><a href="manage_users.php">Manage Users</a></li>
                     <li><a href="#">Add Entities</a></li>
                     <li><a href="#">Manage Agents</a></li>
                 </ul>

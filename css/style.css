@@ -531,3 +531,9 @@ h3{
   position: relative;
   left:280px;
 }
+
+#insertAnswer,
+#insertFaqAnswer{
+  position: relative;
+  left: 280px;
+}
