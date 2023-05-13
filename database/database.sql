@@ -23,7 +23,7 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   type VARCHAR(255) CHECK( type IN ('Client', 'Agent', 'Admin')) NOT NULL DEFAULT 'Client',
-  department_id INTEGER NOT NULL DEFAULT 1,
+  department_id INTEGER NOT NULL DEFAULT 0,
   FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
