@@ -93,7 +93,7 @@ function getAllDepartments(){
 function getClientActiveTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'open' or status = 'assigned') order by id desc");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'Open' or status = 'Assigned') order by id desc");
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -105,7 +105,7 @@ function getClientActiveTickets($id){
 function getClientClosedTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'closed') order by id desc");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'Closed') order by id desc");
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -129,7 +129,7 @@ function getClientTickets($id){
 function getAllTickets($order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE (status = 'open' or status = 'assigned') ORDER BY $order $sort");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE (status = 'Open' or status = 'Assigned') ORDER BY $order $sort");
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -141,7 +141,7 @@ function getAllTickets($order = 'id', $sort = 'desc'){
 function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status = 'open' or status = 'assigned') ORDER BY $order $sort");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status = 'Open' or status = 'Assigned') ORDER BY $order $sort");
         $stmt->execute(array($dep_id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {

@@ -66,5 +66,5 @@ addNewTicket.addEventListener('submit', function(event) {
   const text = document.querySelector("#newPostText").value;
   const department = document.querySelector("#ticketDepartment").value;
 
-  postTicket(user_id, subject, text, department, 'low');
+  postTicket(user_id, subject, text, department, 'Low');
 });

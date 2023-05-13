@@ -9,7 +9,7 @@
 ?>
 <body id=faq_body>
     <?php include_once ('../templates/default.php');?>
-   <h1>Frequently asked questions</h1>
+    <h1>Frequently asked questions</h1>
     <ul class=question_list>
         <?php
             foreach($faq as $qa){

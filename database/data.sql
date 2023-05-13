@@ -3,7 +3,7 @@ INSERT INTO users (username, name, password, email, type) VALUES ('summitatem', 
 INSERT INTO users (username, name, password, email, type) VALUES ('tonevanda', 'João Lourenço', '$2a$12$ZUfqC.GaSvQN9otZ2P5NzOPNxQdidcpYCGzrquQzeapToj747kDbK', 'tonevanda@gmail.com','Admin');
 INSERT INTO users (id,username, name, password, email, type) VALUES (0,'','Awaiting agent assignment', ' ', '', 'Agent');
 
-
+INSERT INTO departments (id,name) VALUES (0,'--');
 INSERT INTO departments (name) VALUES ('Accounting');
 INSERT INTO departments (name) VALUES ('General Inquiries');
 INSERT INTO departments (name) VALUES ('Feedback and Suggestions');
