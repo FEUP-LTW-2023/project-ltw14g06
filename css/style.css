@@ -4,6 +4,10 @@
   font-family: 'Open Sans', 'Anuphan', Arial, sans-serif;
 }
 
+body{
+  background: url(../assets/default-background.jpg) no-repeat center center fixed;
+}
+
 /* Login /  Register */
 
 #login_body{
@@ -393,46 +397,94 @@ h3{
 
 /* Profile */
 
-.profile_main .profileInfo h2,
-.profile_main .changeInfo h2{
-  padding-top: 15px;
-  position: relative; 
-  justify-content: left;
-  align-items: baseline;
-  height: 45px;
+.profile_info_sec{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  border: 5px solid #262347;
+  border-radius: 4em;
+  text-align: center;
+  justify-content: center;
+  max-height: fit-content;
+  width: 30%;
+  margin: auto;
+  padding: 3em;
+  padding-top: 4em;
+  backdrop-filter: blur(5px);
 }
 
-.profileInfo,
-.changeInfo{
+.profile_info_div p{
+  color: aliceblue;
+  margin: 0.2em;
+}
+
+.profile_info_sec h2{
+  margin-top: 0;
+  font-size: 2.2em;
+  color: aliceblue;
+}
+
+.profile_info_div{
+  margin-bottom: 2em;
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 0.3em;
+  width: 100%;
+}
+
+.profile_info_title{
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+/* Change Profile Info */
+
+#change_profile_info{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+#change_info_form{
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 60vh;
+  flex-direction: column;
 }
 
-.profileInfo p{
-  color: black;
+#change_info_form header{
+  padding: 1em;
+}
+
+.inputbox input{
+  width: 100%;
+  height: 3em;
+  background: transparent;
+  border: 0;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 
-.profile_main{
-  text-align: center;
+#change_button{
+  justify-content: center;
+  width: 100%;
+  min-height: 3em;
+  border-radius: 3em;
+  background-color: rgba(38, 35, 71, 0.8);
+  color: aliceblue;
+  font-size: large;
+  font-weight: bold;
+  border: 0;
+  margin-top: 2em;
+  padding: 1em;
 }
 
-.profile_main button{
-  background-color: #000000;
-  border: 2px solid #1d1b31; 
-  margin: 4px;
-  border-radius: 7px;
-  width: 70px;
-  height: 30px;
-  font-size: medium;
-}
-
-.changeInfo div{
-  margin: 5px;
-}
-
-.profile_main .profileInfo h2{
-  margin-top: -30px;
+#change_button:hover{
+  background-color: rgba(38, 35, 71, 1);
+  box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
+  cursor: pointer;
 }
 
 /* Home */

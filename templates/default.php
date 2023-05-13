@@ -81,17 +81,9 @@
                     <i class='bx bxs-user'></i>
                     <span class="sidebarButtonName">Profile</span>
                 </a>
-                <ul class="subMenu none">
+                <ul class="subMenu">
                     <li><a class="sidebarButtonName" href="profile.php">Profile</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="settings.php">
-                    <i class='bx bx-cog' ></i>
-                    <span class="sidebarButtonName">Settings</span>
-                </a>
-                <ul class="subMenu none">
-                    <li><a class="sidebarButtonName" href="settings.php">Settings</a></li>
+                    <li><a href="change_profile_info.php">Change Profile Info</a></li>
                 </ul>
             </li>
             <li>

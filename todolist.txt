@@ -7,6 +7,12 @@ IMPORTANT:
 -agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
 -status dinâmico
 -adicionar ao change_ticket_assignment_action uma verificação se o user inserido é != client
+-Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
+(para ser feito quando remodelarmos o sistema de login para JS)
+-Dividir o CSS em ficheiros diferentes, está muito clustered 
+-Adaptar o CSS das cenas do perfil para telemovel
+-IDEIA: Adicionar departamento "--" para quando o user não souber qual meter e fazer com que os agents/admins vejam esses tickets
+na sua página, junto com os tickets do seu departamento e depois mudem o seu departamento (isto é facil mas ja é tarde e tenho que ir dormir amanhã faço ta aqui para nao me esquecer)
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo

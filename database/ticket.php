@@ -220,7 +220,7 @@ function removeTicketAssignment($id){
     global $dbh;
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
-        $agent_id = 1;
+        $agent_id = 0;
         $stmt->execute(array($agent_id,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
