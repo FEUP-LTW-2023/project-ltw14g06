@@ -16,15 +16,19 @@
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
 
-    <form action="" class="insertNewPost" method="post">
+    <form action="../actions/change_ticket_department_action.php" class="insertNewPost" method="post">
+        <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
         <div class="changeTicket_inputBox">
-            <p>Change Department: <select name="ticketDepartment" id="ticketDepartment">
-                <?php
-                    foreach ($departments as $department) {
-                        echo '<option value="' . $department["name"] . '">' . $department["name"] . '</option>';
-                    }
-                ?>
-            </select></p>
+            <p>Change Department: 
+                <select name="ticketDepartment" id="ticketDepartment">
+                    <?php
+                        foreach ($departments as $department) {
+                            if($department["id"] === $ticket["department_id"]) continue;
+                            echo '<option value="' . $department["id"] . '">' . $department["name"] . '</option>';
+                        }
+                    ?>
+                </select>   
+            </p>
         </div>
         <button type="submit">Submit Change Department</button>
     </form>

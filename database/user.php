@@ -172,4 +172,15 @@ function changeUserType($user_id, $type){
     }
 }
 
+function changeUserDepartment($user_id, $department_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('UPDATE users SET department_id = ? where id = ?');
+        $stmt->execute(array($department_id,$user_id));
+    } catch(PDOException $error) {
+        echo $error->getMessage();
+        return null;
+    }
+}
+
 ?>

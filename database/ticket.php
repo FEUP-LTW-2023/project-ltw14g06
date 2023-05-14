@@ -81,7 +81,7 @@ function getDepartmentName($id){
 function getAllDepartments(){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT name FROM departments");
+        $stmt = $dbh->prepare("SELECT * FROM departments");
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -208,6 +208,18 @@ function updateTicketAssignment($id, $assigned){
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
         $stmt->execute(array($assigned,$id));
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
+function updateTicketDepartment($id, $department){
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('UPDATE tickets SET department_id=?, agent_id = 0 WHERE id=?');
+        $stmt->execute(array($department,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

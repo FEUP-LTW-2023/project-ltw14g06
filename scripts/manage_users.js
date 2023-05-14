@@ -9,7 +9,47 @@ function changeUserType(username, user_id, type) {
     };
   
     xhr.send("user_id=" + user_id + "&type=" + encodeURIComponent(type));
+}
 
+function changeUserDepartment(username, user_id, department_id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../actions/change_user_department_action.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onload = function() {
+      if (this.status == 200) {
+        getUserInfo(username);
+      }
+    };
+  
+    xhr.send("user_id=" + user_id + "&department_id=" + department_id);
+}
+
+const getDepartmentsSelectMenu = async (username, user_id, user_department) => {
+    const response = await fetch("../actions/get_departments_action.php");
+    const jsonResponse = await response.json();
+
+    const elem = document.querySelector('.change_agent_department');
+    elem.innerHTML = "";
+
+    elem.onchange = function() {
+        const department_id = this.value;
+        changeUserDepartment(username, user_id, department_id);
+    };
+
+    for (let i = 0; i < jsonResponse.length; i++) {
+        const department = jsonResponse[i];
+        
+        const opt = document.createElement('option');
+        opt.value = department.id;
+        opt.textContent = department.name;
+
+        if(opt.textContent === user_department){
+            opt.selected = true;
+        }
+
+        elem.appendChild(opt);
+    }
+    
 }
 
 const getChangeTypeButtons = async (username_, type, id) => {
@@ -50,7 +90,6 @@ const getChangeTypeButtons = async (username_, type, id) => {
     }
     
     elem.appendChild(p);
-
 }
 
 const getUserInfo = async (username_) => {
@@ -115,23 +154,31 @@ const getUserInfo = async (username_) => {
 
     if(user.type !== 'Client'){
         const div5 = document.createElement("div");
-        div5.classList.add("profile_info_div");
+        div5.classList.add("homeInput");
+
         const title5 = document.createElement("p");
         title5.classList.add("profile_info_title");
         title5.textContent = "Department: ";
+        
         div5.appendChild(title5);
-        const userDepartment = document.createElement("p");
+        const userDepartment = document.createElement("select");
+        userDepartment.classList.add("change_agent_department");
         userDepartment.textContent = user.department;
         div5.appendChild(userDepartment);
         elem.appendChild(div5);
     }
     
-  const div6 = document.createElement("div");
-  div6.classList.add("PromoteAndDemote");
-  elem.appendChild(div6);
+  const typeDiv = document.createElement("div");
+  typeDiv.classList.add("PromoteAndDemote");
+  elem.appendChild(typeDiv);
+
+  const depDiv = document.createElement("div");
+  depDiv.classList.add("changeAgentDepartment");
+  elem.appendChild(depDiv);
 
 
   getChangeTypeButtons(user.username, user.type, user.id);
+  getDepartmentsSelectMenu(user.username, user.id, user.department);
   
 };
   

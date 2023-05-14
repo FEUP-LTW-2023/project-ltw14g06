@@ -30,9 +30,7 @@
 
     <?php if($showProfile){ ?>
         <section class="profile_info_sec">
-            </section>
-        <div id="PromoteAndDemote">
-        </div>
+        </section>
     <?php } ?>
     
     <script src="../scripts/manage_users.js" defer></script>
@@ -40,6 +38,7 @@
     if(isset($_POST["username"])){ 
         if(usernameIsRegistered($_POST["username"])){ ?>
             <script>const username_ = <?php echo json_encode($_POST["username"]); ?>;</script>
+            <script>const user_id_ = <?php echo json_encode($user["id"]); ?>;</script>
         <?php }
     } ?>
 
