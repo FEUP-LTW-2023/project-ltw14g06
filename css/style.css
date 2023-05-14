@@ -589,6 +589,7 @@ h3{
   font-size: 3em;
   letter-spacing: -2px;
   text-align: center;
+  -webkit-text-stroke: 1px #1d1b31;
 }
 
 .question_list {
@@ -600,6 +601,7 @@ h3{
   font-family: "Trebuchet MS", sans-serif;
   font-size: 2em;
   letter-spacing: -1px;
+  -webkit-text-stroke: 1px #1d1b31;
 }
 
 

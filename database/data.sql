@@ -22,7 +22,18 @@ INSERT INTO FAQ (question, answer) VALUES ('Test question', 'Test answer');
 
 INSERT INTO ticket_history (id, ticket_id, agent_id, status, priority, created_at) VALUES (1,1,1,'Open', 'Medium','2023-04-26 09:00:00');
 
-INSERT INTO hashtags (name) VALUES ('Test');
+INSERT INTO hashtags (name) VALUES ('#support');
+INSERT INTO hashtags (name) VALUES ('#helpdesk');
+INSERT INTO hashtags (name) VALUES ('#customerservice');
+INSERT INTO hashtags (name) VALUES ('#techsupport');
+INSERT INTO hashtags (name) VALUES ('#incidentmanagement');
+INSERT INTO hashtags (name) VALUES ('#problemresolution');
+INSERT INTO hashtags (name) VALUES ('#troubleshooting');
+INSERT INTO hashtags (name) VALUES ('#tickettracking');
+INSERT INTO hashtags (name) VALUES ('#escalationmanagement');
+INSERT INTO hashtags (name) VALUES ('#servicelevelagreements');
+INSERT INTO hashtags (name) VALUES ('#userfeedback');
+INSERT INTO hashtags (name) VALUES ('#teamcollaboration');
 
 INSERT INTO ticket_hashtags (ticket_id, hashtag_id) VALUES (1,1);
 

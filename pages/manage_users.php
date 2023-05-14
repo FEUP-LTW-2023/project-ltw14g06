@@ -23,7 +23,7 @@
     <div class="searchUser">
         <form method="post" class = "searchUserForm">
             <div class="inputbox" id="search_user">
-                <input type="input" name="username" placeholder ="Search User"></input>
+                <input type="input" name="username" placeholder ="Search User" required></input>
             </div>
         </form>
     </div>
