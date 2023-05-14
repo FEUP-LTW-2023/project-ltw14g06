@@ -3,14 +3,15 @@ IMPORTANT:
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)   Nota:partially done falta reescrever o register
 -Websecurity nos tickets
 -Deviam agents poder editar perguntas do faq? Isso abriria uma página diferente?
--Devia priority ser algo escolhido pelo client? Eu acho que sim, mas é melhor esperar pela vossa opinião
 -agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
--status dinâmico
+-status dinâmico (criar status na db)
 -adicionar ao change_ticket_assignment_action uma verificação se o user inserido é != client
 -Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
 (para ser feito quando remodelarmos o sistema de login para JS)
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
 -Adaptar o CSS das cenas do perfil para telemovel
+-Mudar priority dos tickets
+-Refactor das funções de department para o department.php
 
 
 UNNECCESSSARY BUT COOL:
@@ -18,3 +19,4 @@ UNNECCESSSARY BUT COOL:
 -Em vez de estar no ManageFAQ, adicionar os butões do Delete e Editar ao FAQ mesmo e ser apenas visível para agents+
 -Butão para adicionar pergunta ao FAQ nos tickets.
 -Admins não deveriam poder trocar o seu type (acho eu).
+-Apos um ticket ser publicado devia dar redirect para ele mesmo.

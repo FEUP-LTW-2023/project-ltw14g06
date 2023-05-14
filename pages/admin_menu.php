@@ -10,7 +10,7 @@
     <?php include_once('../templates/default.php'); ?>
     <ul class="choice-menu">
         <li><a href="manage_users.php">Promote/Demote Users</a></li>
-        <li><a href="#">Add Entities</a></li>
+        <li><a href="add_entities.php">Add Entities</a></li>
         <li><a href="#">Manage Agents</a></li>
     </ul>
     <script src="../scripts/menu.js"></script>

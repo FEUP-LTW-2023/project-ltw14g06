@@ -165,17 +165,15 @@ function addTicketMessage($id, $sender_id, $text){
     return true;
 }
 
-//falta fazer a cena da priority (?)
 function addTicket($id, $subject, $text, $dep_id){
     global $dbh;
     try{
         $stmt = $dbh->prepare('INSERT INTO tickets (user_id, agent_id, department_id, subject) values (:user_id,:agent_id,:department_id,:subject)');
-        $agent_id = 1;
+        $agent_id = 0;
         $stmt->bindParam(':user_id', $id);
         $stmt->bindParam(':agent_id', $agent_id);
         $stmt->bindParam(':department_id', $dep_id);
         $stmt->bindParam(':subject', $subject);
-        //$stmt->bindParam(':priority', 'low');
         $stmt->execute();
         
         if ($stmt->rowCount() == 1) {

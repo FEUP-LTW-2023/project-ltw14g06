@@ -36,8 +36,6 @@ const getWithAsyncAwait = async () => {
         
     }
 };
-    
-getWithAsyncAwait();
   
 const encodeTicketForAjax = (data) => {
     return Object.keys(data).map(function(k){
@@ -53,7 +51,13 @@ const postTicket = async (user_id, subject, text, department, priority) => {
         body: dataToSend
     });
 
-    getWithAsyncAwait();
+    if (response.ok) {
+        document.querySelector("#newTicket input[name = 'ticketSubject']").value = '';
+        document.querySelector("#newPostText").value = '';
+        document.querySelector("#ticketDepartment").value = '';
+    }
+
+    
 }
 
 const addNewTicket = document.querySelector('#newTicket');

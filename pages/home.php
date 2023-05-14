@@ -35,15 +35,8 @@
             <button type="submit">Post</button>
         </form>
     </section>
-    <!--
-    <h2>Your Active Tickets:</h2><br>
     
-
-    <section class="activeTickets">
-    </section>
-    -->
-    
-    <!--<script src="../scripts/ticket.js" defer></script>-->
+    <script src="../scripts/ticket.js" defer></script>
 </body>
 <?php
 
