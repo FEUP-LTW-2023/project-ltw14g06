@@ -14,7 +14,7 @@ function changeUserType(username, user_id, type) {
 
 const getChangeTypeButtons = async (username_, type, id) => {
 
-    const elem = document.querySelector('#PromoteAndDemote');
+    const elem = document.querySelector('.PromoteAndDemote');
     elem.innerHTML = "";
 
     const p = document.createElement("p");
@@ -126,10 +126,14 @@ const getUserInfo = async (username_) => {
         elem.appendChild(div5);
     }
     
+  const div6 = document.createElement("div");
+  div6.classList.add("PromoteAndDemote");
+  elem.appendChild(div6);
 
-    getChangeTypeButtons(user.username, user.type, user.id);
+
+  getChangeTypeButtons(user.username, user.type, user.id);
   
 };
   
-  getUserInfo(username_);
+getUserInfo(username_);
 

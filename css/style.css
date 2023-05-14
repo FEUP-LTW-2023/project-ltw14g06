@@ -401,7 +401,7 @@ h3{
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 60vh;
+  height: 35em;
   border: 5px solid #262347;
   border-radius: 4em;
   text-align: center;
@@ -663,4 +663,15 @@ h3{
 #insertFaqAnswer{
   position: relative;
   left: 280px;
+}
+
+/* Manage Users */
+
+.searchUser{
+  display: flex;
+  justify-content: right;
+}
+
+.searchUser div{
+  border-width: 1px;
 }

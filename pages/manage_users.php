@@ -21,20 +21,16 @@
     <?php include_once ('../templates/default.php');?>
 
     <div class="searchUser">
-        <p>Choose an User:</p>
+        <form method="post" class = "searchUserForm">
+            <div class="inputbox" id="search_user">
+                <input type="input" name="username" placeholder ="Search User"></input>
+            </div>
+        </form>
     </div>
-    <form method="post" class = "searchUserForm">
-        <div class="manageUsers_inputBox">
-            <input type="input" name="username" placeholder ="Insert an username"></input>
-        </div>
-        <div class="manageUsers_inputBox">
-            <button type="submit">Searchaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</button>
-        </div>
-    </form>
 
     <?php if($showProfile){ ?>
         <section class="profile_info_sec">
-        </section>
+            </section>
         <div id="PromoteAndDemote">
         </div>
     <?php } ?>
