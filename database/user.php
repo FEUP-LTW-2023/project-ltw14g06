@@ -116,7 +116,7 @@ function getUserDataByID($id){
   function getUserData($username){
         global $dbh;
         try{
-            $stmt = $dbh->prepare('SELECT id,username,name,email,type FROM users WHERE username = ?');
+            $stmt = $dbh->prepare('SELECT id,username,name,email,type,department_id FROM users WHERE username = ?');
             $stmt->execute(array($username));
             return $stmt->fetch();
         } catch(PDOException $error) {
@@ -159,6 +159,17 @@ function changeUserData($username, $newUsername, $name, $password, $email){
         return -1;
     }
     return true;
+}
+
+function changeUserType($user_id, $type){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('UPDATE users SET type = ? where id = ?');
+        $stmt->execute(array($type,$user_id));
+    } catch(PDOException $error) {
+        echo $error->getMessage();
+        return null;
+    }
 }
 
 ?>

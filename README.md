@@ -24,7 +24,7 @@
 - [x] Manage the FAQ and use an answer from the FAQ to answer a ticket.
 
 - Admins
-- [ ] Upgrade a client to an agent or an admin.
+- [x] Upgrade a client to an agent or an admin.
 - [ ] Add new departments, statuses, and other relevant entities.
 - [ ] Assign agents to departments.
 - [ ] Control the whole system.

@@ -8,10 +8,13 @@
 
     $admin = getUserDataByID($_SESSION["id"]);
     $showProfile = false;
-    if(usernameIsRegistered($_POST["username"])){
-        $user = getUserData($_POST["username"]);
-        $showProfile = true;
+    if(isset($_POST["username"])){
+        if(usernameIsRegistered($_POST["username"])){
+            $user = getUserData($_POST["username"]);
+            $showProfile = true;
+        }
     }
+    
 ?>
 
 <body id=home_body>
@@ -31,28 +34,19 @@
 
     <?php if($showProfile){ ?>
         <section class="profile_info_sec">
-            <header>
-                <h2><?php echo $user["username"];?>'s profile information</h2>
-            </header>
-            <div class="profile_info_div">
-                <p class="profile_info_title">Username:</p>
-                <p><?php echo htmlspecialchars($user["username"]); ?></p>
-            </div>
-            <div class="profile_info_div">
-                <p class="profile_info_title">Name:</p>
-                <p><?php echo htmlspecialchars($user["name"]); ?></p>
-            </div>
-            <div class="profile_info_div">
-                <p class="profile_info_title">Email:</p>
-                <p><?php echo htmlspecialchars($user["email"]); ?></p>
-            </div>
-            <div class="profile_info_div">
-                <p class="profile_info_title">Account Type:</p>
-                <p> <?php echo htmlspecialchars($user["type"]); ?></p>
-            </div>
         </section>
+        <div id="PromoteAndDemote">
+        </div>
     <?php } ?>
     
+    <script src="../scripts/manage_users.js" defer></script>
+    <?php
+    if(isset($_POST["username"])){ 
+        if(usernameIsRegistered($_POST["username"])){ ?>
+            <script>const username_ = <?php echo json_encode($_POST["username"]); ?>;</script>
+        <?php }
+    } ?>
+
     
 </body>
 <?php
