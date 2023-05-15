@@ -592,9 +592,23 @@ h3{
   -webkit-text-stroke: 1px #1d1b31;
 }
 
+#faq_sec{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .question_list {
   margin-left: 300px;
   margin-right: 300px;
+}
+
+.questionAnswer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .question_list h2 {
@@ -647,7 +661,107 @@ h3{
 }
 
 #manageFAQ p{
+  color: aliceblue;
+}
+
+#manage_faq_box{
+  margin: auto;
+  border: 5px solid #1d1b31;
+  width: fit-content;
+  padding: 3em;
+  border-radius: 4em;
+}
+
+#faqForm{
+  height: 26em;
+  margin-bottom: 7em;
+  margin-top: 2em;
+}
+
+#faqForm h2{
+  font-size: 4em;
+  font-weight: 500;
+  color: aliceblue;
+  -webkit-text-stroke: 1px #1d1b31;
+}
+
+.textareaFAQdiv{
+  width: 100%;
+  margin-bottom: 2em;
+  border-bottom: 1px solid aliceblue;
+}
+
+.textareaFAQ{
+  height: 10em;
+  width: 30em;
+  resize: none;
+  background: transparent;
+  border: none;
+}
+
+.textareaFAQ::placeholder{
   color: black;
+}
+
+.textareaFAQ:focus{
+  outline: none; 
+}
+
+#submitNewFAQ{
+  margin-left: auto;
+  margin-right: auto;
+  width: 18em;
+  min-height: 3em;
+  border-radius: 3em;
+  background-color: rgba(38, 35, 71, 0.8);
+  color: aliceblue;
+  font-size: large;
+  font-weight: bold;
+  border: 0;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+#submitNewFAQ:hover{
+  background-color: rgba(38, 35, 71, 1);
+  box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
+  cursor: pointer;
+}
+
+.listFAQ{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.FAQitem{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+}
+
+#deleteFAQ{
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  height: 3em;
+  border-radius: 3em;
+  background-color: rgba(38, 35, 71, 0.8);
+  color: aliceblue;
+  font-size: large;
+  font-weight: bold;
+  border: 0;
+  padding: 1em;
+  display: inline-block;
+}
+
+#deleteFAQ:hover{
+  background-color: rgba(38, 35, 71, 1);
+  box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
+  cursor: pointer;
 }
 
 /* Ticket Page */
@@ -676,4 +790,25 @@ h3{
 
 .searchUser div{
   border-width: 1px;
+}
+
+/* Add Entities */
+
+#add_entities_sec{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.manage_entities{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+}
+
+.manage_entities *{
+  width: 100%;
 }

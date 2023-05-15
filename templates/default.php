@@ -64,7 +64,6 @@
                     <li><a class="sidebarButtonName" href="admin_menu.php">Admin Menu</a></li>
                     <li><a href="manage_users.php">Manage Users</a></li>
                     <li><a href="add_entities.php">Add Entities</a></li>
-                    <li><a href="#">Manage Agents</a></li>
                 </ul>
             </li>
             <li>
