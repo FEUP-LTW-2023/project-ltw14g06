@@ -35,5 +35,5 @@ INSERT INTO hashtags (name) VALUES ('#servicelevelagreements');
 INSERT INTO hashtags (name) VALUES ('#userfeedback');
 INSERT INTO hashtags (name) VALUES ('#teamcollaboration');
 
-INSERT INTO ticket_hashtags (ticket_id, hashtag_id) VALUES (1,1);
+INSERT INTO ticket_hashtags (ticket_id, hashtag_id) VALUES (1,3);
 
