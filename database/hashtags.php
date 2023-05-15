@@ -4,6 +4,44 @@ function hasHashtag($name){
   return ($name[0] === '#');
 }
 
+function hashtagAlreadyExists($name){
+  global $dbh;
+  try {
+    $stmt = $dbh->prepare('SELECT name FROM hashtags WHERE name = ?');
+    $stmt->execute(array($name));
+    if($stmt->fetch() !== false) return true;    
+  }catch(PDOException $error) {
+    return true;
+  }
+  return false;
+}
+
+function getHashtagID($name){
+  global $dbh;
+  try {
+    $stmt = $dbh->prepare('SELECT id FROM hashtags WHERE name = ?');
+    $stmt->execute(array($name));
+    $result = $stmt->fetch();
+    return $result["id"]; 
+   }catch(PDOException $error) {
+    return false;
+  }
+  return true;
+}
+
+function getHashtagName($id){
+  global $dbh;
+    try {
+      $stmt = $dbh->prepare('SELECT name FROM hashtags WHERE id = ?');
+      $stmt->execute(array($id));
+      $result = $stmt->fetch()["name"];
+      return $result; 
+    }catch(PDOException $error) {
+      return true;
+    }
+    return false;
+}
+
 function getAllHashtags(){
     global $dbh;
     try {
@@ -13,18 +51,6 @@ function getAllHashtags(){
     }catch(PDOException $error) {
       return true;
     }
-}
-
-function hashtagAlreadyExists($name){
-    global $dbh;
-    try {
-      $stmt = $dbh->prepare('SELECT name FROM hashtags WHERE name = ?');
-      $stmt->execute(array($name));
-      if($stmt->fetch() !== false) return true;    
-    }catch(PDOException $error) {
-      return true;
-    }
-    return false;
 }
 
 function addNewHashtag($name){
@@ -37,6 +63,18 @@ function addNewHashtag($name){
         return -1;
     }
     return true;
+}
+
+function deleteFromTicketHashtag($hashtag_id){
+  global $dbh;
+  try{
+      $stmt = $dbh->prepare('DELETE FROM ticket_hashtags WHERE hashtag_id = ?');
+      $stmt->execute(array($hashtag_id));
+  } catch (PDOException $error) {
+      echo $error->getMessage();
+      return -1;
+  }
+  return true;
 }
 
 function deleteHashtag($id){

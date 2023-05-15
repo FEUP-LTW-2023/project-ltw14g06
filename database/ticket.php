@@ -24,6 +24,18 @@ function getTicketData($id){
     }
 }
 
+function getTicketHashtags($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM ticket_hashtags WHERE ticket_id = ?");
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function getTicketText($id){
     global $dbh;
     try{
@@ -189,6 +201,20 @@ function addTicket($id, $subject, $text, $dep_id){
     return true;
 }
 
+function addTicketHashtag($ticket_id,$hashtag_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('INSERT INTO ticket_hashtags (ticket_id, hashtag_id) values (:ticket_id,hashtag_id)');
+        $stmt->bindParam(':ticket_id', $ticket_id);
+        $stmt->bindParam(':hashtag_id', $hashtag_id);
+        $stmt->execute();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
 function updateTicketStatus($id, $status) {
     global $dbh;
     try {
@@ -225,13 +251,24 @@ function updateTicketDepartment($id, $department){
     return true;
 }
 
-/*needs to be changed to 0 once that account exists. It's 2 for debug purposes*/
 function removeTicketAssignment($id){
     global $dbh;
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET agent_id=? WHERE id=?');
         $agent_id = 0;
         $stmt->execute(array($agent_id,$id));
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
+function deleteTicketHashtag($ticket_id, $hashtag_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare('DELETE FROM ticket_hashtags WHERE ticket_id = ? AND hashtag_id = ?');
+        $stmt->execute(array($ticket_id, $hashtag_id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

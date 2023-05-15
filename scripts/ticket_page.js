@@ -12,6 +12,20 @@ function changeTicketStatus(ticketId, status) {
   xhr.send("ticket_id=" + ticketId + "&status=" + status);
 }
 
+function deleteHashtag(ticketId, hashtag){
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../actions/delete_ticket_hashtag_action.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+    if (this.status == 200) {
+      location.href = "ticket_page.php?id=" + ticketId;
+      //getSingleTicket(ticketId);
+    }
+  };
+
+  xhr.send("ticket_id=" + ticketId + "&hashtag=" + hashtag);
+}
+
 const getSingleTicket = async (ticketId) => {
   const response = await fetch("../actions/get_single_ticket_action.php?ticket_id="+ticketId);
   const jsonResponse = await response.json();
@@ -30,10 +44,26 @@ const getSingleTicket = async (ticketId) => {
   ticketSubj.classList.add("subjectTicket");
   div.appendChild(ticketSubj);
 
+  const ticketPriority = document.createElement("p");
+  ticketPriority.textContent = "Priority: " + ticket.priority;
+  ticketPriority.classList.add("ticketPriority");
+  div.appendChild(ticketPriority);
+
   const ticketStatus = document.createElement("p");
-  ticketStatus.textContent = "Status: " + ticket.status
+  ticketStatus.textContent = "Status: " + ticket.status;
   ticketStatus.classList.add("ticketStatus");
   div.appendChild(ticketStatus);
+
+  const ticketHashtags = document.createElement("div");
+  ticketHashtags.classList.add("ticketHashtags");
+  (ticket.hashtags).forEach(hashtag => {
+    const ticketHashtag = document.createElement("span");
+    ticketHashtag.onclick = function() {deleteHashtag(ticketId, hashtag);};
+    ticketHashtag.textContent = hashtag + "  ";
+    ticketHashtags.appendChild(ticketHashtag);
+  });
+  div.appendChild(ticketHashtags);
+
 
   const ticketText = document.createElement("p");
   ticketText.textContent = "Text: " + ticket.text;
