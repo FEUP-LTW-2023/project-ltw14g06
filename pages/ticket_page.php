@@ -6,11 +6,13 @@
     include_once('../database/ticket.php');
     include_once('../database/user.php');
     include_once('../database/faq_functions.php');
+    include_once('../database/hashtags.php');
 
     $ticketId = $_GET['id'];
     $ticket = getTicketData($ticketId);
     $departments = getAllDepartments();
     $faq = getFAQ();
+    $hashtags = getAllHashtags();
 ?>
 
 <body id=home_body>
@@ -59,6 +61,21 @@
             <button type="submit">Submit Change Assignment</button>
         </div>
     </form>
+
+    <div class="changeTicket_inputBox">
+        <p>Add Hashtag:</p>
+    </div>
+    <form action='../actions/add_hashtag_action.php' method="post">
+        <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+        <input class="changeTicket_inputBox" type="text" name="add_hashtag" id="add_hashtag" placeholder="#Add Hashtags" list="hashtag_list" autocomplete="on">
+        <datalist id="hashtag_list">
+            <?php foreach ($hashtags as $hashtag){ ?>
+                <option value="<?php echo $hashtag['name']; ?>"></option>
+            <?php } ?>
+        </datalist>
+    </form>
+
+
 
     <section id="singleTicket" class="activeTickets">
     </section>
