@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 
 <?php
+    include_once('../utils/kick_from_page.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/user.php');
     include_once('../database/ticket.php');
+    include_once('../database/department.php');
 
     if(isset($_POST["order"]) && isset($_POST["sort"])){
         $tickets = getAllTickets($_POST["order"], $_POST["sort"]);

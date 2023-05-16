@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-
+<?php
+    include_once('../utils/init.php');
+?>
 
 <header class="page_header">
     Lippu!
@@ -35,6 +37,7 @@
                     <li><a href="user_tickets.php">All Tickets</a></li>
                 </ul>
             </li>
+            <?php if($_SESSION["type"] !== 'Client'){?>
             <li class = "AgentMenu">
                 <div class="sidebarButton">
                     <a href="agent_menu.php">
@@ -52,6 +55,7 @@
 
                 </ul>
             </li>
+            <?php if($_SESSION["type"] !== 'Agent'){?>
             <li class="AdminMenu">
                 <div class="sidebarButton">
                     <a href="admin_menu.php">
@@ -66,6 +70,7 @@
                     <li><a href="add_entities.php">Add Entities</a></li>
                 </ul>
             </li>
+            <?php }}?>
             <li>
                 <a href="faq.php">
                     <i class='bx bx-question-mark' ></i>

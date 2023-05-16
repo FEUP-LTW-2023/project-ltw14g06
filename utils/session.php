@@ -1,9 +1,10 @@
 <?php
     session_start();
 
-    function setCurrentUser($id, $username) {
+    function setCurrentUser($id, $username, $type) {
         $_SESSION['id'] = $id;
         $_SESSION['username'] = $username;
+        $_SESSION['type'] = $type;
     }
 
     function getUsername() {

@@ -17,12 +17,15 @@
                     echo '<li class="questionAnswer">';
                     echo "<h2 id='faqQuestion'>" . $qa["question"] . '</h2>';
                     echo "<p id='faqAnswer'>" . $qa["answer"] . '</p>';
+                    if($_SESSION["type"] !== 'Client'){
+                        echo '<button id="deleteFAQ" onclick="deleteFAQ(' . $qa["id"] . ')">Delete</button>';
+                    }
                     echo '</li>';
                 }
             ?>
         </ul>
     </section>
-    
+    <script src="../scripts/faq.js" defer></script>
 </body>
 
 

@@ -4,6 +4,7 @@
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/ticket.php');
+    include_once('../database/department.php');
 
     $tickets = getClientActiveTickets($_SESSION["id"]);
 ?>

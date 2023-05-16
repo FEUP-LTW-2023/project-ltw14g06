@@ -3,6 +3,7 @@
     include_once('../database/user.php');
     include_once('../database/ticket.php');
     include_once('../database/hashtags.php');
+    include_once('../database/department.php');
 
     $ticket = getTicketData($_GET["ticket_id"]);
 
@@ -14,7 +15,8 @@
     $hashtags_id = getTicketHashtags($ticket["id"]);
     $hashtags_name = array();
     foreach($hashtags_id as $hashtag_id){
-        $hashtag_name = getHashtagName($hashtag_id);
+        $id = $hashtag_id["hashtag_id"];
+        $hashtag_name = getHashtagName($id);
         array_push($hashtags_name, $hashtag_name);
     }
 

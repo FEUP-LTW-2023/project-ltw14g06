@@ -58,6 +58,7 @@ const getSingleTicket = async (ticketId) => {
   ticketHashtags.classList.add("ticketHashtags");
   (ticket.hashtags).forEach(hashtag => {
     const ticketHashtag = document.createElement("span");
+    ticketHashtag.classList.add("pressHashtag");
     ticketHashtag.onclick = function() {deleteHashtag(ticketId, hashtag);};
     ticketHashtag.textContent = hashtag + "  ";
     ticketHashtags.appendChild(ticketHashtag);

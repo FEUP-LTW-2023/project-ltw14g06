@@ -19,7 +19,7 @@
 - [x] Change the department of a ticket (e.g., the client chose the wrong department).
 - [x] Assign a ticket to themselves or someone else.
 - [x] Change the status of a ticket. Tickets can have many statuses (e.g., open, assigned, closed); some may change automatically (e.g., ticket changes to "assigned" after being assigned to an agent).
-- [ ] Edit ticket hashtags easily (just type hashtag to add (with autocomplete), and click to remove).
+- [x] Edit ticket hashtags easily (just type hashtag to add (with autocomplete), and click to remove).
 - [ ] List all changes done to a ticket (e.g., status changes, assignments, edits).
 - [x] Manage the FAQ and use an answer from the FAQ to answer a ticket.
 

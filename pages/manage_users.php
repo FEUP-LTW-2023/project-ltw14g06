@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+    include_once('../utils/kick_from_page_admin.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/user.php');

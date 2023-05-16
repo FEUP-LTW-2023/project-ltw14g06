@@ -3,6 +3,7 @@
         include_once('../utils/init.php');
         include_once('../database/user.php');
         include_once('../database/ticket.php');
+        include_once('../database/department.php');
 
         //if title is valid, bla bla bla para evitar attacks
         $departmentID = getDepartmentID($_POST["department"]);

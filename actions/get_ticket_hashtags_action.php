@@ -3,6 +3,7 @@
     include_once('../database/user.php');
     include_once('../database/ticket.php');
     include_once('../database/hashtags.php');
+    include_once('../database/department.php');
 
     $ticket = getTicketData($_GET["ticket_id"]);
 

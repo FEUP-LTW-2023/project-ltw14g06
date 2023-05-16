@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    include_once('../utils/kick_from_page.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/user.php');
@@ -23,20 +24,6 @@
             <button id="submitNewFAQ" type="submit">Submit to FAQ</button>
         </form>
     </section>
-    <section id="manageFAQ">
-        <ul class="listFAQ">
-            <?php
-                foreach($faq as $qa){
-                    echo '<li class="FAQitem">';
-                    echo "<p class='faqManage'>" . $qa["question"] . '  ->  <br>' .  $qa["answer"] . '</p>';
-                    echo '<button id="deleteFAQ" onclick="deleteFAQ(' . $qa["id"] . ')">Delete</button>';
-                    //echo '<button onclick="editFAQ(' . $qa["id"] . ')">Edit</button>';
-                    echo '</li>';
-                }
-            ?>
-        </ul>
-    </section>
-    <script src="../scripts/manage_faq.js" defer></script>
 </body>
 
 <?php

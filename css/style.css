@@ -393,6 +393,9 @@ h3{
     width: 100%;
     left: 0;
   }
+  .sidebar.close .sidebarAllButtons{
+    overflow: hidden;
+  }
 }
 
 /* Profile */
@@ -779,6 +782,10 @@ h3{
 #insertFaqAnswer{
   position: relative;
   left: 280px;
+}
+
+.pressHashtag:hover{
+  cursor: pointer;
 }
 
 /* Manage Users */

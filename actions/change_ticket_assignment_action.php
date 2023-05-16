@@ -6,7 +6,9 @@ include_once('../database/ticket.php');
 if(isset($_POST['newTicketAgent'])){
     if(usernameIsRegistered($_POST['newTicketAgent'])){
         $newAgent = getUserData($_POST['newTicketAgent']);
-        updateTicketAssignment($_POST["ticket_id"], $newAgent["id"]);
+        if($newAgent["type"] !== 'Client'){
+            updateTicketAssignment($_POST["ticket_id"], $newAgent["id"]);
+        }
     }
     else if ($_POST['newTicketAgent'] === ""){
         removeTicketAssignment($_POST["ticket_id"]);

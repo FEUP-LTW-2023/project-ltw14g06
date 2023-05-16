@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 
 <?php
+    include_once('../utils/kick_from_page_admin.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/ticket.php');
     include_once('../database/hashtags.php');
+    include_once('../database/department.php');
 
     $departments = getAllDepartments();
     $hashtags = getAllHashtags();

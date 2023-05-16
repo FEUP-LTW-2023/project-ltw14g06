@@ -31,16 +31,20 @@ function getHashtagID($name){
 
 function getHashtagName($id){
   global $dbh;
-    try {
-      $stmt = $dbh->prepare('SELECT name FROM hashtags WHERE id = ?');
-      $stmt->execute(array($id));
-      $result = $stmt->fetch()["name"];
-      return $result; 
-    }catch(PDOException $error) {
-      return true;
+  try {
+    $stmt = $dbh->prepare('SELECT name FROM hashtags WHERE id = ?');
+    $stmt->execute(array($id));
+    $result = $stmt->fetch();
+    if ($result) {
+      return $result["name"];
+    } else {
+      return "id not found";
     }
-    return false;
+  } catch(PDOException $error) {
+    return true;
+  }
 }
+
 
 function getAllHashtags(){
     global $dbh;

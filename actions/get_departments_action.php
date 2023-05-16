@@ -1,7 +1,7 @@
 <?php
     include_once('../utils/init.php');
     include_once('../database/user.php');
-    include_once('../database/ticket.php');
+    include_once('../database/department.php');
 
     $departments = getAllDepartments();
 

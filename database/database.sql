@@ -62,12 +62,14 @@ CREATE TABLE FAQ (
 CREATE TABLE ticket_history (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   ticket_id INTEGER NOT NULL,
-  agent_id INTEGER NOT NULL,
+  agent_id INTEGER NOT NULL DEFAULT 0,
   status VARCHAR(255) CHECK( status IN ('Open', 'Assigned', 'Closed')) NOT NULL DEFAULT 'Open',
   priority VARCHAR(255) CHECK( priority IN ('Low', 'Medium', 'High')) NOT NULL DEFAULT 'Medium',
+  department_id INTEGET NOT NULL DEFAULT 0,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
-  FOREIGN KEY (agent_id) REFERENCES users(id)
+  FOREIGN KEY (agent_id) REFERENCES users(id),
+  FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
 CREATE TABLE hashtags (

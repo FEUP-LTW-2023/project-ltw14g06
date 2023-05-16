@@ -64,44 +64,6 @@ function getTicketAnswers($id){
     }
 }
 
-function getDepartmentID($name){
-    global $dbh;
-    try{
-        $stmt = $dbh->prepare("SELECT id FROM departments WHERE name = ?");
-        $stmt->execute(array($name));
-        $result = $stmt->fetch();
-        return $result["id"];
-    } catch (PDOException $error) {
-        echo $error->getMessage();
-        return -1;
-    }
-}
-
-function getDepartmentName($id){
-    global $dbh;
-    try{
-        $stmt = $dbh->prepare("SELECT name FROM departments WHERE id = ?");
-        $stmt->execute(array($id));
-        $result = $stmt->fetch();
-        return $result["name"];
-    } catch (PDOException $error) {
-        echo $error->getMessage();
-        return -1;
-    }
-}
-
-function getAllDepartments(){
-    global $dbh;
-    try{
-        $stmt = $dbh->prepare("SELECT * FROM departments");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (PDOException $error) {
-        echo $error->getMessage();
-        return -1;
-    }
-}
-
 function getClientActiveTickets($id){
     global $dbh;
     try{
@@ -204,7 +166,7 @@ function addTicket($id, $subject, $text, $dep_id){
 function addTicketHashtag($ticket_id,$hashtag_id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare('INSERT INTO ticket_hashtags (ticket_id, hashtag_id) values (:ticket_id,hashtag_id)');
+        $stmt = $dbh->prepare('INSERT INTO ticket_hashtags (ticket_id, hashtag_id) values (:ticket_id,:hashtag_id)');
         $stmt->bindParam(':ticket_id', $ticket_id);
         $stmt->bindParam(':hashtag_id', $hashtag_id);
         $stmt->execute();
@@ -244,6 +206,18 @@ function updateTicketDepartment($id, $department){
     try {
         $stmt = $dbh->prepare('UPDATE tickets SET department_id=?, agent_id = 0 WHERE id=?');
         $stmt->execute(array($department,$id));
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+    return true;
+}
+
+function updateTicketPriority($id, $priority) {
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('UPDATE tickets SET priority=? WHERE id=?');
+        $stmt->execute(array($priority,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;
