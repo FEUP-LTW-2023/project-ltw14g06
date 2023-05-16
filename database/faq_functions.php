@@ -36,6 +36,20 @@ function deleteFAQ($id){
     }
 }
 
+function updateFAQ($id, $question, $answer){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("UPDATE FAQ SET question = :question, answer = :answer where id = :id");
+        $stmt->bindParam(':question',$question);
+        $stmt->bindParam(':answer',$answer);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 
 
 function questionAlreadyExists($question){

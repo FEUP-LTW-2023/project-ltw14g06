@@ -746,7 +746,7 @@ h3{
   width: 50%;
 }
 
-#deleteFAQ{
+.deleteFAQ{
   margin-left: auto;
   margin-right: auto;
   width: 8em;
@@ -761,7 +761,7 @@ h3{
   display: inline-block;
 }
 
-#deleteFAQ:hover{
+.deleteFAQ:hover{
   background-color: rgba(38, 35, 71, 1);
   box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
   cursor: pointer;
