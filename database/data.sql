@@ -14,7 +14,12 @@ INSERT INTO departments (name) VALUES ('Technical Support');
 INSERT INTO departments (name) VALUES ('Shipping and Logistics');
 INSERT INTO departments (name) VALUES ('Legal');
 
-INSERT INTO tickets (id, user_id, agent_id, department_id,subject, status, priority, created_at, updated_at) VALUES (1,1,2, 1, 'test', 'Open', 'Medium','2023-04-26 09:00:00', '2023-04-26 11:30:00');
+INSERT INTO status(name) VALUES ('Open');
+INSERT INTO status(name) VALUES ('Closed');
+INSERT INTO status(name) VALUES ('Assigned');
+
+INSERT INTO tickets (id, user_id, agent_id, department_id,subject, priority, created_at, updated_at) VALUES (1,1,2, 1,'test', 'Medium','2023-04-26 09:00:00', '2023-04-26 11:30:00');
+INSERT INTO tickets (user_id, agent_id, department_id,subject, priority) VALUES (1,2, 1,'test', 'Medium');
 
 INSERT INTO ticket_messages (id, ticket_id, sender_id, message, created_at) VALUES (1,1,1, 'oi test','2023-04-26 09:00:00');
 

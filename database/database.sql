@@ -9,9 +9,15 @@ DROP TABLE IF EXISTS FAQ;
 DROP TABLE IF EXISTS ticket_messages;
 DROP TABLE IF EXISTS tickets;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS status;
 DROP TABLE IF EXISTS departments;
 
 CREATE TABLE departments (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE status (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255) NOT NULL UNIQUE
 );
@@ -33,14 +39,15 @@ CREATE TABLE tickets (
   user_id INTEGER NOT NULL,
   agent_id INTEGER NOT NULL DEFAULT 0,
   department_id INTEGER NOT NULL DEFAULT 0,
+  status_id INTEGER NOT NULL DEFAULT 1,
   subject VARCHAR(255) NOT NULL,
-  status VARCHAR(255) NOT NULL DEFAULT 'Open',
   priority VARCHAR(255) CHECK( priority IN ('Low', 'Medium', 'High')) NOT NULL DEFAULT 'Medium',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (agent_id) REFERENCES users(id),
-  FOREIGN KEY (department_id) REFERENCES departments(id)
+  FOREIGN KEY (department_id) REFERENCES departments(id),
+  FOREIGN KEY (status_id) REFERENCES status(id)
 );
 
 CREATE TABLE ticket_messages (
