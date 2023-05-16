@@ -7,12 +7,10 @@ IMPORTANT:
 -Websecurity nos tickets
 -Deviam agents poder editar perguntas do faq? Isso abriria uma página diferente?
 -agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
--status dinâmico (criar status na db)
 -Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
 (para ser feito quando remodelarmos o sistema de login para JS)
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
 -Adaptar o CSS das cenas do perfil para telemovel
--When assign someone, change status to assigned
 
 
 UNNECCESSSARY BUT COOL:

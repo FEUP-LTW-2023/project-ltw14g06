@@ -7,9 +7,12 @@
     include_once('../database/ticket.php');
     include_once('../database/hashtags.php');
     include_once('../database/department.php');
+    include_once('../database/status.php');
+
 
     $departments = getAllDepartments();
     $hashtags = getAllHashtags();
+    $status = getStatus();
 
 ?>
 
@@ -48,6 +51,24 @@
                     ?>
                 </select>
                 <button onclick="deleteHashtag(document.querySelector('#delete_hashtag_select').value)">Delete</button>
+            </div>
+        </div>
+
+        <div class = "manage_entities">
+            <form action="../actions/add_new_status_action.php" method="post" id="new_status_form">
+                <input type=text id="new_status" name="new_status" placeholder="Insert a new status here" required></input>
+                <button type="submit">Insert new status</button>
+            </form>
+            <div id="delete_status">
+                <select id="delete_status_select">
+                    <?php
+                        foreach($status as $singleStatus){
+                            if($singleStatus["id"] <= 3) continue;
+                            echo '<option value="' . $singleStatus["id"] . '">' .$singleStatus["name"] . '</option>';
+                        }
+                    ?>
+                </select>
+                <button onclick="deleteStatus(document.querySelector('#delete_status_select').value)">Delete</button>
             </div>
         </div>
     </section>

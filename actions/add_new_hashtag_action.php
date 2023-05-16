@@ -2,10 +2,16 @@
     include_once('../utils/init.php');
     include_once('../database/hashtags.php');
 
-    if(hashtagAlreadyExists(htmlentities($_POST["new_hashtag"]))){
+    $hashtag = htmlentities($_POST["new_hashtag"]);
+
+    if(!hasHashtag($hashtag)){
+        $hashtag = '#' . $hashtag;
+    }
+
+    if(hashtagAlreadyExists($hashtag)){
         header("Location:../pages/add_entities.php");
     }
-    else if(hasHashtag(htmlentities($_POST["new_hashtag"])) and ((addNewHashtag(htmlentities($_POST["new_hashtag"]))) !== -1)){
+    else if((addNewHashtag($hashtag) !== -1)){
         header("Location:../pages/add_entities.php");
     }
     else{

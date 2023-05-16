@@ -24,6 +24,18 @@ function getTicketData($id){
     }
 }
 
+function getTicketStatus($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT status.name FROM status JOIN tickets ON tickets.status_id = status.id WHERE tickets.id = ?");
+        $stmt->execute(array($id));
+        return $stmt->fetch()["name"];
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function getTicketHashtags($id){
     global $dbh;
     try{
@@ -52,6 +64,7 @@ function getTicketText($id){
     else return $result["message"];
 }
 
+
 function getTicketAnswers($id){
     global $dbh;
     try{
@@ -67,7 +80,7 @@ function getTicketAnswers($id){
 function getClientActiveTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'Open' or status = 'Assigned') order by id desc");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status_id != 2) order by id desc");
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -79,7 +92,7 @@ function getClientActiveTickets($id){
 function getClientClosedTickets($id){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status = 'Closed') order by id desc");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status_id = 2) order by id desc");
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -103,7 +116,7 @@ function getClientTickets($id){
 function getAllTickets($order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE (status = 'Open' or status = 'Assigned') ORDER BY $order $sort");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE (status_id != 2) ORDER BY $order $sort");
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -115,8 +128,20 @@ function getAllTickets($order = 'id', $sort = 'desc'){
 function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status = 'Open' or status = 'Assigned') ORDER BY $order $sort");
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status_id != 2) ORDER BY $order $sort");
         $stmt->execute(array($dep_id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
+function getTicketsWithStatus($status_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE status_id = ?");
+        $stmt->execute(array($status_id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
         echo $error->getMessage();
@@ -177,11 +202,11 @@ function addTicketHashtag($ticket_id,$hashtag_id){
     return true;
 }
 
-function updateTicketStatus($id, $status) {
+function updateTicketStatus($id, $status_id) {
     global $dbh;
     try {
-        $stmt = $dbh->prepare('UPDATE tickets SET status=? WHERE id=?');
-        $stmt->execute(array($status,$id));
+        $stmt = $dbh->prepare('UPDATE tickets SET status_id=? WHERE id=?');
+        $stmt->execute(array($status_id,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

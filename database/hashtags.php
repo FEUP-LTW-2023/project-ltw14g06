@@ -26,7 +26,6 @@ function getHashtagID($name){
    }catch(PDOException $error) {
     return false;
   }
-  return true;
 }
 
 function getHashtagName($id){

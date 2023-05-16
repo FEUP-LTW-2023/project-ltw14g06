@@ -42,7 +42,7 @@
             foreach ($tickets as $ticket) {
                 $ticketID = $ticket["id"];
                 echo "<p class=subjectTicket><a href='ticket_page.php?id=$ticketID'>" . "Subject: " . $ticket["subject"] . '</a></p>';
-                echo "<p class=ticketStatus>" . "Status: " . $ticket["status"] . '</p>';
+                echo "<p class=ticketStatus>" . "Status: " . getTicketStatus($ticket["id"]) . '</p>';
                 echo "<p class=ticketText>" . "Text: " . getTicketText($ticket["id"]) . '</p>';
                 echo "<p class=ticketDepartment>" . "Department: " . getDepartmentName($ticket["department_id"]) . '</p>';
                 echo "<p class=ticketPostedBy>" . "Posted by: " . getUserDataByID($ticket["user_id"])["username"] . '</p>';

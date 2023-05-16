@@ -13,6 +13,7 @@
     $assigned = getUserDataByID($ticket["agent_id"]);
     $assigned_username = $assigned["username"];
     $assigned_name = $assigned["name"];
+    $status = getTicketStatus($ticket["id"]);
 
     $hashtags_id = getTicketHashtags($ticket["id"]);
     $hashtags_name = array();
@@ -29,7 +30,7 @@
         "text" => $text, 
         "department" => $department, 
         "priority" => $ticket["priority"],
-        "status" => $ticket["status"],
+        "status" => $status,
         "assigned_username" => $assigned_username,
         "assigned_name" => $assigned_name,
         "hashtags" => $hashtags_name

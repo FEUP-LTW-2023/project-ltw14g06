@@ -25,9 +25,9 @@
 
 - Admins
 - [x] Upgrade a client to an agent or an admin.
-- [ ] Add new departments, statuses, and other relevant entities.
+- [x] Add new departments, statuses, and other relevant entities.
 - [x] Assign agents to departments.
-- [ ] Control the whole system.
+- [x] Control the whole system. (?)
 
 ## Technologies used
 

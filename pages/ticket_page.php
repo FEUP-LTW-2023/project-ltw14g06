@@ -8,6 +8,7 @@
     include_once('../database/faq_functions.php');
     include_once('../database/hashtags.php');
     include_once('../database/department.php');
+    include_once('../database/status.php');
 
     
 
@@ -16,6 +17,7 @@
     $departments = getAllDepartments();
     $faq = getFAQ();
     $hashtags = getAllHashtags();
+    $status = getStatus();
     if($_SESSION["type"]==='Client' and $ticket["user_id"] !== $_SESSION["id"]){
         header("Location: ../pages/home.php");
     }
@@ -61,19 +63,23 @@
             <button type="submit">Submit Change Priority</button>
         </form>
 
-        <div class="changeTicket_inputBox">
-            <p>Change Status:
-                <?php
-                    if($ticket["status"]=='open' or $ticket["status"]=='assigned'){
-                        echo '<button onclick="changeTicketStatus('. $ticketId . ", 'closed'" . ')"> Close </button>';
-                    } else if($ticket["status"]=='closed' and $ticket["agent_id"] == 0){
-                        echo '<button onclick="changeTicketStatus('. $ticketId . ", 'open'" . ')"> Re-open </button>';
-                    } else {
-                        echo '<button onclick="changeTicketStatus('. $ticketId . ", 'assigned'" . ')"> Re-open </button>';
-                    }
-                ?>
-            </p>
-        </div>
+        <form action="../actions/change_ticket_status_action.php" class="editTicketForm" method="post">
+            <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <div class="changeTicket_inputBox">
+                <p>Change Status: 
+                <select name="ticket_status" id="ticket_status">
+                        <?php
+                            foreach ($status as $singleStatus) {
+                                if($singleStatus["id"] === $ticket["status_id"]) continue;
+                                if($ticket["agent_id"] === 0 and $singleStatus["id"]===3) continue;
+                                echo '<option value="' . $singleStatus["id"] . '">' . $singleStatus["name"] . '</option>';
+                            }
+                        ?>
+                </select>    
+                </p>
+            </div>
+            <button type="submit">Submit Change Status</button>
+        </form>
 
         <div class="changeTicket_inputBox">
             <p>Change Agent Assigned To:</p>
