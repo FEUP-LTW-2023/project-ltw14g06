@@ -49,7 +49,7 @@
 - [ ] The code should be organized and consistent
 - [ ] The design does not need to be top-notch but should be clean and consistent throughout the site. 
 - [ ] It should also work on mobile devices.
-- [ ] Frameworks are **not allowed**.
+- [x] Frameworks are **not allowed**.
 
 ## Additional Requirements (we do not need to implement all of these)
 - [ ] Tickets can have documents attached to them (both by clients and agents).

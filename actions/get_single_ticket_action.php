@@ -9,8 +9,10 @@
 
     $text = htmlentities(getTicketText($ticket["id"]));
     $department = getDepartmentName($ticket["department_id"]);
-    $postedBy = getUserDataByID($ticket["user_id"])["username"];
-    $assigned = getUserDataByID($ticket["agent_id"])["username"];
+    $posted_by = getUserDataByID($ticket["user_id"])["username"];
+    $assigned = getUserDataByID($ticket["agent_id"]);
+    $assigned_username = $assigned["username"];
+    $assigned_name = $assigned["name"];
 
     $hashtags_id = getTicketHashtags($ticket["id"]);
     $hashtags_name = array();
@@ -22,13 +24,14 @@
 
     $showTicket = array(
         "id" => $ticket["id"],
-        "username" => $postedBy, 
+        "username" => $posted_by, 
         "subject" => htmlentities($ticket["subject"]),
         "text" => $text, 
         "department" => $department, 
         "priority" => $ticket["priority"],
         "status" => $ticket["status"],
-        "assigned" => $assigned,
+        "assigned_username" => $assigned_username,
+        "assigned_name" => $assigned_name,
         "hashtags" => $hashtags_name
     );
     

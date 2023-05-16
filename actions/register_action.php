@@ -28,7 +28,7 @@
     }
     //try to register user in the database
     else if((createUser($_POST['username'], $_POST['name'], $_POST['password'], $_POST['email'])) !== -1) {
-        setCurrentUser(getUserID($_POST['username'])['id'],$_POST['username']);
+        setCurrentUser(getUserID($_POST['username'])['id'],$_POST['username'], 'Client');
         header("Location:../pages/home.php");	
     }
 

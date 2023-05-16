@@ -9,11 +9,16 @@
     include_once('../database/hashtags.php');
     include_once('../database/department.php');
 
+    
+
     $ticketId = $_GET['id'];
     $ticket = getTicketData($ticketId);
     $departments = getAllDepartments();
     $faq = getFAQ();
     $hashtags = getAllHashtags();
+    if($_SESSION["type"]==='Client' and $ticket["user_id"] !== $_SESSION["id"]){
+        header("Location: ../pages/home.php");
+    }
 ?>
 
 <body id=home_body>

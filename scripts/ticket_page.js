@@ -82,7 +82,11 @@ const getSingleTicket = async (ticketId) => {
   div.appendChild(ticketUsername);
 
   const ticketAssigned = document.createElement("p");
-  ticketAssigned.textContent = "Assigned to: " + ticket.assigned;
+  if(ticket.assigned_username != ''){
+    ticketAssigned.textContent = "Assigned to: " + ticket.assigned_name + " (@" + ticket.assigned_username + ")";
+  } else {
+    ticketAssigned.textContent = "Assigned to: " + ticket.assigned_name;
+  }
   ticketAssigned.classList.add("ticketAssignedTo");
   div.appendChild(ticketAssigned);
 
