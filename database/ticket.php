@@ -77,7 +77,7 @@ function getTicketAnswers($id){
     }
 }
 
-function getClientActiveTickets($id){
+function getUserActiveTickets($id){
     global $dbh;
     try{
         $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status_id != 2) order by id desc");
@@ -89,7 +89,7 @@ function getClientActiveTickets($id){
     }
 }
 
-function getClientClosedTickets($id){
+function getUserClosedTickets($id){
     global $dbh;
     try{
         $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? AND (status_id = 2) order by id desc");
@@ -101,7 +101,7 @@ function getClientClosedTickets($id){
     }
 }
 
-function getClientTickets($id){
+function getUserTickets($id){
     global $dbh;
     try{
         $stmt = $dbh->prepare("SELECT * FROM tickets WHERE user_id = ? order by id desc");

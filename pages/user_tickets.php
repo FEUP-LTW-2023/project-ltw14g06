@@ -6,26 +6,17 @@
     include_once('../database/ticket.php');
     include_once('../database/department.php');
 
-    $tickets = getClientTickets($_SESSION["id"]);
+    $tickets = getUserTickets($_SESSION["id"]);
 ?>
 
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
-    <h2 id="allTickets">Your Tickets:</h2><br>
+    <h2 id="all_tickets">Your Tickets:</h2><br>
     
 
-    <section id="allTickets" class="activeTickets">
-        <?php
-            foreach ($tickets as $ticket) {
-                echo "<p class=subjectTicket>" . "Subject: " . $ticket["subject"] . '</p>';
-                echo "<p class=ticketStatus>" . "Status: " . $ticket["status"] . '</p>';
-                echo "<p class=ticketText>" . "Text: " . getTicketText($ticket["id"]) . '</p>';
-                echo "<p class=ticketDepartment>" . "Department: " . getDepartmentName($ticket["department_id"]) . '</p>';
-                echo "<p class=ticketPostedBy>" . "Posted by: " . $_SESSION["username"] . '</p>';
-            }
-        ?>
+    <section id="user_all_tickets" class="tickets">
     </section>
-    
+    <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php
 

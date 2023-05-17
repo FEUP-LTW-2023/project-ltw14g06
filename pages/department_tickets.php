@@ -19,11 +19,12 @@
 
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
-    <form method="post" class="insertNewPost">
+    <form class="sortTickets" id="sort_tickets_form">
         <label for="order">Order by:</label>
         <select name="order" id="order">
             <option value="id">Most Recent</option>
-            <option value="status">Status</option>
+            <option value="status_id">Status</option>
+            <option value="department_id">Department</option>
             <option value="priority">Priority</option>
         </select>
 
@@ -36,20 +37,10 @@
         <button type="submit">Sort</button>
     </form>
 
-    <h2 id="activeDepartmentTickets">Your Department's Active Tickets:</h2><br>
-    <section id="allDepartmentActiveTickets" class="activeTickets">
-        <?php
-            foreach ($tickets as $ticket) {
-                $ticketID = $ticket["id"];
-                echo "<p class=subjectTicket><a href='ticket_page.php?id=$ticketID'>" . "Subject: " . $ticket["subject"] . '</a></p>';
-                echo "<p class=ticketStatus>" . "Status: " . $ticket["status"] . '</p>';
-                echo "<p class=ticketText>" . "Text: " . getTicketText($ticket["id"]) . '</p>';
-                echo "<p class=ticketDepartment>" . "Department: " . getDepartmentName($ticket["department_id"]) . '</p>';
-                echo "<p class=ticketPostedBy>" . "Posted by: " . getUserDataByID($ticket["user_id"])["username"] . '</p>';
-            }
-        ?>
+    <h2 id="active_department_tickets">Your Department's Active Tickets:</h2><br>
+    <section id="all_department_active_tickets" class="tickets">
     </section>
-    
+    <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php
 
