@@ -30,7 +30,7 @@
     </div>
 
     <?php if($showProfile){ ?>
-        <section class="profile_info_sec">
+        <section class="profile_info_sec" id = "manage_users_sec">
         </section>
     <?php } ?>
     

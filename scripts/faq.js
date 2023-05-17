@@ -26,7 +26,6 @@ function toggleTextarea(id){
         // Switch back to <h2> and <p> tags
         questionElement.outerHTML = "<h2 id='faqQuestion" + id + "'>" + questionElement.value + "</h2>";
         answerElement.outerHTML = "<p id='faqAnswer" + id + "'>" + answerElement.value + "</p>";
-        //buttonElement.outerHTML = '<button id="editFAQButton' + $qa["id"] + '" class="deleteFAQ" onclick="showTextarea(' + $qa["id"] + ')">Edit</button>'
         buttonElement.textContent='Edit';
     } else {
         // Switch to <textarea> tags

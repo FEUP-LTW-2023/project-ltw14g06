@@ -12,7 +12,7 @@ function changeUserType(username, user_id, type) {
 }
 
 function changeUserDepartment(username, user_id, department_id) {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open("POST", "../actions/change_user_department_action.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onload = function() {
@@ -23,6 +23,40 @@ function changeUserDepartment(username, user_id, department_id) {
   
     xhr.send("user_id=" + user_id + "&department_id=" + department_id);
 }
+
+
+const getAccountTypesSelectMenu = async (username,user_id,user_type) =>{
+  const elem = document.querySelector('.change_account_type');
+  elem.innerHTML = "";
+
+  elem.onchange = function(){
+    const type = this.value;
+    changeUserType(username, user_id, type);
+  };
+
+  const optClient = document.createElement('option');
+  optClient.value = 'Client';
+  optClient.textContent = 'Client';
+  if(optClient.textContent === user_type){
+    optClient.selected = true;
+  }
+  elem.appendChild(optClient);
+  const optAgent = document.createElement('option');
+  optAgent.value = 'Agent';
+  optAgent.textContent = 'Agent';
+  if(optAgent.textContent === user_type){
+    optAgent.selected = true;
+  }
+  elem.appendChild(optAgent);
+  const optAdmin = document.createElement('option');
+  optAdmin.value = 'Admin';
+  optAdmin.textContent = 'Admin';
+  if(optAdmin.textContent === user_type){
+    optAdmin.selected = true;
+  }
+  elem.appendChild(optAdmin);
+}
+
 
 const getDepartmentsSelectMenu = async (username, user_id, user_department) => {
     const response = await fetch("../actions/get_departments_action.php");
@@ -52,45 +86,47 @@ const getDepartmentsSelectMenu = async (username, user_id, user_department) => {
     
 }
 
+
 const getChangeTypeButtons = async (username_, type, id) => {
 
-    const elem = document.querySelector('.PromoteAndDemote');
-    elem.innerHTML = "";
+  const elem = document.querySelector('.PromoteAndDemote');
+  elem.innerHTML = "";
 
-    const p = document.createElement("p");
-    p.textContent = "Change Type:";
+  const p = document.createElement("p");
+  p.textContent = "Change Type:";
 
-    if (type === 'Client') {
-        const pAgent = document.createElement('button');
-        pAgent.textContent = 'Promote to Agent';
-        pAgent.onclick = function() {
+  if (type === 'Client') {
+      const pAgent = document.createElement('button');
+      pAgent.textContent = 'Promote to Agent';
+      pAgent.onclick = function() {
+        changeUserType(username_,id,'Agent');
+      };
+      p.appendChild(pAgent);
+    } else if (type === 'Agent') {
+      const dClient = document.createElement('button');
+      dClient.textContent = 'Demote to Client';
+      dClient.onclick = function() {
+          changeUserType(username_,id,'Client');
+      };
+      p.appendChild(dClient);
+      const pAdmin = document.createElement('button');
+      pAdmin.textContent = 'Promote to Admin';
+      pAdmin.onclick = function() {
+          changeUserType(username_,id,'Admin');
+      };
+      p.appendChild(pAdmin);
+  } else {
+      const dAgent = document.createElement('button');
+      dAgent.textContent = 'Demote to Agent';
+      dAgent.onclick = function() {
           changeUserType(username_,id,'Agent');
-        };
-        p.appendChild(pAgent);
-      } else if (type === 'Agent') {
-        const dClient = document.createElement('button');
-        dClient.textContent = 'Demote to Client';
-        dClient.onclick = function() {
-            changeUserType(username_,id,'Client');
-        };
-        p.appendChild(dClient);
-        const pAdmin = document.createElement('button');
-        pAdmin.textContent = 'Promote to Admin';
-        pAdmin.onclick = function() {
-            changeUserType(username_,id,'Admin');
-        };
-        p.appendChild(pAdmin);
-    } else {
-        const dAgent = document.createElement('button');
-        dAgent.textContent = 'Demote to Agent';
-        dAgent.onclick = function() {
-            changeUserType(username_,id,'Agent');
-        };
-        p.appendChild(dAgent);
-    }
-    
-    elem.appendChild(p);
+      };
+      p.appendChild(dAgent);
+  }
+  
+  elem.appendChild(p);
 }
+
 
 const getUserInfo = async (username_) => {
     const response = await fetch("../actions/get_user_info_action.php?username="+username_);
@@ -141,6 +177,7 @@ const getUserInfo = async (username_) => {
     div3.appendChild(userEmail);
     elem.appendChild(div3);
 
+    /*
     const div4 = document.createElement("div");
     div4.classList.add("profile_info_div");
     const title4 = document.createElement("p");
@@ -151,23 +188,35 @@ const getUserInfo = async (username_) => {
     userType.textContent = user.type;
     div4.appendChild(userType);
     elem.appendChild(div4);
+    */
 
-    if(user.type !== 'Client'){
-        const div5 = document.createElement("div");
-        div5.classList.add("homeInput");
-
-        const title5 = document.createElement("p");
-        title5.classList.add("profile_info_title");
-        title5.textContent = "Department: ";
-        
-        div5.appendChild(title5);
-        const userDepartment = document.createElement("select");
-        userDepartment.classList.add("change_agent_department");
-        userDepartment.textContent = user.department;
-        div5.appendChild(userDepartment);
-        elem.appendChild(div5);
-    }
     
+    const div4 = document.createElement("div");
+    div4.classList.add("homeInput");
+    const title4 = document.createElement("p");
+    title4.classList.add("profile_info_title");
+    title4.textContent = "Account Type: ";
+    div4.appendChild(title4);
+    const accountType = document.createElement("select");
+    accountType.classList.add("change_account_type");
+    accountType.textContent = user.type;
+    div4.appendChild(accountType);
+    elem.appendChild(div4);
+    
+    if(user.type !== 'Client'){
+      const div5 = document.createElement("div");
+      div5.classList.add("homeInput");
+      const title5 = document.createElement("p");
+      title5.classList.add("profile_info_title");
+      title5.textContent = "Department: ";
+      div5.appendChild(title5);
+      const userDepartment = document.createElement("select");
+      userDepartment.classList.add("change_agent_department");
+      userDepartment.textContent = user.department;
+      div5.appendChild(userDepartment);
+      elem.appendChild(div5);
+    }
+  /*
   const typeDiv = document.createElement("div");
   typeDiv.classList.add("PromoteAndDemote");
   elem.appendChild(typeDiv);
@@ -175,12 +224,10 @@ const getUserInfo = async (username_) => {
   const depDiv = document.createElement("div");
   depDiv.classList.add("changeAgentDepartment");
   elem.appendChild(depDiv);
-
-
-  getChangeTypeButtons(user.username, user.type, user.id);
+    */
+  //getChangeTypeButtons(user.username, user.type, user.id);
+  getAccountTypesSelectMenu(user.username, user.id, user.type);
   getDepartmentsSelectMenu(user.username, user.id, user.department);
-  
 };
   
 getUserInfo(username_);
-

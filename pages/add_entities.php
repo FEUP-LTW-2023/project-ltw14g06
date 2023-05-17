@@ -20,9 +20,9 @@
     <?php include_once ('../templates/default.php');?>
     <section id="add_entities_sec">
         <div class="manage_entities">
-            <form action="../actions/add_new_department_action.php" method="post" id="new_department_form">
+            <form class="add_entity" action="../actions/add_new_department_action.php" method="post" id="new_department_form">
                 <input type=text id="new_department" name="new_department" placeholder="Insert a new department here" required></input>
-                <button type="submit">Insert new department</button>
+                <button class = "deleteFAQ" type="submit">Insert new department</button>
             </form>
             <div id="delete_departments">
                 <select id="delete_departments_select">
@@ -33,14 +33,14 @@
                         }
                     ?>
                 </select>
-                <button onclick="deleteDepartment(document.querySelector('#delete_departments_select').value)">Delete</button>
+                <button class = "deleteFAQ" onclick="deleteDepartment(document.querySelector('#delete_departments_select').value)">Delete department</button>
             </div>
         </div>
     
         <div class = "manage_entities">
-            <form action="../actions/add_new_hashtag_action.php" method="post" id="new_hashtag_form">
+            <form class="add_entity" action="../actions/add_new_hashtag_action.php" method="post" id="new_hashtag_form">
                 <input type=hashtag id="new_hashtag" name="new_hashtag" placeholder="Insert a new hashtag here" required></input>
-                <button type="submit">Insert new hashtag</button>
+                <button class = "deleteFAQ" type="submit">Insert new hashtag</button>
             </form>
             <div id="delete_hashtag">
                 <select id="delete_hashtag_select">
@@ -50,14 +50,14 @@
                         }
                     ?>
                 </select>
-                <button onclick="deleteHashtag(document.querySelector('#delete_hashtag_select').value)">Delete</button>
+                <button class = "deleteFAQ" onclick="deleteHashtag(document.querySelector('#delete_hashtag_select').value)">Delete hashtag</button>
             </div>
         </div>
 
         <div class = "manage_entities">
-            <form action="../actions/add_new_status_action.php" method="post" id="new_status_form">
+            <form class="add_entity" action="../actions/add_new_status_action.php" method="post" id="new_status_form">
                 <input type=text id="new_status" name="new_status" placeholder="Insert a new status here" required></input>
-                <button type="submit">Insert new status</button>
+                <button class = "deleteFAQ" type="submit">Insert new status</button>
             </form>
             <div id="delete_status">
                 <select id="delete_status_select">
@@ -68,7 +68,7 @@
                         }
                     ?>
                 </select>
-                <button onclick="deleteStatus(document.querySelector('#delete_status_select').value)">Delete</button>
+                <button class = "deleteFAQ" onclick="deleteStatus(document.querySelector('#delete_status_select').value)">Delete status</button>
             </div>
         </div>
     </section>

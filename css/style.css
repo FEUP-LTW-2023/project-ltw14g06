@@ -799,6 +799,12 @@ h3{
   border-width: 1px;
 }
 
+#manage_users_sec .homeInput p{
+  font-size: 1.5em;
+  font-weight: 500;
+  color: aliceblue;
+}
+
 /* Add Entities */
 
 #add_entities_sec{
@@ -806,6 +812,7 @@ h3{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 30em;
 }
 
 .manage_entities{
@@ -813,9 +820,34 @@ h3{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3em;
+  margin: 2em;
 }
 
 .manage_entities *{
   width: 100%;
+}
+
+.manage_entities select{
+  background: transparent;
+  border: 0;
+  margin-bottom: 2em;
+  outline: none;
+}
+
+.add_entity{
+  margin-bottom: 3em;
+}
+
+.add_entity input{
+  background: transparent;
+  color: black;
+  border: 0;
+  margin-bottom: 2em;
+  font-size: 1em;
+}
+
+.manage_entities .deleteFAQ{
+  width: 15em;
+  display: flex;
+  justify-content: center;
 }
