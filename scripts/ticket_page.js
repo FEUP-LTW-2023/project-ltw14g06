@@ -82,6 +82,10 @@ const getSingleTicket = async (ticketId) => {
 
 getSingleTicket(ticketId);
 
+setInterval(() => {
+  getSingleTicket(ticketId);
+}, 1000);
+
 const getTicketAnswers = async (ticketId) => {
   const response = await fetch("../actions/get_ticket_answers_action.php?ticket_id="+ticketId);
   const jsonResponse = await response.json();
@@ -112,3 +116,6 @@ const getTicketAnswers = async (ticketId) => {
 };
 
 getTicketAnswers(ticketId);
+setInterval(() => {
+  getTicketAnswers(ticketId);
+}, 1000);

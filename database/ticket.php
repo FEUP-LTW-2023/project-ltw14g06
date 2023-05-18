@@ -116,7 +116,12 @@ function getUserTickets($id){
 function getAllActiveTickets($order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets where status_id != 2 ORDER BY $order $sort");
+        if($order === 'hashtag'){
+            $stmt = $dbh->prepare("SELECT tickets.* FROM tickets JOIN ticket_hashtags ON tickets.id = ticket_hashtags.ticket_id JOIN hashtags ON ticket_hashtags.hashtag_id = hashtags.id ORDER BY hashtags.name $sort");
+        } else{
+            $stmt = $dbh->prepare("SELECT * FROM tickets where status_id != 2 ORDER BY $order $sort");
+        }
+        
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -128,7 +133,11 @@ function getAllActiveTickets($order = 'id', $sort = 'desc'){
 function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status_id != 2) ORDER BY $order $sort");
+        if($order === 'hashtag'){
+            $stmt = $dbh->prepare("SELECT tickets.* FROM tickets JOIN ticket_hashtags ON tickets.id = ticket_hashtags.ticket_id JOIN hashtags ON ticket_hashtags.hashtag_id = hashtags.id WHERE department_id = ? and (status_id != 2) ORDER BY hashtags.name $sort");
+        } else{
+            $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status_id != 2) ORDER BY $order $sort");
+        }
         $stmt->execute(array($dep_id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -140,7 +149,11 @@ function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
 function getAssignedTickets($agent_id, $order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE agent_id = ? ORDER BY $order $sort");
+        if($order === 'hashtag'){
+            $stmt = $dbh->prepare("SELECT tickets.* FROM tickets JOIN ticket_hashtags ON tickets.id = ticket_hashtags.ticket_id JOIN hashtags ON ticket_hashtags.hashtag_id = hashtags.id WHERE WHERE agent_id = ? ORDER BY hashtags.name $sort");
+        } else{
+            $stmt = $dbh->prepare("SELECT * FROM tickets WHERE agent_id = ? ORDER BY $order $sort");
+        }
         $stmt->execute(array($agent_id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {

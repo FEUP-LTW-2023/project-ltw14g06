@@ -15,11 +15,11 @@
            
         }
         */
-        $ticket_id = addTicket($_POST["user_id"],  preg_replace("/[^a-zA-Z\s,.]/", '', $_POST['subject']), preg_replace("/[^a-zA-Z\s,.]/", '', $_POST['text']), $_POST["department"]);
+        $ticket_id = addTicket($_POST["user_id"],  preg_replace("/[^a-zA-Z\d\s,.]/", '', $_POST['subject']), preg_replace("/[^a-zA-Z\d\s,.]/", '', $_POST['text']), $_POST["department"]);
         //addTicket($_POST["user_id"],  $_POST["subject"], $_POST["text"], $departmentID);
 
         $department = getDepartmentName($_POST["department"]);
-        startTicketHistory($ticket_id,$_SESSION["username"], preg_replace("/[^a-zA-Z\s,.]/", '', $_POST['subject']),preg_replace("/[^a-zA-Z\s,.]/", '', $_POST['text']), $department);
+        startTicketHistory($ticket_id,$_SESSION["username"], preg_replace("/[^a-zA-Z\d\s,.]/", '', $_POST['subject']),preg_replace("/[^a-zA-Z\d\s,.]/", '', $_POST['text']), $department);
 
 
         exit();

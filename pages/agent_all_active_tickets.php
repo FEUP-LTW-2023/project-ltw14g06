@@ -16,6 +16,7 @@
             <option value="status_id">Status</option>
             <option value="department_id">Department</option>
             <option value="priority">Priority</option>
+            <option value="hashtag">Hashtag</option>
         </select>
 
         <label for="sort">Sorting order:</label>

@@ -97,7 +97,5 @@ if(form!==null){
         order = document.getElementById('order').value;
         sort = document.getElementById('sort').value;
         getWithAsyncAwait(getType);
-        order = '';
-        sort = '';
       });
 }

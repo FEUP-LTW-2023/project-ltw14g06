@@ -10,14 +10,17 @@ IMPORTANT:
 (para ser feito quando remodelarmos o sistema de login para JS)
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
 -Adaptar o CSS das cenas do perfil para telemovel
+-dar uso a hashtags
 
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo
 -Butão para adicionar pergunta ao FAQ nos tickets.
--Admins não deveriam poder trocar o seu type (acho eu).
+-Admins não deveriam poder trocar o seu type.
 -Apos um ticket ser publicado devia dar redirect para ele mesmo.
-
+-no manage_users, algo para "apagar" um user
+-apagar a própria conta
+-agents+ poderem ver o perfil das outras pessoas com o que fizeram lá (teria de adicionar user_id ao ticket_history);
 
 --
 preg_ é usado em: add_ticket_answer_action; add_ticket_action;
