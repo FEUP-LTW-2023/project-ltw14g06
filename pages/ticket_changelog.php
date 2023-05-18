@@ -12,6 +12,7 @@
 
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
+    <h2 id="ticket_history_title">Ticket History:</h2>
     <section id="full_ticket_history">
         <?php foreach ($changelog as $change) { ?>
             <div class="logMessage">

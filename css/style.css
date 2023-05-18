@@ -851,3 +851,15 @@ h3{
   display: flex;
   justify-content: center;
 }
+
+/* Ticket Changelog */
+
+#full_ticket_history,
+#ticket_history_title{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin-left: 5em;
+  color: white;
+}
