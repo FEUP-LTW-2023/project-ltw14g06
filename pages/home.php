@@ -27,7 +27,7 @@
                 <select name="ticketDepartment" id="ticketDepartment">
                     <?php
                         foreach ($departments as $department) {
-                            echo '<option value="' . $department["name"] . '">' . $department["name"] . '</option>';
+                            echo '<option value="' . $department["id"] . '">' . $department["name"] . '</option>';
                         }
                     ?>
                 </select>

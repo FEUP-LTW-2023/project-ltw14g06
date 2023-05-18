@@ -24,6 +24,18 @@ function getStatusID($name){
     }
 }
 
+function getStatusName($id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT name FROM status where id = ?");
+        $stmt->execute(array($id));
+        return $stmt->fetch()["name"];
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function addNewStatus($name){
     global $dbh;
     try{

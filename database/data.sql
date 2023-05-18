@@ -25,7 +25,7 @@ INSERT INTO ticket_messages (id, ticket_id, sender_id, message, created_at) VALU
 
 INSERT INTO FAQ (question, answer) VALUES ('Test question', 'Test answer');
 
-INSERT INTO ticket_history (id, ticket_id, agent_id, status, priority, created_at) VALUES (1,1,1,'Open', 'Medium','2023-04-26 09:00:00');
+INSERT INTO ticket_history (id, ticket_id, text, updated_at) VALUES (1,1,'- deleted everything.','2023-04-26 09:00:00');
 
 INSERT INTO hashtags (name) VALUES ('#support');
 INSERT INTO hashtags (name) VALUES ('#helpdesk');

@@ -19,7 +19,7 @@
         echo "<script>console.log('User logged in successfully');</script>";
         if($newPassword===$confirmNewPassword){
             if(changeUserData($_SESSION['username'], $newUsername, $newName,$newPassword, $newEmail));
-                setCurrentUser($_SESSION['id'],$newUsername);
+                setCurrentUser($_SESSION['id'],$newUsername,$_SESSION["type"]);
         }
         header("Location:".$_SERVER['HTTP_REFERER']."");
     }

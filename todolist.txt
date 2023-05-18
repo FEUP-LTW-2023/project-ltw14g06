@@ -6,7 +6,6 @@ IMPORTANT:
 -Fazer o resto das páginas e o seu CSS
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)   Nota:partially done falta reescrever o register e o resto (faq p.e)
 -Websecurity nos tickets
--agent_all_active_tickets.php devia ter as cenas num actions ig, mas tavame a dar erro.
 -Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
 (para ser feito quando remodelarmos o sistema de login para JS)
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
@@ -18,3 +17,7 @@ UNNECCESSSARY BUT COOL:
 -Butão para adicionar pergunta ao FAQ nos tickets.
 -Admins não deveriam poder trocar o seu type (acho eu).
 -Apos um ticket ser publicado devia dar redirect para ele mesmo.
+
+
+--
+preg_ é usado em: add_ticket_answer_action; add_ticket_action;

@@ -4,9 +4,6 @@
     include_once('../utils/kick_from_page.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
-    include_once('../database/user.php');
-    include_once('../database/ticket.php');
-    include_once('../database/department.php');
 ?>
 
 <body id=home_body>
@@ -30,7 +27,7 @@
         <button type="submit">Sort</button>
     </form>
 
-    <h2 id="closedTickets">All Active Tickets:</h2><br>
+    <h2 id="agent_all_active_tickets">All Active Tickets:</h2><br>
     <section id="all_active_tickets" class="tickets">
     </section>
     <script src="../scripts/get_tickets.js" defer></script>

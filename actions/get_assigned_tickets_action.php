@@ -6,9 +6,9 @@
     include_once('../database/status.php');
 
     if(isset($_GET["order"]) && isset($_GET["sort"])){
-        $tickets = getAllActiveTickets($_GET["order"], $_GET["sort"]);
+        $tickets = getAssignedTickets($_SESSION["id"],$_GET["order"], $_GET["sort"]);
     } else {
-        $tickets = getAllActiveTickets();
+        $tickets = getAssignedTickets($_SESSION["id"]);
     }
 
     $showTickets = array();

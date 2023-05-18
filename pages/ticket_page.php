@@ -28,11 +28,15 @@
 
     <?php if($_SESSION["type"] !== 'Client'){?>
 
+        <a href="../pages/ticket_changelog.php?id=<?php echo $ticketId; ?>" id = ticket_changelog>-----------------------------------------------History</a>
+
         <form action="../actions/change_ticket_department_action.php" class="editTicketForm" method="post">
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+            <input type="hidden" value = "<?php echo getDepartmentName($ticket['department_id']) ?>" name = "old_department">
             <div class="changeTicket_inputBox">
                 <p>Change Department: 
-                    <select name="ticketDepartment" id="ticketDepartment">
+                    <select name="ticket_department" id="ticket_department">
                         <?php
                             foreach ($departments as $department) {
                                 if($department["id"] === $ticket["department_id"]) continue;
@@ -47,6 +51,8 @@
 
         <form action="../actions/change_ticket_priority_action.php" class="editTicketForm" method="post">
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+            <input type="hidden" value = "<?php echo $ticket['priority'] ?>" name = "old_priority">
             <div class="changeTicket_inputBox">
                 <p>Change Priority: 
                     <select name="ticket_priority" id="ticket_priority">
@@ -65,6 +71,9 @@
 
         <form action="../actions/change_ticket_status_action.php" class="editTicketForm" method="post">
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+            <input type="hidden" value = "<?php echo $ticket['agent_id'] ?>" name = "old_agent">
+            <input type="hidden" value = "<?php echo getStatusName($ticket['status_id']) ?>" name = "old_status">
             <div class="changeTicket_inputBox">
                 <p>Change Status: 
                 <select name="ticket_status" id="ticket_status">
@@ -86,6 +95,9 @@
         </div>
         <form action='../actions/change_ticket_assignment_action.php' method="post" class="editTicketForm">
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
+            <input type="hidden" value = "<?php echo $ticket['agent_id'] ?>" name = "old_agent">
+            <input type="hidden" value = "<?php echo getStatusName($ticket['status_id']) ?>" name = "old_status">
             <div class="changeTicket_inputBox">
                 <input type="text" name="newTicketAgent" placeholder ="Insert the name of the agent you want to assign this to or leave empty to remove any assignment"></input>
             </div>
@@ -99,6 +111,7 @@
         </div>
         <form action='../actions/add_hashtag_action.php' method="post" class="editTicketForm">
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
+            <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
             <input class="changeTicket_inputBox" type="text" name="add_hashtag" id="add_hashtag" placeholder="#Add Hashtags" list="hashtag_list" autocomplete="on">
             <datalist id="hashtag_list">
                 <?php foreach ($hashtags as $hashtag){ ?>

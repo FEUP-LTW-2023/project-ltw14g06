@@ -113,10 +113,10 @@ function getUserTickets($id){
     }
 }
 
-function getAllTickets($order = 'id', $sort = 'desc'){
+function getAllActiveTickets($order = 'id', $sort = 'desc'){
     global $dbh;
     try{
-        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE (status_id != 2) ORDER BY $order $sort");
+        $stmt = $dbh->prepare("SELECT * FROM tickets where status_id != 2 ORDER BY $order $sort");
         $stmt->execute();
         return $stmt->fetchAll();
     } catch (PDOException $error) {
@@ -130,6 +130,18 @@ function getAllDepartmentTickets($dep_id, $order = 'id', $sort = 'desc'){
     try{
         $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ? and (status_id != 2) ORDER BY $order $sort");
         $stmt->execute(array($dep_id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
+function getAssignedTickets($agent_id, $order = 'id', $sort = 'desc'){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE agent_id = ? ORDER BY $order $sort");
+        $stmt->execute(array($agent_id));
         return $stmt->fetchAll();
     } catch (PDOException $error) {
         echo $error->getMessage();
@@ -178,6 +190,7 @@ function addTicket($id, $subject, $text, $dep_id){
         if ($stmt->rowCount() == 1) {
             $ticketID = getTicketID($id)['id'];
             addTicketMessage($ticketID, $id, $text);
+            return $ticketID;
         } else {
             throw new PDOException('Failed to insert ticket');
         }
@@ -185,7 +198,6 @@ function addTicket($id, $subject, $text, $dep_id){
         echo $error->getMessage();
         return -1;
     }
-    return true;
 }
 
 function addTicketHashtag($ticket_id,$hashtag_id){

@@ -16,6 +16,13 @@ const getWithAsyncAwait = async (getType) => {
                 response = await fetch("../actions/get_all_active_tickets_action.php?order="+order+"&sort="+sort);
             }
             break;
+        case 'assigned_tickets':
+            if(order === '' && sort===''){
+                response = await fetch("../actions/get_assigned_tickets_action.php");
+            } else{
+                response = await fetch("../actions/get_assigned_tickets_action.php?order="+order+"&sort="+sort);
+            }
+            break;
         case 'user_active_tickets':
             response = await fetch("../actions/get_user_active_tickets_action.php");
             break;
@@ -76,10 +83,10 @@ var sort = '';
 
 const getSection = document.querySelector('.tickets');
 const getType = getSection.getAttribute('id');
+getWithAsyncAwait(getType);
 setInterval(() => {
     getWithAsyncAwait(getType);
 }, 1000);
-
 
 const form = document.getElementById('sort_tickets_form');
 
