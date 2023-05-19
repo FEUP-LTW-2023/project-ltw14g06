@@ -10,13 +10,27 @@
     <?php include_once ('../templates/default.php');?>
 
     <section id="search_menu">
-        <div id="search_department">
-        </div>
+        <select name="search_deparment_select" id="search_deparment_select"></select>
+        <select name="search_status_select" id="search_status_select"></select>
+        <select name="search_priority_select" id="search_priority_select">
+            <option value = ""></option>
+            <option value="Low">Low</option>
+            <option value="Medum">Medium</option>
+            <option value="High">High</option>
+        </select>
+        Assigned to: <input type="text" name="agent_name" id="agent_name">
+        Posted By: <input type="text" name="user_username" id="user_username">
+        From: <input type="date" name="from_created_at" id="from_created_at">
+        Until: <input type="date" name="until_created_at" id="until_created_at">
+        <select name="search_hashtag_select" id="search_hashtag_select"></select>
+        <button id = "search_reset" type="submit">Reset</button>
     </section>
 
+    <div id="show_search_hashtags">
+    </div>
+
     <h2 id="all_searched_tickets">Tickets:</h2><br>
-    <section id="searched_tickets" class="tickets">
-    </section>
+    <section id="searched_tickets" class="tickets"></section>
     <script src="../scripts/search_tickets.js" defer></script>
 </body>
 <?php
