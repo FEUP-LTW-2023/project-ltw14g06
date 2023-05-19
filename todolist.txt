@@ -11,6 +11,7 @@ IMPORTANT:
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
 -Adaptar o CSS das cenas do perfil para telemovel
 -dar uso a hashtags
+-mudar onclick para addEventListener
 
 
 UNNECCESSSARY BUT COOL:

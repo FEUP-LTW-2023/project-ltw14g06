@@ -13,7 +13,7 @@
 
     $showTickets = array();
     foreach ($tickets as $ticket) {
-        $text = getTicketText($ticket["id"]);
+        $text = html_entity_decode(getTicketText($ticket["id"]));
         $department = getDepartmentName($ticket["department_id"]);
         $status = getTicketStatus($ticket["id"]);
         $username = getUserDataByID($ticket["user_id"])["username"];
@@ -23,7 +23,7 @@
             "id" => $ticket["id"], 
             "user_id" => $ticket["user_id"], 
             "username" => $username, 
-            "subject" => $ticket["subject"], 
+            "subject" => html_entity_decode($ticket["subject"]), 
             "text" => $text, 
             "department" => $department, 
             "priority" => $ticket["priority"],

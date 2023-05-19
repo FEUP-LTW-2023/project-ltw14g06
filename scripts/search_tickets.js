@@ -1,11 +1,11 @@
-var department_id = '';
-var status_id = '';
-var priority = '';
-var agent_name = '';
-var user_username = '';
-var from_created_at = '';
-var until_created_at = '';
-var hashtags = [];
+const department_id = '';
+const status_id = '';
+const priority = '';
+const agent_name = '';
+const user_username = '';
+const from_created_at = '';
+const until_created_at = '';
+const hashtags = [];
 
 const getDepartmentsSelectMenu = async () => {
     const response = await fetch("../actions/get_departments_action.php");
@@ -183,5 +183,7 @@ reset.addEventListener('click', function() {
     document.getElementById("user_username").value = '';
     document.getElementById("from_created_at").value = '';
     document.getElementById("until_created_at").value = '';
+
+    showSearchedHashtags();
 });
 
