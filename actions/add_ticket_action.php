@@ -7,7 +7,7 @@
         include_once('../database/ticket_history.php');
         include_once('../actions/validate_csrf_action.php');
 
-        if(strlen($_POST['subject']) > 80){
+        if(strlen($_POST['subject']) > 100){
             http_response_code(452);
             exit();
         }

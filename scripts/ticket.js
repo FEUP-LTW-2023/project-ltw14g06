@@ -17,7 +17,7 @@ const postTicket = async (user_id, subject, text, department, priority) => {
         window.location.replace("user_active_tickets.php");
     } else{
         if(response.status === 452){
-            subjectInvalid.textContent = 'Subject must be under  characters!'
+            subjectInvalid.textContent = 'Subject must be under 100 characters!'
         }
     } 
 }

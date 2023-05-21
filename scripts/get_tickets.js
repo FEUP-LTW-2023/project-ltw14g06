@@ -61,7 +61,6 @@ const getWithAsyncAwait = async (getType) => {
                 div.classList.add("userTicket");
             }
             
-            div.classList.add(ticket.status);
             div.innerHTML = "";
 
             const ticketUsername = document.createElement("p");
@@ -73,6 +72,11 @@ const getWithAsyncAwait = async (getType) => {
             ticketSubj.textContent = "Subject: " + ticket.subject;
             ticketSubj.classList.add("ticketSubject");
             div.appendChild(ticketSubj);
+
+            const ticketStatus = document.createElement("p");
+            ticketStatus.textContent = "Status: " + ticket.status;
+            ticketStatus.classList.add("ticketStatus");
+            div.appendChild(ticketStatus);
 
             const ticketCreatedAt = document.createElement("p");
             ticketCreatedAt.textContent = ticket.created_at;
