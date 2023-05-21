@@ -13,6 +13,7 @@ function changeUserType(username, user_id, type) {
 }
 
 function changeUserDepartment(username, user_id, department_id) {
+    const csrf = document.getElementById('csrf').value;
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../actions/change_user_department_action.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
