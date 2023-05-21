@@ -372,7 +372,7 @@ h3{
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .sidebar.close .sidebarAllButtons li .subMenu,
   .sidebar.close .sidebarDetails i,
   .sidebar .sidebarDetails .websiteName{
@@ -609,6 +609,7 @@ h3{
 }
 
 .question_list {
+  width: 70%;
   margin-left: 300px;
   margin-right: 300px;
 }
@@ -931,6 +932,7 @@ h3{
 }
 
 .ticket:hover{
+  box-shadow: 0 5px 15px #1d1b31;
   cursor: pointer;
 }
 
@@ -1154,7 +1156,7 @@ h3{
     line-height: 3em; /* Set line-height equal to button height */
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   #change_profile_info.profile_info_sec {
     height: 40em;
     width: 100%;
