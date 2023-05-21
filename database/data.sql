@@ -18,8 +18,12 @@ INSERT INTO status(name) VALUES ('Open');
 INSERT INTO status(name) VALUES ('Closed');
 INSERT INTO status(name) VALUES ('Assigned');
 
-INSERT INTO tickets (id, user_id, agent_id, department_id,subject, priority, created_at, updated_at) VALUES (1,1,2, 1,'test', 'Medium','2023-04-26 09:00:00', '2023-04-26 11:30:00');
-INSERT INTO tickets (user_id, agent_id, department_id,subject, priority) VALUES (1,2, 1,'test', 'Medium');
+INSERT INTO priority(name) VALUES ('Low');
+INSERT INTO priority(name) VALUES ('Medium');
+INSERT INTO priority(name) VALUES ('High');
+
+INSERT INTO tickets (id, user_id, agent_id, department_id,subject, priority_id, created_at, updated_at) VALUES (1,1,2, 1,'test', 2,'2023-04-26 09:00:00', '2023-04-26 11:30:00');
+INSERT INTO tickets (user_id, agent_id, department_id,subject, priority_id) VALUES (1,2, 1,'test', 1);
 
 INSERT INTO ticket_messages (id, ticket_id, sender_id, message, created_at) VALUES (1,1,1, 'oi test','2023-04-26 09:00:00');
 

@@ -4,6 +4,7 @@
     include_once('../database/ticket.php');
     include_once('../database/department.php');
     include_once('../database/status.php');
+    include_once('../database/priority.php');
 
     $tickets = getUserActiveTickets($_SESSION["id"]);
 
@@ -14,6 +15,7 @@
         $status = getTicketStatus($ticket["id"]);
         $username = getUserDataByID($ticket["user_id"])["username"];
         $date = 'Posted ' . date('Y/m/d H:i', strtotime($ticket["created_at"]));
+        $priority = getPriorityName($ticket["priority_id"]);
 
         $showTicket = array(
             "id" => $ticket["id"], 
@@ -22,7 +24,7 @@
             "subject" => html_entity_decode($ticket["subject"]), 
             "text" => $text, 
             "department" => $department, 
-            "priority" => $ticket["priority"],
+            "priority" => $priority,
             "status" => $status,
             "created_at" => $date
         );

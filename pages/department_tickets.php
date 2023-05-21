@@ -14,7 +14,7 @@
         <select name="order" id="order">
             <option value="id">Most Recent</option>
             <option value="status_id">Status</option>
-            <option value="priority">Priority</option>
+            <option value="priority_id">Priority</option>
             <option value="hashtag">Hashtag</option>
         </select>
 

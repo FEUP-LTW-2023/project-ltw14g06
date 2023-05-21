@@ -263,11 +263,11 @@ function updateTicketDepartment($id, $department){
     return true;
 }
 
-function updateTicketPriority($id, $priority) {
+function updateTicketPriority($id, $priority_id) {
     global $dbh;
     try {
-        $stmt = $dbh->prepare('UPDATE tickets SET priority=? WHERE id=?');
-        $stmt->execute(array($priority,$id));
+        $stmt = $dbh->prepare('UPDATE tickets SET priority_id=? WHERE id=?');
+        $stmt->execute(array($priority_id,$id));
     } catch (PDOException $error) {
         echo $error->getMessage();
         return -1;

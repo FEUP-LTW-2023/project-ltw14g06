@@ -53,14 +53,14 @@
                     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                     <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
                     <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
-                    <input type="hidden" value = "<?php echo $ticket['priority'] ?>" name = "old_priority">
+                    <input type="hidden" value = "<?php echo $ticket['priority_id'] ?>" name = "old_priority">
                     <select name="ticket_priority" id="change_ticket_priority" class="editTicketInputbox">
-                        <?php if($ticket["priority"]!=="Low"){?>
-                            <option value="Low">Low</option>
-                        <?php } if($ticket["priority"]!=="Medium"){?>
-                            <option value="Medum">Medium</option>
-                        <?php }if($ticket["priority"]!=="High"){ ?>
-                            <option value="High">High</option>
+                        <?php if($ticket["priority_id"]!==1){?>
+                            <option value="1">Low</option>
+                        <?php } if($ticket["priority_id"]!==2){?>
+                            <option value="2">Medium</option>
+                        <?php }if($ticket["priority_id"]!==3){ ?>
+                            <option value="3">High</option>
                         <?php } ?>
                     </select>   
                     <button class = "changeTicketInfoButton" id="change_ticket_priority_button" type="submit">Submit Change Priority</button>

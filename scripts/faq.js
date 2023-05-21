@@ -22,12 +22,12 @@ function toggleTextarea(id){
         const question = questionElement.value;
         const answer = answerElement.value;
         editFAQ(id,question,answer);
-        questionElement.outerHTML = "<h2 id='faqQuestion" + id + "'>" + questionElement.value + "</h2>";
-        answerElement.outerHTML = "<p id='faqAnswer" + id + "'>" + answerElement.value + "</p>";
+        questionElement.outerHTML = "<h2 id='faq_question_" + id + "'>" + questionElement.value + "</h2>";
+        answerElement.outerHTML = "<p id='faq_answer_" + id + "'>" + answerElement.value + "</p>";
         buttonElement.textContent='Edit';
     } else {
-        questionElement.outerHTML = "<textarea id='faqQuestion" + id + "' class='textareaFAQ'>" + questionElement.innerText + "</textarea>";
-        answerElement.outerHTML = "<textarea id='faqAnswer" + id + "' class='textareaFAQ'>" + answerElement.innerText + "</textarea>";
+        questionElement.outerHTML = "<textarea id='faq_question_" + id + "' class='textareaFAQ'>" + questionElement.innerText + "</textarea>";
+        answerElement.outerHTML = "<textarea id='faq_answer_" + id + "' class='textareaFAQ'>" + answerElement.innerText + "</textarea>";
         buttonElement.textContent='Save';
     }
 }
@@ -85,6 +85,7 @@ const getFaq = async () => {
 
             const editButton = document.createElement('button');
             editButton.classList.add('deleteFAQ');
+            editButton.id= "edit_faq_button_" + qa.id;
             editButton.textContent = 'Edit';
 
             editButton.addEventListener('click', function() {;

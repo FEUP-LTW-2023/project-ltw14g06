@@ -4,6 +4,7 @@
     include_once('../database/ticket.php');
     include_once('../database/hashtags.php');
     include_once('../database/department.php');
+    include_once('../database/priority.php');
 
     $ticket = getTicketData($_GET["ticket_id"]);
 
@@ -14,6 +15,7 @@
     $assigned_username = $assigned["username"];
     $assigned_name = $assigned["name"];
     $status = getTicketStatus($ticket["id"]);
+    $priority = getPriorityName($ticket["priority_id"]);
 
     $hashtags_id = getTicketHashtags($ticket["id"]);
     $hashtags_name = array();
@@ -29,7 +31,7 @@
         "subject" => html_entity_decode($ticket["subject"]),
         "text" => $text, 
         "department" => $department, 
-        "priority" => $ticket["priority"],
+        "priority" => $priority,
         "status" => $status,
         "assigned_username" => $assigned_username,
         "assigned_name" => $assigned_name,

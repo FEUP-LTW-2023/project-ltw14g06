@@ -6,7 +6,23 @@ include_once('../database/status.php');
 include_once('../actions/validate_csrf_action.php');
 include_once('../database/ticket_history.php');
 
+$validStatus = getStatus();
+
 if(isset($_POST['ticket_id']) && isset($_POST['ticket_status'])){
+    $isValidStatus = false;
+    
+    foreach ($validStatus as $status) {
+        if ($_POST['ticket_status'] == $status["id"]) {
+            $isValidStatus = true;
+            break;
+        }
+    }
+    
+    if (!$isValidStatus) {
+        header("Location:../pages/ticket_page.php?id=" . $_POST["ticket_id"]);
+        exit();
+    }
+
     updateTicketStatus($_POST['ticket_id'],$_POST['ticket_status']);
     if($_POST['ticket_status']==='1'){
         removeTicketAssignment($_POST['ticket_id']);
