@@ -5,11 +5,5 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
     exit();
 }
 
-/*
-<input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
-include_once('../actions/validate_csrf_action.php');
-*/
-
-
 ?>
 

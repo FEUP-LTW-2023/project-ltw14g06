@@ -1,4 +1,5 @@
 function deleteHashtag(ticketId, hashtag){
+  const csrf = document.getElementById('csrf').value;
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "../actions/delete_ticket_hashtag_action.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -9,7 +10,7 @@ function deleteHashtag(ticketId, hashtag){
     }
   };
 
-  xhr.send("ticket_id=" + ticketId + "&hashtag=" + hashtag);
+  xhr.send("ticket_id=" + ticketId + "&hashtag=" + hashtag + "&csrf=" + csrf);
 }
 
 const getSingleTicket = async (ticketId) => {
@@ -22,7 +23,7 @@ const getSingleTicket = async (ticketId) => {
   const ticket = jsonResponse;
       
   const div = document.createElement("div");
-  div.classList.add(ticket.priority);
+  div.classList.add("singleTicketInfo");
   div.innerHTML = "";
 
   const ticketSubj = document.createElement("p");

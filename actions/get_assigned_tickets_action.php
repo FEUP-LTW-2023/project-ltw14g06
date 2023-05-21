@@ -5,7 +5,7 @@
     include_once('../database/department.php');
     include_once('../database/status.php');
 
-    $validOrders = ["id", "status_id", "priority", "hashtag"];
+    $validOrders = ["id", "department_id","status_id", "priority", "hashtag"];
 
     if (isset($_GET["order"]) && isset($_GET["sort"])) {
         if ($_GET["sort"] !== "asc" && $_GET["sort"] !== "desc") {

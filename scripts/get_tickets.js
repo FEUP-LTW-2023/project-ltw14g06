@@ -42,52 +42,57 @@ const getWithAsyncAwait = async (getType) => {
     }
 
     
-    const jsonResponse = await response.json();
-
-    const userType = document.querySelector('#user_type').value;
+    try {
+        const jsonResponse = await response.json();
+        const userType = document.querySelector('#user_type').value;
     
-    const elem = document.querySelector('.tickets');
-    elem.innerHTML = "";
-    
-    for (let i = 0; i < jsonResponse.length; i++) {
-        const ticket = jsonResponse[i];
+        const elem = document.querySelector('.tickets');
+        elem.innerHTML = "";
+        
+        for (let i = 0; i < jsonResponse.length; i++) {
+            const ticket = jsonResponse[i];
 
-        const div = document.createElement("div");
-        div.classList.add('ticket');
-        if(true);
-        if (userType !== 'Client' && !clientTickets) {
-            div.classList.add(ticket.priority);
-        } else {
-            div.classList.add("userTicket");
+            const div = document.createElement("div");
+            div.classList.add('ticket');
+            if(true);
+            if (userType !== 'Client' && !clientTickets) {
+                div.classList.add(ticket.priority);
+            } else {
+                div.classList.add("userTicket");
+            }
+            
+            div.classList.add(ticket.status);
+            div.innerHTML = "";
+
+            const ticketUsername = document.createElement("p");
+            ticketUsername.textContent = "Posted by: " + ticket.username; 
+            ticketUsername.classList.add("ticketPostedBy");
+            div.appendChild(ticketUsername);
+
+            const ticketSubj = document.createElement("p");
+            ticketSubj.textContent = "Subject: " + ticket.subject;
+            ticketSubj.classList.add("ticketSubject");
+            div.appendChild(ticketSubj);
+
+            const ticketCreatedAt = document.createElement("p");
+            ticketCreatedAt.textContent = ticket.created_at;
+            ticketCreatedAt.classList.add("ticketCreatedAt");
+            div.appendChild(ticketCreatedAt);
+
+            elem.appendChild(div);
+
+            div.addEventListener('click', (event) =>{
+                event.preventDefault();
+
+                window.location.href = "../pages/ticket_page.php?id=" + ticket.id;
+            })
+            
         }
-        
-        div.classList.add(ticket.status);
-        div.innerHTML = "";
+      } catch (error) {
+        console.error('Error parsing JSON:', error);
+      }
 
-        const ticketUsername = document.createElement("p");
-        ticketUsername.textContent = "Posted by: " + ticket.username; 
-        ticketUsername.classList.add("ticketPostedBy");
-        div.appendChild(ticketUsername);
-
-        const ticketSubj = document.createElement("p");
-        ticketSubj.textContent = "Subject: " + ticket.subject;
-        ticketSubj.classList.add("ticketSubject");
-        div.appendChild(ticketSubj);
-
-        const ticketCreatedAt = document.createElement("p");
-        ticketCreatedAt.textContent = ticket.created_at;
-        ticketCreatedAt.classList.add("ticketCreatedAt");
-        div.appendChild(ticketCreatedAt);
-
-        elem.appendChild(div);
-
-        div.addEventListener('click', (event) =>{
-            event.preventDefault();
-
-            window.location.href = "../pages/ticket_page.php?id=" + ticket.id;
-        })
-        
-    }
+    
 };
 
 var order = '';

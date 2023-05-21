@@ -11,7 +11,8 @@ const encodeTicketForAjax = (data) => {
 };
 
 const postRegister = async (email,username,name,password,confirmPassword) => {
-    const dataToSend = encodeTicketForAjax({email: email,username: username,name: name,password: password,confirmPassword: confirmPassword});
+    const csrf = document.getElementById('csrf').value;
+    const dataToSend = encodeTicketForAjax({email: email,username: username,name: name,password: password,confirmPassword: confirmPassword,csrf:csrf});
     const response = await fetch("../actions/register_action.php",{
         method: "POST",
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
@@ -51,15 +52,11 @@ register.addEventListener('submit', function(event) {
     event.preventDefault();
     
     const email = document.querySelector("#register_form input[name = 'email']").value;
-    console.log(email);
     const username = document.querySelector("#register_form input[name = 'username']").value;
-    console.log(username);
     const name = document.querySelector("#register_form input[name = 'name']").value;
-    console.log(name);
     const password = document.querySelector("#register_form input[name = 'password']").value;
-    console.log(password);
     const confirmPassword = document.querySelector("#register_form input[name = 'confirmPassword']").value;
-    console.log(confirmPassword);
+
     
   
     postRegister(email,username,name,password,confirmPassword);

@@ -5,7 +5,8 @@ const encodeTicketForAjax = (data) => {
 };
 
 const postTicket = async (user_id, subject, text, department, priority) => {
-    const dataToSend = encodeTicketForAjax({user_id: user_id, subject: subject,text: text,department: department,priority: priority});
+    const csrf = document.getElementById('csrf').value;
+    const dataToSend = encodeTicketForAjax({user_id: user_id, subject: subject,text: text,department: department,priority: priority,csrf:csrf});
     const response = await fetch("../actions/add_ticket_action.php",{
         method: "POST",
         headers: {'Content-Type':'application/x-www-form-urlencoded'},

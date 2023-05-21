@@ -7,13 +7,14 @@ function deleteFAQ(id){
             location.reload();
         }
     };
-    xhr.send('id=' + id);
+    const csrf = document.getElementById('csrf').value;
+    xhr.send('id=' + id + '&csrf='+csrf);
 }
 
 function toggleTextarea(id){
-    const questionElement = document.getElementById('faqQuestion' + id);
-    const answerElement = document.getElementById('faqAnswer' + id);
-    const buttonElement = document.getElementById('editFAQButton' + id);
+    const questionElement = document.getElementById('faq_question_' + id);
+    const answerElement = document.getElementById('faq_answer_' + id);
+    const buttonElement = document.getElementById('edit_faq_button_'+id);
     
     const isTextarea = questionElement.tagName === 'TEXTAREA';
     
@@ -21,12 +22,10 @@ function toggleTextarea(id){
         const question = questionElement.value;
         const answer = answerElement.value;
         editFAQ(id,question,answer);
-        // Switch back to <h2> and <p> tags
         questionElement.outerHTML = "<h2 id='faqQuestion" + id + "'>" + questionElement.value + "</h2>";
         answerElement.outerHTML = "<p id='faqAnswer" + id + "'>" + answerElement.value + "</p>";
         buttonElement.textContent='Edit';
     } else {
-        // Switch to <textarea> tags
         questionElement.outerHTML = "<textarea id='faqQuestion" + id + "' class='textareaFAQ'>" + questionElement.innerText + "</textarea>";
         answerElement.outerHTML = "<textarea id='faqAnswer" + id + "' class='textareaFAQ'>" + answerElement.innerText + "</textarea>";
         buttonElement.textContent='Save';
@@ -42,18 +41,64 @@ function editFAQ(id,question,answer){
             console.log(xhr.responseText);
         }
     };
-    xhr.send('id=' + id+'&question='+ question+'&answer='+answer);
+    const csrf = document.getElementById('csrf').value;
+    xhr.send('id=' + id+'&question='+ question+'&answer='+answer+ '&csrf='+csrf);
 }
 
-const deleteButton = document.getElementById('delete_FAQ_button');
-const editButton = document.getElementById('edit_FAQ_button')
+const getFaq = async () => {
+    var response = await fetch("../actions/get_faq_action.php");
+    const jsonResponse = await response.json();
+    const userType = document.getElementById("user_type").value;
 
-deleteButton.addEventListener('click', function() {
-    const qaId = deleteButton.dataset.qaId;
-    deleteFAQ(qaId);
-});
+    const elem = document.querySelector('.question_list');
+    elem.innerHTML = "";
 
-editButton.addEventListener('click', function(){
-    const qaId = deleteButton.dataset.qaId;
-    toggleTextarea(qaId);
-})
+    for (let i = 0; i < jsonResponse.length; i++) {
+        const qa = jsonResponse[i];
+
+        const li = document.createElement("li");
+        li.classList.add('questionAnswer');
+
+        const question = document.createElement('h2');
+        question.id = 'faq_question_' + qa.id;
+        question.textContent = qa.question;
+        li.appendChild(question);
+
+        const answer = document.createElement('p');
+        answer.textContent = qa.answer;
+        answer.id = 'faq_answer_' + qa.id;
+        li.appendChild(answer);
+
+        if(userType !== 'Client'){
+            const div = document.createElement('div');
+            div.classList.add('buttonContainer');
+
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('deleteFAQ');
+            deleteButton.textContent = 'Delete';
+
+            deleteButton.addEventListener('click', function() {;
+                deleteFAQ(qa.id);
+            });
+
+            div.appendChild(deleteButton);
+
+            const editButton = document.createElement('button');
+            editButton.classList.add('deleteFAQ');
+            editButton.textContent = 'Edit';
+
+            editButton.addEventListener('click', function() {;
+                toggleTextarea(qa.id);
+            });
+
+            div.appendChild(editButton);
+
+            li.appendChild(div);
+        }
+        elem.appendChild(li);
+        
+    }
+    
+}
+
+getFaq();

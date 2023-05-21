@@ -21,7 +21,7 @@
     <section id="add_entities_sec">
         <div class="manage_entities">
             <form class="add_entity" action="../actions/add_new_department_action.php" method="post" id="new_department_form">
-                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
+                <input type="hidden" id= "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type=text id="new_department" name="new_department" placeholder="Insert a new department here" required></input>
                 <button class = "deleteFAQ" type="submit">Insert new department</button>
             </form>

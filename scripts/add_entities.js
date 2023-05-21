@@ -7,7 +7,8 @@ function deleteDepartment(id){
             location.reload();
         }
     };
-    xhr.send('id=' + id);
+    const csrf = document.getElementById('csrf').value;
+    xhr.send('id=' + id + '&csrf='+csrf);
 }
 
 function deleteHashtag(id){
@@ -19,7 +20,8 @@ function deleteHashtag(id){
             location.reload();
         }
     };
-    xhr.send('id=' + id);
+    const csrf = document.getElementById('csrf').value;
+    xhr.send('id=' + id + '&csrf='+csrf);
 }
 
 
@@ -32,7 +34,8 @@ function deleteStatus(id){
             location.reload();
         }
     };
-    xhr.send('id=' + id);
+    const csrf = document.getElementById('csrf').value;
+    xhr.send('id=' + id + '&csrf='+csrf);
 }
 
 const deleteDepartmentButton = document.getElementById('delete_department_button');

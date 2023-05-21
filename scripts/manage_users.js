@@ -1,14 +1,15 @@
 function changeUserType(username, user_id, type) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../actions/change_user_type_action.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onload = function() {
-      if (this.status == 200) {
-        getUserInfo(username);
-      }
-    };
-  
-    xhr.send("user_id=" + user_id + "&type=" + encodeURIComponent(type));
+  const csrf = document.getElementById('csrf').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../actions/change_user_type_action.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+    if (this.status == 200) {
+      getUserInfo(username);
+    }
+  };
+
+  xhr.send("user_id=" + user_id + "&type=" + encodeURIComponent(type)+"&csrf="+csrf);
 }
 
 function changeUserDepartment(username, user_id, department_id) {
@@ -21,7 +22,7 @@ function changeUserDepartment(username, user_id, department_id) {
       }
     };
   
-    xhr.send("user_id=" + user_id + "&department_id=" + department_id);
+    xhr.send("user_id=" + user_id + "&department_id=" + department_id+"&csrf="+csrf);
 }
 
 

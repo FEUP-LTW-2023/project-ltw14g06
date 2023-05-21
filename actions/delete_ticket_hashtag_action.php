@@ -3,6 +3,7 @@
     include_once('../database/ticket.php');
     include_once('../database/ticket_history.php');
     include_once('../database/hashtags.php');
+    include_once('../actions/validate_csrf_action.php');
 
     $hashtag_id = getHashtagID(htmlentities($_POST["hashtag"]));
 

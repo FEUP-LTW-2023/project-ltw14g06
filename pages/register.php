@@ -9,7 +9,7 @@
     <main id="register_page">
         <section id="login_box">
             <form method="post" id="register_form">
-                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
+                <input type="hidden" id = "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <header>
                     <h3>Register</h3>
                 </header>
