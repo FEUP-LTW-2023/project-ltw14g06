@@ -32,8 +32,8 @@
     </form>
 
     <h2 id="agent_all_active_tickets" class="ticketPageHeader">All Active Tickets:</h2><br>
-    <section id="all_active_tickets" class="tickets">
-    </section>
+    <div id="all_active_tickets" class="tickets">
+    </div>
     <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php

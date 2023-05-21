@@ -25,7 +25,7 @@
         <form method="post" class = "searchUserForm">
             <div class="inputbox" id="search_user">
                 <input type="hidden" id = "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
-                <input type="input" name="username" placeholder ="Search User" required></input>
+                <input type="text" name="username" placeholder ="Search User" required></input>
             </div>
         </form>
     </div>

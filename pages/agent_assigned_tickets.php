@@ -30,8 +30,8 @@
     </form>
 
     <h2 id="agent_assigned_tickets" class="ticketPageHeader">All Assigned Tickets:</h2><br>
-    <section id="assigned_tickets" class="tickets">
-    </section>
+    <div id="assigned_tickets" class="tickets">
+    </div>
     <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php
