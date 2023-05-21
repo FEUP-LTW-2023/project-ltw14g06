@@ -174,6 +174,18 @@ function getTicketsWithStatus($status_id){
     }
 }
 
+function getTicketsWithDepartment($department_id){
+    global $dbh;
+    try{
+        $stmt = $dbh->prepare("SELECT * FROM tickets WHERE department_id = ?");
+        $stmt->execute(array($department_id));
+        return $stmt->fetchAll();
+    } catch (PDOException $error) {
+        echo $error->getMessage();
+        return -1;
+    }
+}
+
 function addTicketMessage($id, $sender_id, $text){
     global $dbh;
     try{
