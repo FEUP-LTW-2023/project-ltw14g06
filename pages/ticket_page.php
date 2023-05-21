@@ -116,16 +116,17 @@
         
         <section id="ticketAnswers" class ="activeTickets">
         </section>
-            <form method="post" id="insertAnswer" action="../actions/add_ticket_answer_action.php">
+        <div id="ticket_answer_area">
+            <form method="post" id="insertTicketAnswer" action="../actions/add_ticket_answer_action.php">
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
-                <textarea id="newAnswerText" name="newAnswerText" required></textarea>
-                <button type="submit">Post</button>
+                <textarea id="newAnswerText" name="newAnswerText" placeholder="Write an answer here"required></textarea>
+                <button type="submit" class = "deleteFAQ">Send</button>
             </form>
             <?php if($_SESSION["type"] !== 'Client'){?>
                 <section class="faqAnswers">
-                    <form method="post" id="insertFaqAnswer" action="../actions/add_ticket_answer_action.php">
+                    <form method="post" id="insertTicketFaqAnswer" action="../actions/add_ticket_answer_action.php">
                         <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                         <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
                         <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
@@ -136,10 +137,11 @@
                                 }
                             ?>
                         </select>
-                        <button type="submit">Quick Answer</button>
+                        <button id="quick_answer_button" class="deleteFAQ"type="submit">Quick Answer</button>
                     </form>
                 </section>
-            <?php } ?>   
+            <?php } ?>  
+        </div> 
     </section>
 
     <script src="../scripts/ticket_page.js" defer></script>

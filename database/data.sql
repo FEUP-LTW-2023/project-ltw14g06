@@ -22,15 +22,6 @@ INSERT INTO priority(name) VALUES ('Low');
 INSERT INTO priority(name) VALUES ('Medium');
 INSERT INTO priority(name) VALUES ('High');
 
-INSERT INTO tickets (id, user_id, agent_id, department_id,subject, priority_id, created_at, updated_at) VALUES (1,1,2, 1,'test', 2,'2023-04-26 09:00:00', '2023-04-26 11:30:00');
-INSERT INTO tickets (user_id, agent_id, department_id,subject, priority_id) VALUES (1,2, 1,'test', 1);
-
-INSERT INTO ticket_messages (id, ticket_id, sender_id, message, created_at) VALUES (1,1,1, 'oi test','2023-04-26 09:00:00');
-
-INSERT INTO FAQ (question, answer) VALUES ('Test question', 'Test answer');
-
-INSERT INTO ticket_history (id, ticket_id, text, updated_at) VALUES (1,1,'- deleted everything.','2023-04-26 09:00:00');
-
 INSERT INTO hashtags (name) VALUES ('#support');
 INSERT INTO hashtags (name) VALUES ('#helpdesk');
 INSERT INTO hashtags (name) VALUES ('#customerservice');
@@ -43,6 +34,4 @@ INSERT INTO hashtags (name) VALUES ('#escalationmanagement');
 INSERT INTO hashtags (name) VALUES ('#servicelevelagreements');
 INSERT INTO hashtags (name) VALUES ('#userfeedback');
 INSERT INTO hashtags (name) VALUES ('#teamcollaboration');
-
-INSERT INTO ticket_hashtags (ticket_id, hashtag_id) VALUES (1,3);
 

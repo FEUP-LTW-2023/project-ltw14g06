@@ -48,8 +48,8 @@ CREATE TABLE tickets (
   status_id INTEGER NOT NULL DEFAULT 1,
   subject VARCHAR(255) NOT NULL,
   priority_id INTEGER NOT NULL DEFAULT 2,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),
+  updated_at TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (agent_id) REFERENCES users(id),
   FOREIGN KEY (department_id) REFERENCES departments(id),
@@ -62,7 +62,7 @@ CREATE TABLE ticket_messages (
   ticket_id INTEGER NOT NULL,
   sender_id INTEGER NOT NULL,
   message TEXT NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),
   FOREIGN KEY (ticket_id) REFERENCES tickets(id),
   FOREIGN KEY (sender_id) REFERENCES users(id)
 );
@@ -77,7 +77,7 @@ CREATE TABLE ticket_history (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   ticket_id INTEGER NOT NULL,
   text TEXT NOT NULL,
-  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),
   FOREIGN KEY (ticket_id) REFERENCES tickets(id)
 );
 

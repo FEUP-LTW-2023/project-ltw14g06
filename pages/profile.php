@@ -4,6 +4,7 @@
     include_once('../utils/init.php');
     include_once('../templates/head.php');
     include_once('../database/user.php');
+    include_once('../database/department.php');
     $user = getUserData($_SESSION['username']);
 ?>
 
@@ -29,6 +30,12 @@
             <p class="profile_info_title">Account Type:</p>
             <p> <?php echo htmlspecialchars($user["type"]); ?></p>
         </div>
+        <?php if($user["type"] !== 'Client'){?>
+            <div class="profile_info_div">
+                <p class="profile_info_title">Department:</p>
+                <p> <?php echo htmlspecialchars(getDepartmentName($user["department_id"]));?></p>
+            </div>
+        <?php } ?>
         <p id="change_info_link"> Want to change your information? <a href="change_profile_info.php">Click Here</a></p>
     </section>
 </body>
