@@ -989,3 +989,71 @@ h3{
   align-items: center;
   flex-direction: column;
 }
+
+#singleTicket{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#edit_ticket_section{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4em;
+}
+
+.editTicketForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 12em;
+}
+
+.editTicketForm *{
+  width: 100%;
+}
+
+#ticket_changelog{
+  margin-bottom: 4em;
+  font-size: 2em;
+  color: aliceblue;
+}
+
+.editTicketInputbox{
+  background-color: transparent;
+  border: none;
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 5px;
+}
+
+.editTicketInputbox:focus{
+  outline: none;
+}
+
+.changeTicketInfoButton {
+  height: 3em;
+  border-radius: 3em;
+  background-color: rgba(38, 35, 71, 0.8);
+  color: aliceblue;
+  font-size: 0.9em;
+  font-weight: bold;
+  border: 0;
+  padding: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changeTicketInfoButton:hover{
+  background-color: rgba(38, 35, 71, 1);
+  box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
+  cursor: pointer;
+}
