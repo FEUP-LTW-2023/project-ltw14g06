@@ -16,8 +16,8 @@
     <h2 id="all_tickets" class="ticketPageHeader">Your Tickets:</h2><br>
     
 
-    <section id="user_all_tickets" class="tickets">
-    </section>
+    <div id="user_all_tickets" class="tickets">
+    </div>
     <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php

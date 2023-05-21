@@ -18,7 +18,7 @@
 
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
-    <section id="add_entities_sec">
+    <div id="add_entities_sec">
         <div class="manage_entities">
             <form class="add_entity" action="../actions/add_new_department_action.php" method="post" id="new_department_form">
                 <input type="hidden" id= "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
@@ -41,7 +41,7 @@
         <div class = "manage_entities">
             <form class="add_entity" action="../actions/add_new_hashtag_action.php" method="post" id="new_hashtag_form">
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
-                <input type=hashtag id="new_hashtag" name="new_hashtag" placeholder="Insert a new hashtag here" required></input>
+                <input type=text id="new_hashtag" name="new_hashtag" placeholder="Insert a new hashtag here" required></input>
                 <button class = "deleteFAQ" type="submit">Insert new hashtag</button>
             </form>
             <div id="delete_hashtag">
@@ -74,7 +74,7 @@
                 <button class = "deleteFAQ" id ="delete_status_button">Delete status</button>
             </div>
         </div>
-    </section>
+    </div>
     
     <script src="../scripts/add_entities.js" defer></script>
 </body>

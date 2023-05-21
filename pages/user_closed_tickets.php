@@ -10,8 +10,8 @@
     <input type="hidden" id = "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
     <input type="hidden" id="user_type" value="<?php echo $_SESSION["type"]; ?>">
     <h2 id="closed_tickets" class="ticketPageHeader">Your Closed Tickets:</h2><br>
-    <section id="user_closed_tickets" class="tickets">
-    </section>
+    <div id="user_closed_tickets" class="tickets">
+    </div>
     <script src="../scripts/get_tickets.js" defer></script>
 </body>
 <?php

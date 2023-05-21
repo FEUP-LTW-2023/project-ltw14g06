@@ -27,11 +27,11 @@
     <?php include_once ('../templates/default.php');?>
 
     <?php if($_SESSION["type"] !== 'Client'){?>
-        <section id="ticket_page_section">
+        <div id="ticket_page_section">
 
             <a href="../pages/ticket_changelog.php?id=<?php echo $ticketId; ?>" id = "ticket_changelog">Ticket History</a>
             
-            <section id="edit_ticket_section">
+            <div id="edit_ticket_section">
 
                 <form action="../actions/change_ticket_department_action.php" class="editTicketForm" method="post">
                     <input id="csrf"type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
@@ -104,18 +104,18 @@
                         <?php } ?>
                     </datalist>
                 </form>
-            </section>
+            </div>
     
         <?php } ?>
     
     
     
-        <section id="singleTicket" class="activeTickets">
-        </section>
+        <div id="singleTicket" class="activeTickets">
+        </div>
     
         
-        <section id="ticketAnswers" class ="activeTickets">
-        </section>
+        <div id="ticketAnswers" class ="activeTickets">
+        </div>
         <div id="ticket_answer_area">
             <form method="post" id="insertTicketAnswer" action="../actions/add_ticket_answer_action.php">
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
@@ -125,7 +125,7 @@
                 <button type="submit" class = "deleteFAQ">Send</button>
             </form>
             <?php if($_SESSION["type"] !== 'Client'){?>
-                <section class="faqAnswers">
+                <div class="faqAnswers">
                     <form method="post" id="insertTicketFaqAnswer" action="../actions/add_ticket_answer_action.php">
                         <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                         <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
@@ -139,10 +139,10 @@
                         </select>
                         <button id="quick_answer_button" class="deleteFAQ"type="submit">Quick Answer</button>
                     </form>
-                </section>
+                </div>
             <?php } ?>  
         </div> 
-    </section>
+    </div>
 
     <script src="../scripts/ticket_page.js" defer></script>
     <script>const ticketId = <?php echo $ticketId ?>;</script>
