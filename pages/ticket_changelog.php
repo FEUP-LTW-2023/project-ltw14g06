@@ -16,7 +16,7 @@
     <section id="full_ticket_history">
         <?php foreach ($changelog as $change) { ?>
             <div class="logMessage">
-                <p><?php echo "[". $change["updated_at"] . "]" . $change["text"]?></p>
+                <p><?php echo "[". $change["updated_at"] . "]" . html_entity_decode($change["text"])?></p>
             </div>
         <?php } ?>
     </section>

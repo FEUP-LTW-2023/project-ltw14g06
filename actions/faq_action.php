@@ -1,6 +1,7 @@
 <?php
     include_once('../utils/init.php');
     include_once('../database/faq_functions.php');
+    include_once('../actions/validate_csrf_action.php');
 
     if(questionAlreadyExists(htmlentities($_POST["newFAQQuestion"]))){
         header("Location:../pages/manage_faq.php");

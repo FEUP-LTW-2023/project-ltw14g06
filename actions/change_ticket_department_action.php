@@ -4,6 +4,7 @@ include_once('../database/user.php');
 include_once('../database/ticket.php');
 include_once('../database/department.php');
 include_once('../database/ticket_history.php');
+include_once('../actions/validate_csrf_action.php');
 
 if(isset($_POST['ticket_department'])){
     updateTicketDepartment( $_POST["ticket_id"], $_POST['ticket_department']);

@@ -9,6 +9,7 @@
     <main id= "login_page">
         <section id="login_box">
             <form action="../actions/login_action.php" method="post" id="login_form">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <header>
                     <h3>Login</h3>
                 </header>

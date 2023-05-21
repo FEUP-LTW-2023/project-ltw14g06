@@ -11,6 +11,7 @@
     <?php include_once ('../templates/default.php');?>
     <section id="change_profile_info" class="profile_info_sec">
         <form action="../actions/change_info_action.php" method="post" id="change_info_form">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <header>
                 <h2>Change Info</h2>
             </header>

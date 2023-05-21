@@ -11,6 +11,7 @@
     <?php include_once ('../templates/default.php');?>
     <section class = "ticketContainer">
         <form class="insertNewPost" method="post" id="newTicket">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <header>
                 <h2>Ticket</h2>
             </header>

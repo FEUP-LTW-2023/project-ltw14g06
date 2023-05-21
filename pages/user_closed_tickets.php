@@ -7,6 +7,8 @@
 
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
+    <input type="hidden" id="user_type" value="<?php echo $_SESSION["type"]; ?>">
     <h2 id="closed_tickets" class="ticketPageHeader">Your Closed Tickets:</h2><br>
     <section id="user_closed_tickets" class="tickets">
     </section>

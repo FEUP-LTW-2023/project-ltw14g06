@@ -8,6 +8,7 @@
     <?php include_once('../templates/default.php'); ?>
     <section id="manage_faq_box">
         <form action="../actions/faq_action.php" method="post" id="faqForm">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <header>
                 <h2>New Question</h2>
             </header>

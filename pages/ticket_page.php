@@ -32,6 +32,7 @@
             <a href="../pages/ticket_changelog.php?id=<?php echo $ticketId; ?>" id = ticket_changelog>Ticket History</a>
     
             <form action="../actions/change_ticket_department_action.php" class="editTicketForm" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
                 <input type="hidden" value = "<?php echo getDepartmentName($ticket['department_id']) ?>" name = "old_department">
@@ -51,6 +52,7 @@
             </form>
     
             <form action="../actions/change_ticket_priority_action.php" class="editTicketForm" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
                 <input type="hidden" value = "<?php echo $ticket['priority'] ?>" name = "old_priority">
@@ -71,6 +73,7 @@
             </form>
     
             <form action="../actions/change_ticket_status_action.php" class="editTicketForm" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
                 <input type="hidden" value = "<?php echo $ticket['agent_id'] ?>" name = "old_agent">
@@ -95,6 +98,7 @@
                 <p>Change Agent Assigned To:</p>
             </div>
             <form action='../actions/change_ticket_assignment_action.php' method="post" class="editTicketForm">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id"></input>
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
                 <input type="hidden" value = "<?php echo $ticket['agent_id'] ?>" name = "old_agent">
@@ -129,6 +133,7 @@
         </section>
     
         <form method="post" id="insertAnswer" action="../actions/add_ticket_answer_action.php">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
             <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
             <textarea id="newAnswerText" name="newAnswerText" required></textarea>
@@ -137,6 +142,7 @@
         <?php if($_SESSION["type"] !== 'Client'){?>
             <section class="faqAnswers">
                 <form method="post" id="insertFaqAnswer" action="../actions/add_ticket_answer_action.php">
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                     <input type="hidden" value = "<?php echo $ticketId ?>" name = "ticket_id">
                     <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
                     <select id="faqSelect" name="newAnswerText">

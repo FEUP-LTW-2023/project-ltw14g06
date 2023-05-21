@@ -87,54 +87,6 @@ const getDepartmentsSelectMenu = async (username, user_id, user_department) => {
 }
 
 
-const getChangeTypeButtons = async (username_, type, id) => {
-
-  const elem = document.querySelector('.PromoteAndDemote');
-  elem.innerHTML = "";
-
-  const p = document.createElement("p");
-  p.textContent = "Change Type:";
-
-  switch (type) {
-    case 'Client':
-      const pAgent = document.createElement('button');
-      pAgent.textContent = 'Promote to Agent';
-      pAgent.addEventListener('click', function() {
-        changeUserType(username_, id, 'Agent');
-      });
-      p.appendChild(pAgent);
-      break;
-  
-    case 'Agent':
-      const dClient = document.createElement('button');
-      dClient.textContent = 'Demote to Client';
-      dClient.addEventListener('click', function() {
-        changeUserType(username_, id, 'Client');
-      });
-      p.appendChild(dClient);
-  
-      const pAdmin = document.createElement('button');
-      pAdmin.textContent = 'Promote to Admin';
-      pAdmin.addEventListener('click', function() {
-        changeUserType(username_, id, 'Admin');
-      });
-      p.appendChild(pAdmin);
-      break;
-  
-    default:
-      const dAgent = document.createElement('button');
-      dAgent.textContent = 'Demote to Agent';
-      dAgent.addEventListener('click', function() {
-        changeUserType(username_, id, 'Agent');
-      });
-      p.appendChild(dAgent);
-      break;
-    }
-  
-  elem.appendChild(p);
-}
-
-
 const getUserInfo = async (username_) => {
     const response = await fetch("../actions/get_user_info_action.php?username="+username_);
     const jsonResponse = await response.json();
@@ -210,69 +162,22 @@ const getUserInfo = async (username_) => {
     div4.appendChild(accountType);
     elem.appendChild(div4);
     
-    switch (type) {
-      case 'Client':
-        const pAgent = document.createElement('button');
-        pAgent.textContent = 'Promote to Agent';
-        pAgent.addEventListener('click', function() {
-          changeUserType(username_, id, 'Agent');
-        });
-        p.appendChild(pAgent);
-        break;
-    
-      case 'Agent':
-        const dClient = document.createElement('button');
-        dClient.textContent = 'Demote to Client';
-        dClient.addEventListener('click', function() {
-          changeUserType(username_, id, 'Client');
-        });
-        p.appendChild(dClient);
-    
-        const pAdmin = document.createElement('button');
-        pAdmin.textContent = 'Promote to Admin';
-        pAdmin.addEventListener('click', function() {
-          changeUserType(username_, id, 'Admin');
-        });
-        p.appendChild(pAdmin);
-        break;
-    
-      default:
-        const dAgent = document.createElement('button');
-        dAgent.textContent = 'Demote to Agent';
-        dAgent.addEventListener('click', function() {
-          changeUserType(username_, id, 'Agent');
-        });
-        p.appendChild(dAgent);
-        break;
-      }
-    
-  
-  /*
-  const typeDiv = document.createElement("div");
-  typeDiv.classList.add("PromoteAndDemote");
-  elem.appendChild(typeDiv);
+    if(user.type !== 'Client'){
+      const div5 = document.createElement("div");
+      div5.classList.add("homeInput");
+      const title5 = document.createElement("p");
+      title5.classList.add("profile_info_title");
+      title5.textContent = "Department: ";
+      div5.appendChild(title5);
+      const userDepartment = document.createElement("select");
+      userDepartment.classList.add("change_agent_department");
+      userDepartment.textContent = user.department;
+      div5.appendChild(userDepartment);
+      elem.appendChild(div5);
+    }
 
-  const depDiv = document.createElement("div");
-  depDiv.classList.add("changeAgentDepartment");
-  elem.appendChild(depDiv);
-    */
-  //getChangeTypeButtons(user.username, user.type, user.id);
   getAccountTypesSelectMenu(user.username, user.id, user.type);
   getDepartmentsSelectMenu(user.username, user.id, user.department);
 };
-
-function toggleSearchUser(){
-    const manageUserSec = document.getElementById('manage_users_sec');
-    const searchUserDiv = document.querySelector('.searchUser');
-    if(!manageUserSec){
-      searchUserDiv.classList.remove('searchUser');
-      searchUserDiv.classList.add('searchUserDefault');
-    }
-    else{
-      searchUserDiv.classList.remove('searchUserDefault');
-      searchUserDiv.classList.add('searchUser');
-    }
-}
-
-toggleSearchUser();
+  
 getUserInfo(username_);

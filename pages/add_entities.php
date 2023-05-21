@@ -21,6 +21,7 @@
     <section id="add_entities_sec">
         <div class="manage_entities">
             <form class="add_entity" action="../actions/add_new_department_action.php" method="post" id="new_department_form">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type=text id="new_department" name="new_department" placeholder="Insert a new department here" required></input>
                 <button class = "deleteFAQ" type="submit">Insert new department</button>
             </form>
@@ -39,6 +40,7 @@
     
         <div class = "manage_entities">
             <form class="add_entity" action="../actions/add_new_hashtag_action.php" method="post" id="new_hashtag_form">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type=hashtag id="new_hashtag" name="new_hashtag" placeholder="Insert a new hashtag here" required></input>
                 <button class = "deleteFAQ" type="submit">Insert new hashtag</button>
             </form>
@@ -56,6 +58,7 @@
 
         <div class = "manage_entities">
             <form class="add_entity" action="../actions/add_new_status_action.php" method="post" id="new_status_form">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type=text id="new_status" name="new_status" placeholder="Insert a new status here" required></input>
                 <button class = "deleteFAQ" type="submit">Insert new status</button>
             </form>

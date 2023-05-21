@@ -1,5 +1,6 @@
 const getWithAsyncAwait = async (getType) => {
     var response;
+    let clientTickets = false;
 
     switch (getType) {
         case 'all_active_tickets':
@@ -24,12 +25,15 @@ const getWithAsyncAwait = async (getType) => {
             }
             break;
         case 'user_active_tickets':
+            clientTickets = true;
             response = await fetch("../actions/get_user_active_tickets_action.php");
             break;
         case 'user_closed_tickets':
+            clientTickets = true;
             response = await fetch("../actions/get_user_closed_tickets_action.php");
             break;
         case 'user_all_tickets':
+            clientTickets = true;
             response = await fetch("../actions/get_user_tickets_action.php");
             break;
         default:
@@ -39,6 +43,8 @@ const getWithAsyncAwait = async (getType) => {
 
     
     const jsonResponse = await response.json();
+
+    const userType = document.querySelector('#user_type').value;
     
     const elem = document.querySelector('.tickets');
     elem.innerHTML = "";
@@ -48,7 +54,13 @@ const getWithAsyncAwait = async (getType) => {
 
         const div = document.createElement("div");
         div.classList.add('ticket');
-        div.classList.add(ticket.priority);
+        if(true);
+        if (userType !== 'Client' && !clientTickets) {
+            div.classList.add(ticket.priority);
+        } else {
+            div.classList.add("userTicket");
+        }
+        
         div.classList.add(ticket.status);
         div.innerHTML = "";
 

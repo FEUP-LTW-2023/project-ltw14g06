@@ -14,6 +14,7 @@ IMPORTANT:
 (para ser feito quando remodelarmos o sistema de login para JS)
 -add character limit to subject
 -adicionar pequena animação no hover de um ticket
+-manage_users -> tirar o js de lá
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo

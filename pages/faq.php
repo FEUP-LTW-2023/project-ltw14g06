@@ -19,10 +19,8 @@
                     echo "<p id='faqAnswer" . $qa["id"] . "' data-id='" . $qa["id"] . "'>" . html_entity_decode($qa["answer"]) . '</p>';
                     if ($_SESSION["type"] !== 'Client') {
                         echo '<div class="buttonContainer">';
-                        //echo '<button class="deleteFAQ" onclick="deleteFAQ(' . $qa["id"] . ')">Delete</button>';
                         echo '<button id="delete_FAQ_button" class="deleteFAQ" data-qa-id="' . $qa["id"] . '">Delete</button>';
                         echo '<button id="edit_FAQ_button" class="deleteFAQ" data-qa-id="' . $qa["id"] . '">Edit</button>';
-                        //echo '<button id="edit_FAQ_button' . $qa["id"] . '" class="deleteFAQ" onclick="toggleTextarea(' . $qa["id"] . ')">Edit</button>';
                         echo '</div>';
                     }
                     echo '</li>';

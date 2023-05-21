@@ -9,7 +9,10 @@
 <body id=home_body>
     <?php include_once ('../templates/default.php');?>
 
+    <input type="hidden" id="user_type" value="<?php echo $_SESSION["type"]; ?>">
+
     <form class="sortTickets" id="sort_tickets_form">
+        <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
         <label for="order">Order by:</label>
         <select name="order" id="order">
             <option value="id">Most Recent</option>
