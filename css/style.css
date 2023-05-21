@@ -980,3 +980,12 @@ h3{
   box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
   cursor: pointer;
 }
+
+/* Ticket Page */
+
+#ticket_page_section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
