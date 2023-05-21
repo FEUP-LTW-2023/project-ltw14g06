@@ -28,7 +28,7 @@
         <button type="submit">Sort</button>
     </form>
 
-    <h2 id="agent_assigned_tickets">All Assigned Tickets:</h2><br>
+    <h2 id="agent_assigned_tickets" class="ticketPageHeader">All Assigned Tickets:</h2><br>
     <section id="assigned_tickets" class="tickets">
     </section>
     <script src="../scripts/get_tickets.js" defer></script>

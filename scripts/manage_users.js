@@ -260,5 +260,19 @@ const getUserInfo = async (username_) => {
   getAccountTypesSelectMenu(user.username, user.id, user.type);
   getDepartmentsSelectMenu(user.username, user.id, user.department);
 };
-  
+
+function toggleSearchUser(){
+    const manageUserSec = document.getElementById('manage_users_sec');
+    const searchUserDiv = document.querySelector('.searchUser');
+    if(!manageUserSec){
+      searchUserDiv.classList.remove('searchUser');
+      searchUserDiv.classList.add('searchUserDefault');
+    }
+    else{
+      searchUserDiv.classList.remove('searchUserDefault');
+      searchUserDiv.classList.add('searchUser');
+    }
+}
+
+toggleSearchUser();
 getUserInfo(username_);

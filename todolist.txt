@@ -7,12 +7,13 @@ IMPORTANT:
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)   Nota:partially done falta reescrever o register e o resto (faq p.e)
 -Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
 (para ser feito quando remodelarmos o sistema de login para JS)
--Dividir o CSS em ficheiros diferentes, está muito clustered 
--Adaptar o CSS das cenas do perfil para telemovel
 -Verificar se ainda dá para mudar algum onclick para addEventListener (se eles ainda existirem)
 -Trocar var/let para const
 -sanitize inputs;
-
+-Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
+(para ser feito quando remodelarmos o sistema de login para JS)
+-add character limit to subject
+-adicionar pequena animação no hover de um ticket
 
 UNNECCESSSARY BUT COOL:
 -Quando se está a criar uma conta, mostrar a barra de força da password, há uma library para isso supostamente tá no site do Restivo
@@ -22,6 +23,7 @@ UNNECCESSSARY BUT COOL:
 -no manage_users, algo para "apagar" um user
 -apagar a própria conta
 -agents+ poderem ver o perfil das outras pessoas com o que fizeram lá (teria de adicionar user_id ao ticket_history);
+-add button in the ticket_history page to go back to the ticket
 
 --
 preg_ é usado em: add_ticket_answer_action; add_ticket_action;

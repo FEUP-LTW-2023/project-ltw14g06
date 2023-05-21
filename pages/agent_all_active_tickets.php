@@ -28,7 +28,7 @@
         <button type="submit">Sort</button>
     </form>
 
-    <h2 id="agent_all_active_tickets">All Active Tickets:</h2><br>
+    <h2 id="agent_all_active_tickets" class="ticketPageHeader">All Active Tickets:</h2><br>
     <section id="all_active_tickets" class="tickets">
     </section>
     <script src="../scripts/get_tickets.js" defer></script>

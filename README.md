@@ -40,15 +40,14 @@
 - [x] PDO/SQLite
 
 - The website should be as secure as possible.
-- [ ] SQL Injection prevention
-- [ ] XSS attack protection
+- [x] SQL Injection prevention
+- [x] XSS attack protection
 - [ ] CSRF attack protection
-- [ ] Sound password storage principles
+- [x] Sound password storage principles
 
 - Others
-- [ ] The code should be organized and consistent
-- [ ] The design does not need to be top-notch but should be clean and consistent throughout the site. 
-- [ ] It should also work on mobile devices.
+- [x] The design does not need to be top-notch but should be clean and consistent throughout the site. 
+- [x] It should also work on mobile devices.
 - [x] Frameworks are **not allowed**.
 
 ## Additional Requirements (we do not need to implement all of these)

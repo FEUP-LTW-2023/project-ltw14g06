@@ -26,7 +26,7 @@
         <button type="submit">Sort</button>
     </form>
 
-    <h2 id="active_department_tickets">Your Department's Active Tickets:</h2><br>
+    <h2 id="active_department_tickets" class="ticketPageHeader">Your Department's Active Tickets:</h2><br>
     <section id="all_department_active_tickets" class="tickets">
     </section>
     <script src="../scripts/get_tickets.js" defer></script>

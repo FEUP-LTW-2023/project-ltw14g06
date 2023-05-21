@@ -799,6 +799,26 @@ h3{
   border-width: 1px;
 }
 
+.searchUserDefault{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+#manage_users_sec{
+  height: 50em;
+  width: 40%;
+}
+
+.searchUserDefault .searchUserForm{
+  width: 100%;
+}
+
 #manage_users_sec .homeInput p{
   font-size: 1.5em;
   font-weight: 500;
@@ -862,4 +882,101 @@ h3{
   align-items: left;
   margin-left: 5em;
   color: white;
+}
+
+/* Tickets */
+
+.ticketPageHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  color: aliceblue;
+}
+
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -0.5em; /* Negative margin to offset the ticket margins */
+  max-width: 60em; /* Set the desired maximum width for the section */
+  margin-left: auto; /* Center the section horizontally */
+  margin-right: auto;
+}
+
+.ticket {
+  width: calc(25% - 1em); /* Adjusted width with margins subtracted */
+  height: 19em; /* Set the desired fixed height */
+  margin: 0.5em; /* Margin between tickets */
+  box-sizing: border-box; /* Include margins in the width calculation */
+  word-wrap: break-word;
+  border: 2px solid black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ticketCreatedAt{
+  margin-top: auto;
+}
+
+.ticket.Low{
+  background-color:goldenrod;
+}
+.ticket.Medium{
+  background-color:coral;
+}
+.ticket.High{
+  background-color:darkred;
+}
+
+.ticket:hover{
+  cursor: pointer;
+}
+
+.sortTickets {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sortTickets label {
+  font-size: 1.5em; /* Adjust the font size as desired */
+  color: aliceblue;
+}
+
+.sortTickets *{
+  margin-right: 0.5em;
+}
+
+.sortTickets select,
+.sortTickets button {
+  background-color: transparent; /* Set the background color to transparent */
+  color: aliceblue;
+  border: none; /* Remove the border */
+  border-bottom: 1px solid aliceblue;
+  outline: none;
+  font-size: 1.3em;
+}
+
+.sortTickets button {
+  margin-left: 2em;
+  width: 5em;
+  height: 2em;
+  border-radius: 3em;
+  background-color: rgba(38, 35, 71, 0.8);
+  color: aliceblue;
+  font-size: large;
+  font-weight: bold;
+  border: 0;
+  padding: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sortTickets button:hover{
+  background-color: rgba(38, 35, 71, 1);
+  box-shadow: 0 5px 15px rgba(38, 35, 71, .4);
+  cursor: pointer;
 }
