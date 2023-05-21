@@ -546,11 +546,14 @@ h3{
 
 .homeInput *{
   width: 100%;
-  height: 3em;
   background: transparent;
   border: 0;
   font-size: 1em;
   font-weight: 600;
+}
+
+#subject_invalid{
+  color:aliceblue;
 }
 
 .homeInput textarea{

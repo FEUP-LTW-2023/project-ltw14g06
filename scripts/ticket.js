@@ -14,13 +14,22 @@ const postTicket = async (user_id, subject, text, department, priority) => {
     });
 
     if (response.ok) {
-        document.querySelector("#newTicket input[name = 'ticketSubject']").value = '';
-        document.querySelector("#newPostText").value = '';
-        document.querySelector("#ticketDepartment").value = 0;
-    }
-
-    
+        window.location.replace("user_active_tickets.php");
+    } else{
+        if(response.status === 452){
+            subjectInvalid.textContent = 'Subject must be under  characters!'
+        }
+    } 
 }
+
+    const subjectInvalid = document.querySelector('#subject_invalid');
+    subjectInvalid.textContent = '';
+
+    const ticketSubject = document.querySelector('#ticketSubject');
+    ticketSubject.addEventListener('click', function(){
+        subjectInvalid.textContent = '';
+});
+
 
 const addNewTicket = document.querySelector('#newTicket');
 

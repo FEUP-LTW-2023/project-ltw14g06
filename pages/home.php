@@ -13,13 +13,14 @@
         <form class="insertNewPost" method="post" id="newTicket">
             <input type="hidden" id = "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <header>
-                <h2>Ticket</h2>
+                <h2 id="ticket_main_title">Ticket</h2>
             </header>
             <div id="hiddenDiv">
                 <input type="hidden" value = "<?php echo $_SESSION['id'] ?>" name = "user_id">
             </div>
             <div class="homeInput">
                 <input type="text" id="ticketSubject" name = "ticketSubject" placeholder="Subject">
+                <p id="subject_invalid"></p>
             </div>
             <div class="homeInput">
                 <textarea id="newPostText" name="newPostText" placeholder="Write Here" required></textarea>

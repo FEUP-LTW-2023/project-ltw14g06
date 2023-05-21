@@ -10,32 +10,38 @@
 <body id="profile_body">
     <?php include_once ('../templates/default.php');?>
     <section id="change_profile_info" class="profile_info_sec">
-        <form action="../actions/change_info_action.php" method="post" id="change_info_form">
-            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
+        <form method="post" id="change_info_form">
+            <input type="hidden" id = "csrf" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <header>
                 <h2>Change Info</h2>
             </header>
             <div class="inputbox">
-                <input type="text" name="newEmail" placeholder="New E-mail">
+                <input type="text" name="email" placeholder="New E-mail">
+                <p id="email_error" class="register_error"></p>
             </div>
             <div class="inputbox">
-                <input type="text" name="newUsername" placeholder="New Username">
+                <input type="text" name="username" placeholder="New Username">
+                <p id="username_error" class="register_error"></p>
             </div>
             <div class="inputbox">
-                <input type="text" name="newName" placeholder="New Name">
+                <input type="text" name="name" placeholder="New Name">
             </div>
             <div class="inputbox">
-                <input type="password" name="newPassword" placeholder="New Password">
+                <input type="password" name="password" placeholder="New Password">
+                <p id="password_error" class="register_error"></p>
             </div>
             <div class="inputbox">
-                <input type="password" name="confirmNewPassword" placeholder="Confirm New Password">
+                <input type="password" name="confirmPassword" placeholder="Confirm New Password">
+                <p id="confirm_password_error" class="register_error"></p>
             </div>
             <div class="inputbox">
                 <input type="password" name="oldPassword" placeholder="Old Password" required>
+                <p id = "old_password_error" class="register_error"></p>
             </div>
             <button id="change_button">Submit</button>
         </form>
     </section>
+    <script src="../scripts/change_profile_info.js"></script>
 </body>
 
 <?php

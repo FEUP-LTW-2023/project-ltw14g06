@@ -125,7 +125,6 @@ function getUserDataByID($id){
         }
     }
     
-//Should verify if these new things are valid to prevent attacks
 function changeUserData($username, $newUsername, $name, $password, $email){
     global $dbh;
     try{
@@ -146,12 +145,10 @@ function changeUserData($username, $newUsername, $name, $password, $email){
             $stmt = $dbh->prepare('SELECT * FROM users WHERE username = ?');
             $stmt->execute(array($newUsername));
             if($stmt->fetch() !== false){
-                echo "<script>console.log('Username taken');</script>";
             } 
             else{
                 $stmt = $dbh->prepare('UPDATE users SET username = ? WHERE username = ?');
                 $stmt->execute(array($newUsername, $username));
-                echo "<script>console.log('Username updated');</script>";
             }
         }
     } catch(PDOException $error) {
