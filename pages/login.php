@@ -13,10 +13,10 @@
                 <header>
                     <h3>Login</h3>
                 </header>
-                <div class="inputbox" id="login_inputbox">
+                <div class="inputbox login_inputbox">
                     <input type="text" name="username" placeholder="Username" required>
                 </div>
-                <div class="inputbox" id="login_inputbox">
+                <div class="inputbox login_inputbox">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <button id="login_button">Log In</button>

@@ -13,22 +13,22 @@
                 <header>
                     <h3>Register</h3>
                 </header>
-                <div class="inputbox" id="register_inputbox">
+                <div class="inputbox register_inputbox">
                     <input type="email" name="email" placeholder="E-mail" required>
                     <p id="email_error" class="register_error"></p>
                 </div>
-                <div class="inputbox" id="register_inputbox">
+                <div class="inputbox register_inputbox">
                     <input type="text" name="username" placeholder="Username" required>
                     <p id="username_error" class="register_error"></p>
                 </div>
-                <div class="inputbox" id="register_inputbox">
+                <div class="inputbox register_inputbox">
                     <input type="text" name="name" placeholder="Name" required>
                 </div>
-                <div class="inputbox" id="register_inputbox">
+                <div class="inputbox register_inputbox">
                     <input type="password" name="password" placeholder="Password" required>
                     <p id="password_error" class="register_error"></p>
                 </div>
-                <div class="inputbox" id="register_inputbox">
+                <div class="inputbox register_inputbox">
                     <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
                     <p id="confirm_password_error" class="register_error"></p>
                 </div>
