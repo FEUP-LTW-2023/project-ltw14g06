@@ -2,7 +2,8 @@
     include_once('../utils/init.php');
     include_once('../database/hashtags.php');
 
-    $hashtag = htmlentities($_POST["new_hashtag"]);
+    $hashtag = preg_replace('/[^a-zA-Z0-9]/', '', $_POST["new_hashtag"]);
+
 
     if(!hasHashtag($hashtag)){
         $hashtag = '#' . $hashtag;

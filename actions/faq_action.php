@@ -2,10 +2,10 @@
     include_once('../utils/init.php');
     include_once('../database/faq_functions.php');
 
-    if(questionAlreadyExists($_POST["newFAQQuestion"])){
+    if(questionAlreadyExists(htmlentities($_POST["newFAQQuestion"]))){
         header("Location:../pages/manage_faq.php");
     }
-    else if((insertFAQ($_POST["newFAQQuestion"], $_POST["newFAQAnswer"])) !== -1){
+    else if((insertFAQ(htmlentities($_POST["newFAQQuestion"]), htmlentities($_POST["newFAQAnswer"]))) !== -1){
         header("Location:../pages/manage_faq.php");
     }
 ?>

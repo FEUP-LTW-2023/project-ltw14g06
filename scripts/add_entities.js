@@ -34,3 +34,18 @@ function deleteStatus(id){
     };
     xhr.send('id=' + id);
 }
+
+const deleteDepartmentButton = document.getElementById('delete_department_button');
+deleteDepartmentButton.addEventListener('click', function(){
+    deleteDepartment(document.querySelector('#delete_departments_select').value);
+})
+
+const deleteHashtagButton = document.getElementById('delete_hashtag_button');
+deleteHashtagButton.addEventListener('click', function(){
+    deleteHashtag(document.querySelector('#delete_hashtag_select').value);
+})
+
+const deleteStatusButton = document.getElementById('delete_status_button');
+deleteStatusButton.addEventListener('click', function(){
+    deleteStatus(document.querySelector('#delete_status_select').value);
+})

@@ -5,13 +5,13 @@ IMPORTANT:
 -Mostrar barra de Search User no centro da tela se nao estiver num perfil à mostra
 -Fazer o resto das páginas e o seu CSS
 -Prevenir XSS (usar preg_match e preg_replace, está no site do restivo)   Nota:partially done falta reescrever o register e o resto (faq p.e)
--Websecurity nos tickets
 -Ao mudar a informação do perfil, os mesmos erros que aparecem no register/login deviam aparecer e.g se a password antiga não estiver correta
 (para ser feito quando remodelarmos o sistema de login para JS)
 -Dividir o CSS em ficheiros diferentes, está muito clustered 
 -Adaptar o CSS das cenas do perfil para telemovel
--dar uso a hashtags
--mudar onclick para addEventListener
+-Verificar se ainda dá para mudar algum onclick para addEventListener (se eles ainda existirem)
+-Trocar var/let para const
+-sanitize inputs;
 
 
 UNNECCESSSARY BUT COOL:

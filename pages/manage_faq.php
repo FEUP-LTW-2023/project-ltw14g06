@@ -3,10 +3,6 @@
     include_once('../utils/kick_from_page.php');
     include_once('../utils/init.php');
     include_once('../templates/head.php');
-    include_once('../database/user.php');
-    include_once('../database/faq_functions.php');
-
-    $faq = getFAQ();
 ?>
 <body id = "home_body">
     <?php include_once('../templates/default.php'); ?>

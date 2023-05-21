@@ -17,9 +17,9 @@ const getDepartmentsSelectMenu = async () => {
     const none = document.createElement('option');
     elem.appendChild(none);
 
-    elem.onchange = function() {
+    elem.addEventListener('change', function() {
         department_id = this.value;
-    };
+    });
 
     for (let i = 0; i < jsonResponse.length; i++) {
         const department = jsonResponse[i];
@@ -43,9 +43,9 @@ const getStatusSelectMenu = async () => {
     const none = document.createElement('option');
     elem.appendChild(none);
 
-    elem.onchange = function() {
+    elem.addEventListener('change', function() {
         status_id = this.value;
-    };
+    });
 
     for (let i = 0; i < jsonResponse.length; i++) {
         const status = jsonResponse[i];
@@ -62,9 +62,9 @@ const prioritySelectMenu = async () => {
 
     const elem = document.querySelector('#search_priority_select');
 
-    elem.onchange = function() {
+    elem.addEventListener('change', function() {
         priority = this.value;
-    };
+    });
 }
 
 const changeAgent = async () => {
@@ -80,7 +80,7 @@ const changeUser = async () => {
 
     const elem = document.querySelector('#user_username');
 
-    elem.addEventListener('input', function() {
+    elem.addEventListener('change', function() {
         user_username = this.value;
     });
 }
@@ -110,15 +110,14 @@ const addHashtags = async () => {
     const elem = document.querySelector('#search_hashtag_select');
     elem.innerHTML = "";
 
-    elem.onchange = function() {
+    elem.addEventListener('change', function() {
         const selectedOption = this.options[this.selectedIndex];
         const id = selectedOption.value;
         const name = selectedOption.textContent;
         hashtags.push({ id, name });
         elem.selectedIndex = 0;
         showSearchedHashtags();
-    };
-    
+    });
 
     const none = document.createElement('option');
     elem.appendChild(none);
@@ -146,9 +145,12 @@ const showSearchedHashtags = async () => {
     (hashtags).forEach(hashtag => {
         const showHashtag = document.createElement("span");
         showHashtag.classList.add("pressHashtag");
-        showHashtag.onclick = function() {};
         showHashtag.textContent = hashtag.name + "  ";
         elem.appendChild(showHashtag);
+
+        showHashtag.addEventListener('click', function() {
+            //deleteHashtag(ticketId, hashtag);
+          })
     });
 }
 

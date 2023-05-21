@@ -33,7 +33,7 @@
                         }
                     ?>
                 </select>
-                <button class = "deleteFAQ" onclick="deleteDepartment(document.querySelector('#delete_departments_select').value)">Delete department</button>
+                <button class = "deleteFAQ" id ="delete_department_button">Delete department</button>
             </div>
         </div>
     
@@ -50,7 +50,7 @@
                         }
                     ?>
                 </select>
-                <button class = "deleteFAQ" onclick="deleteHashtag(document.querySelector('#delete_hashtag_select').value)">Delete hashtag</button>
+                <button class = "deleteFAQ" id ="delete_hashtag_button">Delete hashtag</button>
             </div>
         </div>
 
@@ -68,7 +68,7 @@
                         }
                     ?>
                 </select>
-                <button class = "deleteFAQ" onclick="deleteStatus(document.querySelector('#delete_status_select').value)">Delete status</button>
+                <button class = "deleteFAQ" id ="delete_status_button">Delete status</button>
             </div>
         </div>
     </section>

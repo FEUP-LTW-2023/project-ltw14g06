@@ -5,11 +5,20 @@
     include_once('../database/department.php');
     include_once('../database/status.php');
 
-    if(isset($_GET["order"]) && isset($_GET["sort"])){
-        $tickets = getAllDepartmentTickets($user["department_id"],$_GET["order"], $_GET["sort"]);
+    $validOrders = ["id", "status_id", "priority", "hashtag"];
+
+    if (isset($_GET["order"]) && isset($_GET["sort"])) {
+        if ($_GET["sort"] !== "asc" && $_GET["sort"] !== "desc") {
+            $tickets = getAllDepartmentTickets($user["department_id"]);
+        } else if (in_array($_GET["order"], $validOrders)) {
+            $tickets = getAllDepartmentTickets($user["department_id"], $_GET["order"], $_GET["sort"]);
+        } else {
+            $tickets = getAllDepartmentTickets($user["department_id"]);
+        }
     } else {
         $tickets = getAllDepartmentTickets($user["department_id"]);
     }
+
 
     $showTickets = array();
     foreach ($tickets as $ticket) {

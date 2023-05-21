@@ -19,9 +19,7 @@ function toggleTextarea(id){
     
     if (isTextarea) {
         const question = questionElement.value;
-        console.log(question);
         const answer = answerElement.value;
-        console.log(answer);
         editFAQ(id,question,answer);
         // Switch back to <h2> and <p> tags
         questionElement.outerHTML = "<h2 id='faqQuestion" + id + "'>" + questionElement.value + "</h2>";
@@ -46,3 +44,16 @@ function editFAQ(id,question,answer){
     };
     xhr.send('id=' + id+'&question='+ question+'&answer='+answer);
 }
+
+const deleteButton = document.getElementById('delete_FAQ_button');
+const editButton = document.getElementById('edit_FAQ_button')
+
+deleteButton.addEventListener('click', function() {
+    const qaId = deleteButton.dataset.qaId;
+    deleteFAQ(qaId);
+});
+
+editButton.addEventListener('click', function(){
+    const qaId = deleteButton.dataset.qaId;
+    toggleTextarea(qaId);
+})
